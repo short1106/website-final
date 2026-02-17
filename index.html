@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulidan Studios | Dream. Design. Develop. Dominate.</title>
+    <link rel="icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --brand-purple: #8122b5; --brand-magenta: #da29cf; }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #000; 
+            color: #fff; 
+            scroll-behavior: smooth; 
+        }
+
+        .brand-gradient { 
+            background: linear-gradient(135deg, var(--brand-purple) 0%, var(--brand-magenta) 100%); 
+        }
+
+        .text-gradient { 
+            background: linear-gradient(135deg, var(--brand-purple) 0%, var(--brand-magenta) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            transition: all 0.4s ease; 
+        }
+
+        .glass-card:hover { 
+            border-color: var(--brand-magenta); 
+            transform: translateY(-5px); 
+            background: rgba(218, 41, 207, 0.03); 
+        }
+
+        [data-lang="de"] { display: none; }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center bg-black/80 backdrop-blur-lg border-b border-white/5">
+        <img src="images/biglogo.png" alt="Dulidan Studios Logo" class="h-10">
+        <div class="flex items-center space-x-8">
+            <div class="hidden md:flex space-x-8 text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400">
+                <a href="#services" class="hover:text-white transition" data-en="Services" data-de="Leistungen">Services</a>
+                <a href="#workflow" class="hover:text-white transition" data-en="Workflow" data-de="Ablauf">Workflow</a>
+                <a href="#games" class="hover:text-white transition" data-en="Games" data-de="Spiele">Games</a>
+            </div>
+            <button onclick="toggleLang()" class="border border-white/20 px-3 py-1 rounded text-[10px] font-black uppercase hover:bg-white/10 transition">
+                <span id="lang-btn">DE</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] brand-gradient blur-[160px] opacity-20 rounded-full z-0"></div>
+        
+        <img src="images/logo.png" alt="Dulidan Studios Logo" class="w-full max-w-2xl mb-12 relative z-10 drop-shadow-2xl">
+        
+        <h1 class="text-3xl md:text-6xl font-extrabold text-center max-w-5xl leading-none mb-10 uppercase tracking-tighter relative z-10">
+            <span data-en="Dream. Design." data-de="Träumen. Designen.">Dream. Design.</span><br>
+            <span class="text-gradient" data-en="Develop. Dominate." data-de="Entwickeln. Dominieren.">Develop. Dominate.</span>
+        </h1>
+
+        <div class="flex flex-col md:flex-row gap-4 relative z-10">
+            <a href="#contact" class="brand-gradient px-12 py-4 rounded-full font-bold uppercase text-[11px] tracking-widest hover:scale-105 transition shadow-lg shadow-purple-500/20">
+                <span data-en="Commissions Opening Soon" data-de="Aufträge bald verfügbar">Commissions Opening Soon</span>
+            </a>
+        </div>
+    </section>
+    
+    
+    <!-- About Us -->
+<section id="about-us" class="py-32 px-6 bg-black/70">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-gradient font-black uppercase tracking-[0.4em] text-xs mb-4" data-en="About Us" data-de="Über uns">About Us</h2>
+        <h3 class="text-4xl font-extrabold uppercase tracking-tighter mb-8" data-en="Who We Are" data-de="Wer wir sind">Who We Are</h3>
+        <p class="text-gray-400 text-lg leading-relaxed mb-6" data-en="Dulidan Studios is a creative powerhouse dedicated to turning visions into reality. From game development to ad production, we bring ideas to life with passion, precision, and bold creativity." data-de="Dulidan Studios ist ein kreatives Studio, das Visionen in Realität umsetzt. Von der Spieleentwicklung bis zur Werbeproduktion setzen wir Ideen mit Leidenschaft, Präzision und mutiger Kreativität um.">Dulidan Studios is a creative powerhouse dedicated to turning visions into reality. From game development to ad production, we bring ideas to life with passion, precision, and bold creativity.</p>
+        <p class="text-gray-400 text-lg leading-relaxed mb-4" data-en="Our mission is to design experiences that resonate, engage, and inspire. We believe in collaboration, innovation, and the power of dreaming big." data-de="Unsere Mission ist es, Erlebnisse zu gestalten, die begeistern, inspirieren und verbinden. Wir glauben an Zusammenarbeit, Innovation und die Kraft, groß zu träumen.">Our mission is to design experiences that resonate, engage, and inspire. We believe in collaboration, innovation, and the power of dreaming big.</p>
+        <p class="text-gray-400 text-lg leading-relaxed" data-en="All our work is 100% human creativity – we never use AI to generate results. Your projects are crafted with passion and expertise." data-de="All unsere Arbeit basiert zu 100% auf menschlicher Kreativität – wir verwenden keine KI. Eure Projekte werden mit Leidenschaft und Expertise umgesetzt.">All our work is 100% human creativity – we never use AI to generate results. Your projects are crafted with passion and expertise.</p>
+    </div>
+</section>
+
+    
+    
+    <!-- Workflow / Steps -->
+    <section id="workflow" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-gradient font-black uppercase tracking-[0.4em] text-xs mb-4" data-en="Working with us" data-de="Zusammenarbeit">Working with us</h2>
+            <h3 class="text-4xl font-bold uppercase" data-en="Ad Production Steps" data-de="Ablauf der Werbeproduktion">Ad Production Steps</h3>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-4">
+            <div class="glass-card p-8 rounded-xl text-center">
+                <div class="text-2xl font-black mb-4">01</div>
+                <h4 class="font-bold mb-4 uppercase text-sm" data-en="Talk to Us" data-de="Erstgespräch">Talk to Us</h4>
+                <p class="text-gray-500 text-xs leading-relaxed" data-en="Direct consultation to define your vision and goals." data-de="Direkte Beratung, um Ihre Vision und Ziele zu definieren.">Direct consultation to define your vision and goals.</p>
+            </div>
+            <div class="glass-card p-8 rounded-xl text-center border-purple-500/30">
+                <div class="text-2xl font-black mb-4">02</div>
+                <h4 class="font-bold mb-4 uppercase text-sm" data-en="Fixed Costs" data-de="Fixkosten">Fixed Costs</h4>
+                <p class="text-gray-500 text-xs leading-relaxed" data-en="Pay the estimated fixed costs to start the production engine." data-de="Zahlung der geschätzten Fixkosten, um die Produktion zu starten.">Pay the estimated fixed costs to start the production engine.</p>
+            </div>
+            <div class="glass-card p-8 rounded-xl text-center">
+                <div class="text-2xl font-black mb-4">03</div>
+                <h4 class="font-bold mb-4 uppercase text-sm" data-en="Unlimited Revisions" data-de="Gratis Änderungen">Unlimited Revisions</h4>
+                <p class="text-gray-500 text-xs leading-relaxed" data-en="Not happy? We change it until it fits—no extra fees." data-de="Nicht zufrieden? Wir ändern es, bis es passt – ohne Aufpreis.">Not happy? We change it until it fits—no extra fees.</p>
+            </div>
+            <div class="glass-card p-8 rounded-xl text-center">
+                <div class="text-2xl font-black mb-4">04</div>
+                <h4 class="font-bold mb-4 uppercase text-sm" data-en="Final Provision" data-de="Provision">Final Provision</h4>
+                <p class="text-gray-500 text-xs leading-relaxed" data-en="Final commission estimated and settled after completion." data-de="Abschließende Provision wird nach Fertigstellung berechnet.">Final commission estimated and settled after completion.</p>
+            </div>
+        </div>
+    </section>
+
+<!-- Why Choose Us -->
+<section id="why-us" class="py-32 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-20">
+        <h2 class="text-gradient font-black uppercase tracking-[0.4em] text-xs mb-4" data-en="Why Choose Us" data-de="Warum wir">Why Choose Us</h2>
+        <h3 class="text-4xl font-bold uppercase" data-en="Our Edge" data-de="Unsere Vorteile">Our Edge</h3>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-8">
+        <div class="glass-card p-8 rounded-xl text-center w-full max-w-md hover:scale-105 transition">
+            <h4 class="font-bold mb-2 uppercase text-sm" data-en="Fast & Efficient" data-de="Schnell & Effizient">Fast & Efficient</h4>
+            <p class="text-gray-400 text-xs" data-en="We deliver high-quality work on time, every time." data-de="Wir liefern hochwertige Arbeit pünktlich und zuverlässig.">We deliver high-quality work on time, every time.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-xl text-center w-full max-w-md hover:scale-105 transition">
+            <h4 class="font-bold mb-2 uppercase text-sm" data-en="Creative Design" data-de="Kreatives Design">Creative Design</h4>
+            <p class="text-gray-400 text-xs" data-en="Our visuals are unique, bold, and memorable." data-de="Unsere Designs sind einzigartig, mutig und einprägsam.">Our visuals are unique, bold, and memorable.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-xl text-center w-full max-w-md hover:scale-105 transition">
+            <h4 class="font-bold mb-2 uppercase text-sm" data-en="Collaborative Process" data-de="Zusammenarbeit">Collaborative Process</h4>
+            <p class="text-gray-400 text-xs" data-en="We work closely with clients to bring their vision to life." data-de="Wir arbeiten eng mit unseren Kunden zusammen, um ihre Vision umzusetzen.">We work closely with clients to bring their vision to life.</p>
+        </div>
+
+        <div class="glass-card p-8 rounded-xl text-center w-full max-w-md hover:scale-105 transition">
+            <h4 class="font-bold mb-2 uppercase text-sm" data-en="100% Human Creativity" data-de="100% Menschliche Kreativität">100% Human Creativity</h4>
+            <p class="text-gray-400 text-xs" data-en="We never use AI – every project is crafted entirely by our team of talented humans." data-de="Wir verwenden keine KI – jedes Projekt wird vollständig von unserem talentierten Team umgesetzt.">We never use AI – every project is crafted entirely by our team of talented humans.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Games Showcase -->
+<section id="games" class="py-32 px-6 bg-zinc-950/50">
+    <div class="text-center mb-16">
+        <h2 class="text-gradient font-black uppercase tracking-widest text-xs mb-2" data-en="Internal Projects" data-de="Interne Projekte">Internal Projects</h2>
+        <h3 class="text-4xl font-extrabold uppercase tracking-tighter" data-en="In Development" data-de="In Entwicklung">In Development</h3>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-12">
+        <!-- The Tower -->
+        <div class="group glass-card p-8 rounded-3xl relative overflow-hidden text-center w-full max-w-md">
+            <div class="absolute inset-0 brand-gradient opacity-20 rounded-3xl -z-10"></div>
+            <h4 class="text-2xl font-bold uppercase mb-2">The Tower</h4>
+            <p class="text-gray-400 text-sm italic" data-en="A challenging tower defense game with strategic gameplay." data-de="Ein herausforderndes Tower-Defense-Spiel mit strategischem Gameplay.">A challenging tower defense game with strategic gameplay.</p>
+        </div>
+
+        <!-- Politics AI -->
+        <div class="group glass-card p-8 rounded-3xl relative overflow-hidden text-center w-full max-w-md">
+            <div class="absolute inset-0 brand-gradient opacity-20 rounded-3xl -z-10"></div>
+            <h4 class="text-2xl font-bold uppercase mb-2">Politics AI</h4>
+            <p class="text-gray-400 text-sm italic" data-en="Simulate political decisions with highly intelligent AI." data-de="Simuliere politische Entscheidungen mit intelligenter KI.">Simulate political decisions with highly intelligent AI.</p>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Contact -->
+    <footer id="contact" class="py-24 px-6 border-t border-white/5 text-center relative">
+        <img src="images/biglogo.png" alt="Dulidan Studios Logo" class="h-12 mx-auto mb-8 opacity-40">
+        <div class="space-y-4 mb-12">
+            <p class="text-2xl font-bold tracking-tight">shaquille1106@gmail.com</p>
+            <p class="text-xl text-gray-400 font-light">+49 15207049499</p>
+        </div>
+        <p class="text-zinc-800 text-[9px] font-bold uppercase tracking-[0.6em]">&copy; 2024 Dulidan Studios. Dream. Design. Develop. Dominate.</p>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'de' : 'en';
+            document.getElementById('lang-btn').innerText = currentLang === 'en' ? 'DE' : 'EN';
+            
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.innerText = el.getAttribute('data-' + currentLang);
+            });
+        }
+    </script>
+
+</body>
+</html>
