@@ -67,34 +67,12 @@
         }
 
         /* ─── Hero Logo shimmer ─── */
-        .logo-shimmer {
-            position: relative;
-            display: inline-block;
-        }
         .logo-shimmer img {
             animation: logo-pulse 5s ease-in-out infinite;
-            display: block;
         }
         @keyframes logo-pulse {
             0%, 100% { filter: drop-shadow(0 0 12px rgba(218,41,207,0.25)); }
             50% { filter: drop-shadow(0 0 28px rgba(218,41,207,0.5)) drop-shadow(0 0 50px rgba(129,34,181,0.3)); }
-        }
-        .logo-shimmer::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -80%;
-            width: 50%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
-            transform: skewX(-20deg);
-            animation: shimmer 4s ease-in-out infinite;
-            mix-blend-mode: screen;
-            pointer-events: none;
-        }
-        @keyframes shimmer {
-            0% { left: -80%; opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { left: 160%; opacity: 0; }
         }
 
         /* ─── Scroll fade-in ─── */
