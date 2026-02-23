@@ -69,20 +69,16 @@
         /* ─── Hero Logo shimmer ─── */
         .logo-shimmer {
             position: relative;
-            overflow: hidden;
+            display: inline-block;
         }
-        .logo-shimmer::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-            animation: shimmer 3s infinite;
-            transform: skewX(-20deg);
+        .logo-shimmer img {
+            mix-blend-mode: screen;
+            filter: drop-shadow(0 0 30px rgba(218,41,207,0.4));
+            animation: logo-pulse 4s ease-in-out infinite;
         }
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 200%; }
+        @keyframes logo-pulse {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(218,41,207,0.3)); }
+            50% { filter: drop-shadow(0 0 50px rgba(218,41,207,0.7)) drop-shadow(0 0 80px rgba(129,34,181,0.4)); }
         }
 
         /* ─── Scroll fade-in ─── */
@@ -216,7 +212,6 @@
                 <a href="#about-us" class="hover:text-white transition" data-en="About" data-de="Über uns">About</a>
                 <a href="#services" class="hover:text-white transition" data-en="Services" data-de="Leistungen">Services</a>
                 <a href="#workflow" class="hover:text-white transition" data-en="Workflow" data-de="Ablauf">Workflow</a>
-                <a href="#pricing" class="hover:text-white transition" data-en="Pricing" data-de="Preise">Pricing</a>
                 <a href="#games" class="hover:text-white transition" data-en="Games" data-de="Spiele">Games</a>
                 <a href="#contact" class="hover:text-white transition" data-en="Contact" data-de="Kontakt">Contact</a>
             </div>
@@ -248,7 +243,6 @@
         <a href="#about-us" onclick="toggleMobileMenu()" class="text-2xl font-bold uppercase tracking-widest hover:text-gradient transition" data-en="About" data-de="Über uns">About</a>
         <a href="#services" onclick="toggleMobileMenu()" class="text-2xl font-bold uppercase tracking-widest hover:text-white transition" data-en="Services" data-de="Leistungen">Services</a>
         <a href="#workflow" onclick="toggleMobileMenu()" class="text-2xl font-bold uppercase tracking-widest hover:text-white transition" data-en="Workflow" data-de="Ablauf">Workflow</a>
-        <a href="#pricing" onclick="toggleMobileMenu()" class="text-2xl font-bold uppercase tracking-widest hover:text-white transition" data-en="Pricing" data-de="Preise">Pricing</a>
         <a href="#games" onclick="toggleMobileMenu()" class="text-2xl font-bold uppercase tracking-widest hover:text-white transition" data-en="Games" data-de="Spiele">Games</a>
         <a href="#contact" onclick="toggleMobileMenu()" class="text-2xl font-bold uppercase tracking-widest hover:text-white transition" data-en="Contact" data-de="Kontakt">Contact</a>
     </div>
@@ -273,9 +267,6 @@
         <div class="flex flex-col sm:flex-row gap-4 relative z-10 reveal stagger-2">
             <a href="#contact" class="cta-btn brand-gradient px-10 py-4 rounded-full font-bold uppercase text-[11px] tracking-widest shadow-lg shadow-purple-500/20">
                 <span data-en="Commissions Opening Soon" data-de="Aufträge bald verfügbar">Commissions Opening Soon</span>
-            </a>
-            <a href="#pricing" class="border border-white/20 px-10 py-4 rounded-full font-bold uppercase text-[11px] tracking-widest hover:bg-white/5 hover:border-white/40 transition">
-                <span data-en="View Pricing" data-de="Preise ansehen">View Pricing</span>
             </a>
         </div>
 
@@ -380,123 +371,8 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-24 md:py-32 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <p class="text-gradient font-black uppercase tracking-[0.4em] text-xs mb-3 reveal" data-en="Transparent Pricing" data-de="Transparente Preise">Transparent Pricing</p>
-                <div class="section-divider reveal stagger-1"></div>
-                <h3 class="text-3xl md:text-4xl font-bold uppercase reveal stagger-1" data-en="Choose Your Package" data-de="Wähle dein Paket">Choose Your Package</h3>
-                <p class="text-gray-500 text-sm mt-4 reveal stagger-2" data-en="All packages include unlimited revisions until you're 100% satisfied." data-de="Alle Pakete beinhalten unbegrenzte Korrekturen, bis du 100% zufrieden bist.">All packages include unlimited revisions until you're 100% satisfied.</p>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-
-                <!-- Starter -->
-                <div class="pricing-card rounded-3xl p-8 reveal stagger-1">
-                    <h4 class="text-xs font-black uppercase tracking-[0.35em] text-gray-400 mb-4" data-en="Starter" data-de="Starter">Starter</h4>
-                    <div class="price-amount text-gradient mb-2">€149</div>
-                    <p class="text-gray-600 text-xs mb-8" data-en="Fixed cost + provision" data-de="Fixkosten + Provision">Fixed cost + provision</p>
-
-                    <div class="space-y-2 mb-10">
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="1 short-form ad (up to 30s)" data-de="1 Kurzwerbung (bis 30s)">1 short-form ad (up to 30s)</span>
-                        </div>
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="Unlimited revisions" data-de="Unbegrenzte Korrekturen">Unlimited revisions</span>
-                        </div>
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="Basic script consultation" data-de="Einfache Skriptberatung">Basic script consultation</span>
-                        </div>
-                        <div class="check-item opacity-40">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.05)"/><path stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-                            <span data-en="Full production team" data-de="Volles Produktionsteam">Full production team</span>
-                        </div>
-                        <div class="check-item opacity-40">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.05)"/><path stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-                            <span data-en="Priority support" data-de="Prioritäts-Support">Priority support</span>
-                        </div>
-                    </div>
-
-                    <a href="#contact" class="block w-full text-center border border-white/20 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:border-brand-magenta hover:bg-white/5 transition" data-en="Get Started" data-de="Loslegen">Get Started</a>
-                </div>
-
-                <!-- Pro (Featured) -->
-                <div class="pricing-card featured rounded-3xl p-8 reveal stagger-2">
-                    <div class="badge" data-en="Most Popular" data-de="Beliebteste">Most Popular</div>
-                    <h4 class="text-xs font-black uppercase tracking-[0.35em] text-gray-400 mb-4" data-en="Pro" data-de="Pro">Pro</h4>
-                    <div class="price-amount text-gradient mb-2">€349</div>
-                    <p class="text-gray-600 text-xs mb-8" data-en="Fixed cost + provision" data-de="Fixkosten + Provision">Fixed cost + provision</p>
-
-                    <div class="space-y-2 mb-10">
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="Up to 3 ads (up to 60s each)" data-de="Bis zu 3 Ads (bis 60s)">Up to 3 ads (up to 60s each)</span>
-                        </div>
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="Unlimited revisions" data-de="Unbegrenzte Korrekturen">Unlimited revisions</span>
-                        </div>
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="Full script consultation" data-de="Vollständige Skriptberatung">Full script consultation</span>
-                        </div>
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="Full production team" data-de="Volles Produktionsteam">Full production team</span>
-                        </div>
-                        <div class="check-item opacity-40">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.05)"/><path stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-                            <span data-en="Priority support" data-de="Prioritäts-Support">Priority support</span>
-                        </div>
-                    </div>
-
-                    <a href="#contact" class="block w-full text-center brand-gradient px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:opacity-90 hover:scale-105 transition shadow-lg shadow-purple-500/20" data-en="Get Started" data-de="Loslegen">Get Started</a>
-                </div>
-
-                <!-- Studio -->
-                <div class="pricing-card rounded-3xl p-8 reveal stagger-3">
-                    <h4 class="text-xs font-black uppercase tracking-[0.35em] text-gray-400 mb-4" data-en="Studio" data-de="Studio">Studio</h4>
-                    <div class="price-amount text-gradient mb-2">€699</div>
-                    <p class="text-gray-600 text-xs mb-8" data-en="Fixed cost + provision" data-de="Fixkosten + Provision">Fixed cost + provision</p>
-
-                    <div class="space-y-2 mb-10">
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="Unlimited ads & formats" data-de="Unbegrenzte Ads & Formate">Unlimited ads & formats</span>
-                        </div>
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="Unlimited revisions" data-de="Unbegrenzte Korrekturen">Unlimited revisions</span>
-                        </div>
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="Full production team" data-de="Volles Produktionsteam">Full production team</span>
-                        </div>
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="Dedicated account manager" data-de="Persönlicher Ansprechpartner">Dedicated account manager</span>
-                        </div>
-                        <div class="check-item">
-                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="rgba(218,41,207,0.2)"/><path stroke="#da29cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 12l3 3 5-5"/></svg>
-                            <span data-en="Priority support" data-de="Prioritäts-Support">Priority support</span>
-                        </div>
-                    </div>
-
-                    <a href="#contact" class="block w-full text-center border border-white/20 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:border-brand-magenta hover:bg-white/5 transition" data-en="Get Started" data-de="Loslegen">Get Started</a>
-                </div>
-            </div>
-
-            <p class="text-center text-gray-600 text-xs mt-10 reveal" data-en="Custom quotes available for enterprise clients. Reach out directly." data-de="Individuelle Angebote für Unternehmenskunden auf Anfrage.">
-                Custom quotes available for enterprise clients. Reach out directly.
-            </p>
-        </div>
-    </section>
-
-    <!-- Games Showcase -->
+        <!-- Games Showcase -->
     <section id="games" class="py-24 md:py-32 px-6 bg-zinc-950/60">
         <div class="max-w-5xl mx-auto">
             <div class="text-center mb-16">
