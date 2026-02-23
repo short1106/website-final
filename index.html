@@ -72,13 +72,29 @@
             display: inline-block;
         }
         .logo-shimmer img {
-            mix-blend-mode: screen;
-            filter: drop-shadow(0 0 30px rgba(218,41,207,0.4));
-            animation: logo-pulse 4s ease-in-out infinite;
+            animation: logo-pulse 5s ease-in-out infinite;
+            display: block;
         }
         @keyframes logo-pulse {
-            0%, 100% { filter: drop-shadow(0 0 20px rgba(218,41,207,0.3)); }
-            50% { filter: drop-shadow(0 0 50px rgba(218,41,207,0.7)) drop-shadow(0 0 80px rgba(129,34,181,0.4)); }
+            0%, 100% { filter: drop-shadow(0 0 12px rgba(218,41,207,0.25)); }
+            50% { filter: drop-shadow(0 0 28px rgba(218,41,207,0.5)) drop-shadow(0 0 50px rgba(129,34,181,0.3)); }
+        }
+        .logo-shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -80%;
+            width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+            transform: skewX(-20deg);
+            animation: shimmer 4s ease-in-out infinite;
+            mix-blend-mode: screen;
+            pointer-events: none;
+        }
+        @keyframes shimmer {
+            0% { left: -80%; opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { left: 160%; opacity: 0; }
         }
 
         /* ─── Scroll fade-in ─── */
@@ -249,7 +265,7 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 pb-16 text-center">
-        <div class="hero-glow absolute top-1/2 left-1/2 w-[700px] h-[700px] brand-gradient blur-[180px] opacity-20 rounded-full z-0 pointer-events-none"></div>
+        <div class="hero-glow absolute top-1/2 left-1/2 z-0 pointer-events-none" style="width:700px;height:700px;transform:translate(-50%,-50%);background:radial-gradient(circle, rgba(218,41,207,0.35) 0%, rgba(129,34,181,0.2) 40%, transparent 70%);border-radius:50%;"></div>
 
         <div class="logo-shimmer relative z-10 mb-10 md:mb-14 w-full max-w-xl md:max-w-2xl">
             <img src="images/logo.png" alt="Dulidan Studios Logo" class="w-full drop-shadow-2xl">
