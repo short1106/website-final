@@ -1,506 +1,767 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dulidan Studios | Dream. Design. Develop. Dominate.</title>
-    <link rel="icon" href="favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --brand-purple: #8122b5;
-            --brand-magenta: #da29cf;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politics AI — Dulidan Studios</title>
+<style>
+/* System font stack — no external requests */
+</style>
+<style>
+:root {
+  --bg: #08090d;
+  --surface: #0f1118;
+  --border: rgba(255,255,255,0.06);
+  --purple: #8122b5;
+  --magenta: #da29cf;
+  --text: #e8e8f0;
+  --muted: #6b6b80;
+  --green: #1db87a;
+}
 
-        * { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #000;
-            color: #fff;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+html { scroll-behavior: smooth; }
 
-        /* ─── Gradients ─── */
-        .brand-gradient {
-            background: linear-gradient(135deg, var(--brand-purple) 0%, var(--brand-magenta) 100%);
-        }
-        .text-gradient {
-            background: linear-gradient(135deg, var(--brand-purple) 0%, var(--brand-magenta) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+body {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
 
-        /* ─── Glass Cards ─── */
-        .glass-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.06);
-            transition: border-color 0.4s ease, transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
-        }
-        .glass-card:hover {
-            border-color: var(--brand-magenta);
-            transform: translateY(-6px);
-            background: rgba(218,41,207,0.05);
-            box-shadow: 0 20px 60px rgba(218,41,207,0.12);
-        }
+/* GRID OVERLAY — signature element */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(129,34,181,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129,34,181,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
 
-        /* ─── Particles ─── */
-        #particles-canvas {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.5;
-        }
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 40px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(8,9,13,0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
 
-        /* ─── Hero Pulse ─── */
-        .hero-glow {
-            animation: pulse-glow 4s ease-in-out infinite;
-        }
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.18; transform: translate(-50%,-50%) scale(1); }
-            50% { opacity: 0.30; transform: translate(-50%,-50%) scale(1.12); }
-        }
+.nav-logo {
+  font-family: 'Space Mono', 'Courier New', Courier, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  text-decoration: none;
+}
 
-        /* ─── Hero Logo shimmer ─── */
-        .logo-shimmer img {
-            animation: logo-pulse 5s ease-in-out infinite;
-        }
-        @keyframes logo-pulse {
-            0%, 100% { filter: drop-shadow(0 0 12px rgba(218,41,207,0.25)); }
-            50% { filter: drop-shadow(0 0 28px rgba(218,41,207,0.5)) drop-shadow(0 0 50px rgba(129,34,181,0.3)); }
-        }
+.nav-logo span {
+  background: linear-gradient(135deg, var(--purple), var(--magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-        /* ─── Scroll fade-in ─── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(36px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
 
-        /* ─── Nav ─── */
-        nav {
-            transition: background 0.3s ease;
-        }
+.nav-links a {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
 
-        /* ─── CTA Button ─── */
-        .cta-btn {
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .cta-btn::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, #da29cf, #8122b5);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(218,41,207,0.5);
-        }
+.nav-cta {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 9px 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(218,41,207,0.4);
+  color: var(--magenta);
+  text-decoration: none;
+  transition: all 0.2s;
+  background: rgba(218,41,207,0.05);
+}
+.nav-cta:hover {
+  background: rgba(218,41,207,0.12);
+  border-color: var(--magenta);
+}
 
-        /* ─── Pricing Cards ─── */
-        .pricing-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.07);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .pricing-card.featured {
-            border-color: var(--brand-magenta);
-            background: rgba(218,41,207,0.06);
-        }
-        .pricing-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 24px 70px rgba(218,41,207,0.15);
-        }
-        .pricing-card .badge {
-            position: absolute;
-            top: 0; right: 0;
-            background: linear-gradient(135deg, var(--brand-purple), var(--brand-magenta));
-            font-size: 9px;
-            font-weight: 800;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            padding: 6px 14px;
-            border-bottom-left-radius: 12px;
-        }
-        .price-amount {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1;
-        }
-        .check-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 13px;
-            color: #9ca3af;
-            margin-bottom: 10px;
-        }
-        .check-item svg {
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
+/* HERO */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 24px 60px;
+  z-index: 1;
+}
 
-        /* ─── Mobile nav ─── */
-        #mobile-menu {
-            display: none;
-        }
-        #mobile-menu.open {
-            display: flex;
-        }
+.hero-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(218,41,207,0.12) 0%, rgba(129,34,181,0.06) 40%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: glow-pulse 6s ease-in-out infinite;
+}
 
-        /* ─── Section spacing ─── */
-        section {
-            position: relative;
-            z-index: 1;
-        }
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.7; transform: translate(-50%,-50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%,-50%) scale(1.08); }
+}
 
-        [data-lang="de"] { display: none; }
+.hero-eyebrow {
+  font-family: 'Space Mono', 'Courier New', Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fade-up 0.8s ease 0.2s forwards;
+}
 
-        /* ─── Stagger delays ─── */
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
+.hero-title {
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fade-up 0.8s ease 0.4s forwards;
+}
 
-        /* ─── Divider ─── */
-        .section-divider {
-            width: 60px; height: 3px;
-            background: linear-gradient(90deg, var(--brand-purple), var(--brand-magenta));
-            border-radius: 99px;
-            margin: 0 auto 32px;
-        }
+.hero-title .grad {
+  background: linear-gradient(135deg, var(--purple) 0%, var(--magenta) 60%, #ff6ef7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-        /* ─── Scrollbar ─── */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: var(--brand-purple); border-radius: 99px; }
-    </style>
+.hero-sub {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 520px;
+  margin-bottom: 48px;
+  opacity: 0;
+  animation: fade-up 0.8s ease 0.6s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  animation: fade-up 0.8s ease 0.8s forwards;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--purple), var(--magenta));
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 30px rgba(218,41,207,0.25);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(218,41,207,0.4);
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 14px 32px;
+  background: transparent;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-secondary:hover {
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.03);
+}
+
+/* HERO STATS */
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  margin-top: 72px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  animation: fade-up 0.8s ease 1s forwards;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'Space Mono', 'Courier New', Courier, monospace;
+  font-size: 32px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--purple), var(--magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes logo-pulse {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(218,41,207,0.25)); }
+  50% { filter: drop-shadow(0 0 28px rgba(218,41,207,0.5)) drop-shadow(0 0 50px rgba(129,34,181,0.3)); }
+}
+
+/* SECTIONS */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 40px;
+}
+
+.section-label {
+  font-family: 'Space Mono', 'Courier New', Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--magenta);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.section-body {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 580px;
+}
+
+/* FEATURE CARDS */
+.features {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.feature-card {
+  background: var(--surface);
+  padding: 36px 32px;
+  transition: background 0.3s;
+}
+.feature-card:hover {
+  background: rgba(218,41,207,0.04);
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(129,34,181,0.2), rgba(218,41,207,0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.feature-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.feature-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* GAMEPLAY SECTION */
+.gameplay {
+  padding: 100px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.gameplay-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.gameplay-visual {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  font-family: 'Space Mono', 'Courier New', Courier, monospace;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.gameplay-visual::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 20px; right: 20px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--magenta), transparent);
+}
+
+.log-line { display: flex; gap: 12px; }
+.log-round { color: var(--purple); flex-shrink: 0; }
+.log-text { color: var(--text); }
+.log-effect { color: var(--green); margin-left: auto; flex-shrink: 0; }
+.log-warning { color: #ef9f27; }
+.log-crisis { color: #e24b4a; }
+
+.gameplay-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gameplay-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.gameplay-item-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--magenta);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+.gameplay-item-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.gameplay-item-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* FUNDING BADGE */
+.funding {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.funding-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.funding-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(29,184,122,0.08);
+  border: 1px solid rgba(29,184,122,0.2);
+  border-radius: 8px;
+  padding: 10px 18px;
+  flex-shrink: 0;
+}
+
+.funding-badge-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.funding-badge-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.funding-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.funding-text strong { color: var(--text); }
+
+/* CONTACT */
+.contact-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 100px 40px;
+  text-align: center;
+}
+
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 48px;
+  margin-top: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 25%; right: 25%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--magenta), transparent);
+}
+
+.contact-email {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  display: block;
+  margin-bottom: 10px;
+  transition: color 0.2s;
+}
+.contact-email:hover { color: var(--magenta); }
+
+.contact-phone {
+  font-size: 15px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-phone:hover { color: var(--text); }
+
+/* FOOTER */
+footer {
+  padding: 32px 40px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-logo {
+  font-family: 'Space Mono', 'Courier New', Courier, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: rgba(107,107,128,0.5);
+  letter-spacing: 0.05em;
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .section-inner { padding: 70px 20px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .gameplay-split { grid-template-columns: 1fr; gap: 40px; }
+  .gameplay { padding: 70px 20px; }
+  .funding-inner { flex-direction: column; gap: 20px; padding: 48px 20px; }
+  .contact-section { padding: 70px 20px; }
+  .contact-card { padding: 32px 24px; }
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+  .hero-stats { gap: 28px; }
+}
+</style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Particle Canvas -->
-    <canvas id="particles-canvas"></canvas>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="images/biglogo.png" alt="Dulidan Studios" style="height:36px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+    <span style="display:none;">DULIDAN<span style="background:linear-gradient(135deg,#8122b5,#da29cf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">.</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#gameplay">Gameplay</a></li>
+    <li><a href="#contact">Kontakt</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Kontakt</a>
+</nav>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center bg-black/80 backdrop-blur-lg border-b border-white/5" id="navbar">
-        <img src="images/biglogo.png" alt="Dulidan Studios Logo" class="h-9 md:h-10">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
 
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex items-center space-x-8">
-            <div class="flex space-x-8 text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400">
-                <a href="#about-us" class="hover:text-white transition" data-en="About" data-de="Über uns">About</a>
-                <a href="#services" class="hover:text-white transition" data-en="Services" data-de="Leistungen">Services</a>
-                <a href="#workflow" class="hover:text-white transition" data-en="Workflow" data-de="Ablauf">Workflow</a>
-                <a href="#games" class="hover:text-white transition" data-en="Games" data-de="Spiele">Games</a>
-                <a href="#contact" class="hover:text-white transition" data-en="Contact" data-de="Kontakt">Contact</a>
-            </div>
-            <button onclick="toggleLang()" class="border border-white/20 px-3 py-1 rounded text-[10px] font-black uppercase hover:bg-white/10 transition">
-                <span id="lang-btn">DE</span>
-            </button>
-        </div>
+  <div style="margin-bottom:32px;opacity:0;animation:fade-up 0.8s ease 0.1s forwards;">
+    <img src="images/logo.png" alt="Politics AI" style="max-width:320px;width:80vw;filter:drop-shadow(0 0 30px rgba(218,41,207,0.35));animation:logo-pulse 5s ease-in-out infinite;" onerror="this.style.display='none'">
+  </div>
 
-        <!-- Mobile Hamburger -->
-        <div class="md:hidden flex items-center gap-3">
-            <button onclick="toggleLang()" class="border border-white/20 px-3 py-1 rounded text-[10px] font-black uppercase hover:bg-white/10 transition">
-                <span id="lang-btn-mobile">DE</span>
-            </button>
-            <button onclick="toggleMobileMenu()" class="text-white p-1">
-                <svg id="hamburger-icon" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
-        </div>
-    </nav>
+  <p class="hero-eyebrow">Dulidan Studios — Öhringen</p>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex-col items-center justify-center text-center gap-8 md:hidden">
-        <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-gray-400 hover:text-white">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </button>
-        <a href="#about-us" onclick="toggleMobileMenu()" class="text-2xl font-bold uppercase tracking-widest hover:text-gradient transition" data-en="About" data-de="Über uns">About</a>
-        <a href="#services" onclick="toggleMobileMenu()" class="text-2xl font-bold uppercase tracking-widest hover:text-white transition" data-en="Services" data-de="Leistungen">Services</a>
-        <a href="#workflow" onclick="toggleMobileMenu()" class="text-2xl font-bold uppercase tracking-widest hover:text-white transition" data-en="Workflow" data-de="Ablauf">Workflow</a>
-        <a href="#games" onclick="toggleMobileMenu()" class="text-2xl font-bold uppercase tracking-widest hover:text-white transition" data-en="Games" data-de="Spiele">Games</a>
-        <a href="#contact" onclick="toggleMobileMenu()" class="text-2xl font-bold uppercase tracking-widest hover:text-white transition" data-en="Contact" data-de="Kontakt">Contact</a>
+  <h1 class="hero-title">
+    Politics<br><span class="grad">AI</span>
+  </h1>
+
+  <p class="hero-sub">
+    Der erste KI-basierte Geopolitik-Simulator. Du spielst Deutschland — und entscheidest über Krieg, Frieden, Wirtschaft und Bündnisse in einer sich verändernden Welt.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#features" class="btn-primary">Features entdecken</a>
+    <a href="#contact" class="btn-secondary">Playtester werden</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-number">70+</div>
+      <div class="stat-label">Länder</div>
     </div>
+    <div class="stat-item">
+      <div class="stat-number">8</div>
+      <div class="stat-label">Aktive Konflikte</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">∞</div>
+      <div class="stat-label">Szenarien</div>
+    </div>
+  </div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 pb-16 text-center">
-        <div class="hero-glow absolute top-1/2 left-1/2 z-0 pointer-events-none" style="width:700px;height:700px;transform:translate(-50%,-50%);background:radial-gradient(circle, rgba(218,41,207,0.35) 0%, rgba(129,34,181,0.2) 40%, transparent 70%);border-radius:50%;"></div>
+<!-- FUNDING -->
+<div class="funding reveal">
+  <div class="funding-inner">
+    <div class="funding-badge">
+      <div class="funding-badge-dot"></div>
+      <span class="funding-badge-text">Staatlich gefördert</span>
+    </div>
+    <p class="funding-text">
+      Politics AI wird durch <strong>MFG Baden-Württemberg / Games BW</strong> gefördert —
+      als eines der ersten KI-gestützten Serious-Game-Projekte aus Baden-Württemberg.
+    </p>
+  </div>
+</div>
 
-        <div class="logo-shimmer relative z-10 mb-10 md:mb-14 w-full max-w-xl md:max-w-2xl">
-            <img src="images/logo.png" alt="Dulidan Studios Logo" class="w-full drop-shadow-2xl">
-        </div>
+<!-- FEATURES -->
+<section id="features" class="features">
+  <div class="section-inner">
+    <p class="section-label reveal">Was dich erwartet</p>
+    <h2 class="section-title reveal">Echte Diplomatie.<br>Echte Konsequenzen.</h2>
+    <p class="section-body reveal">Keine vorgefertigten Entscheidungen. Du schreibst frei — die KI verarbeitet es und die Welt reagiert realistisch.</p>
 
-        <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-center max-w-4xl leading-none mb-6 uppercase tracking-tighter relative z-10 reveal">
-            <span data-en="Dream. Design." data-de="Träumen. Designen.">Dream. Design.</span><br>
-            <span class="text-gradient" data-en="Develop. Dominate." data-de="Entwickeln. Dominieren.">Develop. Dominate.</span>
-        </h1>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <div class="feature-title">KI-gesteuerte Länder</div>
+        <div class="feature-desc">Über 70 Länder mit eigenen Agenden, roten Linien und Wirtschaftsdaten — alle reagieren realistisch auf deine Entscheidungen.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <div class="feature-title">Multilaterale Gruppen</div>
+        <div class="feature-desc">Gründe Koalitionen, führe Friedenskonferenzen, starte Abstimmungen. Länder streiten miteinander — auch ohne deinen Input.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Realistische Stats</div>
+        <div class="feature-desc">Wirtschaft, Militär, Diplomatie und Bevölkerungszufriedenheit — alle Werte hängen zusammen und kaskadieren realistisch.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Aktive Weltkonflikte</div>
+        <div class="feature-desc">Ukraine, Gaza, Taiwan, Iran — 8 laufende Konflikte die du beeinflussen kannst. Oder ignorierst. Beides hat Folgen.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <div class="feature-title">Freie Texteingabe</div>
+        <div class="feature-desc">Kein Klicken durch Menüs. Du schreibst direkt an Länder — auf Deutsch, auf Englisch, diplomatisch oder konfrontativ.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏛️</div>
+        <div class="feature-title">Bestehende Orgs</div>
+        <div class="feature-desc">NATO, EU, G7, BRICS — alle als aktive Gruppen spielbar. Nutze deinen Einfluss oder verliere ihn an andere Mächte.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <p class="text-gray-400 text-sm md:text-base max-w-xl mb-10 leading-relaxed relative z-10 reveal stagger-1" data-en="A creative studio that turns your boldest ideas into stunning reality." data-de="Ein kreatives Studio, das deine kühnsten Ideen in beeindruckende Realität verwandelt.">
-            A creative studio that turns your boldest ideas into stunning reality.
-        </p>
+<!-- GAMEPLAY -->
+<section id="gameplay">
+  <div class="gameplay">
+    <p class="section-label reveal">Wie es sich anfühlt</p>
+    <h2 class="section-title reveal">Jede Entscheidung zählt.</h2>
 
-        <div class="flex flex-col sm:flex-row gap-4 relative z-10 reveal stagger-2">
-            <a href="#contact" class="cta-btn brand-gradient px-10 py-4 rounded-full font-bold uppercase text-[11px] tracking-widest shadow-lg shadow-purple-500/20">
-                <span data-en="Commissions Opening Soon" data-de="Aufträge bald verfügbar">Commissions Opening Soon</span>
-            </a>
-        </div>
+    <div class="gameplay-split">
+      <div class="gameplay-visual reveal">
+        <div class="log-line"><span class="log-round">R3</span><span class="log-text">🇺🇦 Ukraine: "Wir brauchen Taurus-Lieferungen — sofort."</span></div>
+        <div class="log-line"><span class="log-round">R3</span><span class="log-text">🇷🇺 Russland ↳ antwortet auf Ukraine: "Jede deutsche Waffenlieferung ist eine Kriegserklärung."</span></div>
+        <div class="log-line"><span class="log-round">R3</span><span class="log-text" style="color:#8b8b9a;font-style:italic;">— Russland verlässt empört den Raum</span></div>
+        <div class="log-line" style="margin-top:8px;"><span class="log-round">R3</span><span class="log-text">🇩🇪 Deutschland: "Wir liefern 50 Taurus — und fordern Waffenstillstandsgespräche."</span></div>
+        <div class="log-line"><span class="log-round" style="color:var(--green);">→</span><span class="log-text log-effect">Militär +8 · Ukraine +12</span></div>
+        <div class="log-line"><span class="log-round" style="color:#e24b4a;">→</span><span class="log-text log-crisis">Russland −15 · Spannung +6</span></div>
+        <div class="log-line" style="margin-top:8px;"><span class="log-round log-warning">⚠</span><span class="log-text log-warning">ULTIMATUM von 🇷🇺 Russland: "Stopp der Lieferungen oder wir schließen Nord Stream 3."</span></div>
+      </div>
 
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-30">
-            <span class="text-[9px] uppercase tracking-[0.4em]">Scroll</span>
-            <div class="w-px h-10 bg-white animate-pulse"></div>
-        </div>
-    </section>
+      <ul class="gameplay-list reveal">
+        <li class="gameplay-item">
+          <div class="gameplay-item-dot"></div>
+          <div class="gameplay-item-text"><strong>Schreib frei.</strong> Kein Klickmenü — du formulierst deine Diplomatie selbst, auf Deutsch oder Englisch.</div>
+        </li>
+        <li class="gameplay-item">
+          <div class="gameplay-item-dot"></div>
+          <div class="gameplay-item-text"><strong>Die KI antwortet realistisch.</strong> Länder haben Agenden, rote Linien, Emotionen — und eskalieren wenn du sie provozierst.</div>
+        </li>
+        <li class="gameplay-item">
+          <div class="gameplay-item-dot"></div>
+          <div class="gameplay-item-text"><strong>Konsequenzen kaskadieren.</strong> Eine Waffenlieferung stärkt die Ukraine, irritiert Russland, nervt deine Bevölkerung — alles gleichzeitig.</div>
+        </li>
+        <li class="gameplay-item">
+          <div class="gameplay-item-dot"></div>
+          <div class="gameplay-item-text"><strong>Dramatik passiert selten, aber echt.</strong> Ein Austritt aus der NATO-Gruppe, ein Veto, ein Geheimabkommen — wenn es passiert, fühlt es sich verdient an.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <!-- About Us -->
-    <section id="about-us" class="py-24 md:py-32 px-6 bg-black/70">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="text-gradient font-black uppercase tracking-[0.4em] text-xs mb-3 reveal" data-en="About Us" data-de="Über uns">About Us</p>
-            <div class="section-divider reveal stagger-1"></div>
-            <h3 class="text-3xl md:text-4xl font-extrabold uppercase tracking-tighter mb-10 reveal stagger-1" data-en="Who We Are" data-de="Wer wir sind">Who We Are</h3>
-            <p class="text-gray-400 text-base md:text-lg leading-relaxed mb-6 reveal stagger-2" data-en="Dulidan Studios is a creative powerhouse dedicated to turning visions into reality. From game development to ad production, we bring ideas to life with passion, precision, and bold creativity." data-de="Dulidan Studios ist ein kreatives Studio, das Visionen in Realität umsetzt. Von der Spieleentwicklung bis zur Werbeproduktion setzen wir Ideen mit Leidenschaft, Präzision und mutiger Kreativität um.">
-                Dulidan Studios is a creative powerhouse dedicated to turning visions into reality. From game development to ad production, we bring ideas to life with passion, precision, and bold creativity.
-            </p>
-            <p class="text-gray-400 text-base md:text-lg leading-relaxed mb-6 reveal stagger-3" data-en="Our mission is to design experiences that resonate, engage, and inspire. We believe in collaboration, innovation, and the power of dreaming big." data-de="Unsere Mission ist es, Erlebnisse zu gestalten, die begeistern, inspirieren und verbinden. Wir glauben an Zusammenarbeit, Innovation und die Kraft, groß zu träumen.">
-                Our mission is to design experiences that resonate, engage, and inspire. We believe in collaboration, innovation, and the power of dreaming big.
-            </p>
-            <p class="text-gray-400 text-base md:text-lg leading-relaxed reveal stagger-4" data-en="All our work is 100% human creativity – we never use AI to generate results. Your projects are crafted with passion and expertise." data-de="All unsere Arbeit basiert zu 100% auf menschlicher Kreativität – wir verwenden keine KI. Eure Projekte werden mit Leidenschaft und Expertise umgesetzt.">
-                All our work is 100% human creativity – we never use AI to generate results. Your projects are crafted with passion and expertise.
-            </p>
-        </div>
-    </section>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-section">
+    <p class="section-label reveal">Dulidan Studios</p>
+    <h2 class="section-title reveal">Interesse?</h2>
+    <p class="section-body reveal" style="margin:0 auto 0;">Playtester gesucht. Pressekontakt. Oder einfach neugierig — meld dich.</p>
 
-    <!-- Why Choose Us -->
-    <section id="why-us" class="py-24 md:py-32 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <p class="text-gradient font-black uppercase tracking-[0.4em] text-xs mb-3 reveal" data-en="Why Choose Us" data-de="Warum wir">Why Choose Us</p>
-                <div class="section-divider reveal stagger-1"></div>
-                <h3 class="text-3xl md:text-4xl font-bold uppercase reveal stagger-1" data-en="Our Edge" data-de="Unsere Vorteile">Our Edge</h3>
-            </div>
+    <div class="contact-card reveal">
+      <a href="mailto:shaquille1106@gmail.com" class="contact-email">shaquille1106@gmail.com</a>
+      <a href="tel:+4915207049499" class="contact-phone">+49 152 07049499</a>
+    </div>
+  </div>
+</section>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass-card p-8 rounded-2xl text-center reveal stagger-1">
-                    <div class="w-12 h-12 brand-gradient rounded-xl flex items-center justify-center mx-auto mb-5">
-                        <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </div>
-                    <h4 class="font-bold mb-3 uppercase text-sm" data-en="Fast & Efficient" data-de="Schnell & Effizient">Fast & Efficient</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed" data-en="High-quality work delivered on time, every time." data-de="Hochwertige Arbeit pünktlich und zuverlässig.">High-quality work delivered on time, every time.</p>
-                </div>
-                <div class="glass-card p-8 rounded-2xl text-center reveal stagger-2">
-                    <div class="w-12 h-12 brand-gradient rounded-xl flex items-center justify-center mx-auto mb-5">
-                        <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 9.5L12 2l7.5 7.5M4.5 14.5L12 22l7.5-7.5"/></svg>
-                    </div>
-                    <h4 class="font-bold mb-3 uppercase text-sm" data-en="Creative Design" data-de="Kreatives Design">Creative Design</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed" data-en="Visuals that are unique, bold, and unforgettable." data-de="Designs, die einzigartig, mutig und einprägsam sind.">Visuals that are unique, bold, and unforgettable.</p>
-                </div>
-                <div class="glass-card p-8 rounded-2xl text-center reveal stagger-3">
-                    <div class="w-12 h-12 brand-gradient rounded-xl flex items-center justify-center mx-auto mb-5">
-                        <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-4-4h-1m-8 6H2v-2a4 4 0 014-4h1m4-6a4 4 0 110-8 4 4 0 010 8z"/></svg>
-                    </div>
-                    <h4 class="font-bold mb-3 uppercase text-sm" data-en="Collaborative" data-de="Zusammenarbeit">Collaborative</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed" data-en="We work side by side with clients at every step." data-de="Wir arbeiten eng mit Kunden zusammen.">We work side by side with clients at every step.</p>
-                </div>
-                <div class="glass-card p-8 rounded-2xl text-center reveal stagger-4">
-                    <div class="w-12 h-12 brand-gradient rounded-xl flex items-center justify-center mx-auto mb-5">
-                        <svg width="22" height="22" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h4 class="font-bold mb-3 uppercase text-sm" data-en="100% Human" data-de="100% Menschlich">100% Human</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed" data-en="Zero AI. Every project is crafted by real people." data-de="Keine KI. Jedes Projekt wird von echten Menschen erstellt.">Zero AI. Every project is crafted by real people.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/biglogo.png" alt="Dulidan Studios" style="height:28px;opacity:0.4;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;">DULIDAN STUDIOS</span>
+  </div>
+  <div class="footer-copy">© 2025 Dulidan Studios · Öhringen, Deutschland</div>
+</footer>
 
-    <!-- Workflow -->
-    <section id="workflow" class="py-24 md:py-32 px-6 bg-zinc-950/60">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <p class="text-gradient font-black uppercase tracking-[0.4em] text-xs mb-3 reveal" data-en="Working with us" data-de="Zusammenarbeit">Working with us</p>
-                <div class="section-divider reveal stagger-1"></div>
-                <h3 class="text-3xl md:text-4xl font-bold uppercase reveal stagger-1" data-en="Ad Production Steps" data-de="Ablauf der Werbeproduktion">Ad Production Steps</h3>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass-card p-8 rounded-2xl text-center reveal stagger-1">
-                    <div class="text-gradient text-3xl font-black mb-4">01</div>
-                    <h4 class="font-bold mb-3 uppercase text-sm" data-en="Talk to Us" data-de="Erstgespräch">Talk to Us</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed" data-en="Direct consultation to define your vision and goals." data-de="Direkte Beratung, um Ihre Vision und Ziele zu definieren.">Direct consultation to define your vision and goals.</p>
-                </div>
-                <div class="glass-card p-8 rounded-2xl text-center reveal stagger-2">
-                    <div class="text-gradient text-3xl font-black mb-4">02</div>
-                    <h4 class="font-bold mb-3 uppercase text-sm" data-en="Fixed Costs" data-de="Fixkosten">Fixed Costs</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed" data-en="Pay the estimated fixed costs to start production." data-de="Zahlung der Fixkosten, um die Produktion zu starten.">Pay the estimated fixed costs to start production.</p>
-                </div>
-                <div class="glass-card p-8 rounded-2xl text-center reveal stagger-3">
-                    <div class="text-gradient text-3xl font-black mb-4">03</div>
-                    <h4 class="font-bold mb-3 uppercase text-sm" data-en="Unlimited Revisions" data-de="Gratis Änderungen">Unlimited Revisions</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed" data-en="Not happy? We revise until it fits—no extra fees." data-de="Nicht zufrieden? Wir ändern es, bis es passt.">Not happy? We revise until it fits—no extra fees.</p>
-                </div>
-                <div class="glass-card p-8 rounded-2xl text-center reveal stagger-4">
-                    <div class="text-gradient text-3xl font-black mb-4">04</div>
-                    <h4 class="font-bold mb-3 uppercase text-sm" data-en="Final Provision" data-de="Provision">Final Provision</h4>
-                    <p class="text-gray-500 text-xs leading-relaxed" data-en="Final commission settled after project completion." data-de="Provision wird nach Fertigstellung berechnet.">Final commission settled after project completion.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-        <!-- Games Showcase -->
-    <section id="games" class="py-24 md:py-32 px-6 bg-zinc-950/60">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16">
-                <p class="text-gradient font-black uppercase tracking-widest text-xs mb-3 reveal" data-en="Internal Projects" data-de="Interne Projekte">Internal Projects</p>
-                <div class="section-divider reveal stagger-1"></div>
-                <h3 class="text-3xl md:text-4xl font-extrabold uppercase tracking-tighter reveal stagger-1" data-en="In Development" data-de="In Entwicklung">In Development</h3>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="group glass-card p-10 rounded-3xl relative overflow-hidden text-center reveal stagger-1">
-                    <div class="absolute inset-0 brand-gradient opacity-10 rounded-3xl -z-10 group-hover:opacity-20 transition-opacity duration-500"></div>
-                    <div class="w-14 h-14 brand-gradient rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21l9-18 9 18M6.5 15h11"/></svg>
-                    </div>
-                    <h4 class="text-2xl font-bold uppercase mb-3">The Tower</h4>
-                    <p class="text-gray-400 text-sm italic leading-relaxed" data-en="A challenging tower defense game with strategic depth and addictive gameplay." data-de="Ein herausforderndes Tower-Defense-Spiel mit strategischem Gameplay.">A challenging tower defense game with strategic depth and addictive gameplay.</p>
-                </div>
-
-                <div class="group glass-card p-10 rounded-3xl relative overflow-hidden text-center reveal stagger-2">
-                    <div class="absolute inset-0 brand-gradient opacity-10 rounded-3xl -z-10 group-hover:opacity-20 transition-opacity duration-500"></div>
-                    <div class="w-14 h-14 brand-gradient rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <svg width="26" height="26" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
-                    </div>
-                    <h4 class="text-2xl font-bold uppercase mb-3">Politics AI</h4>
-                    <p class="text-gray-400 text-sm italic leading-relaxed" data-en="Simulate political decisions with highly intelligent AI and face real-world consequences." data-de="Simuliere politische Entscheidungen mit intelligenter KI.">Simulate political decisions with highly intelligent AI and face real-world consequences.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact / Footer -->
-    <footer id="contact" class="py-24 px-6 border-t border-white/5 text-center relative">
-        <div class="max-w-xl mx-auto">
-            <img src="images/biglogo.png" alt="Dulidan Studios Logo" class="h-10 mx-auto mb-10 opacity-40">
-
-            <p class="text-gradient font-black uppercase tracking-[0.4em] text-xs mb-3" data-en="Get In Touch" data-de="Kontakt">Get In Touch</p>
-            <div class="section-divider"></div>
-            <h3 class="text-3xl md:text-4xl font-bold uppercase mb-10" data-en="Let's Work Together" data-de="Lass uns zusammenarbeiten">Let's Work Together</h3>
-
-            <div class="glass-card rounded-2xl p-8 mb-10">
-                <a href="mailto:shaquille1106@gmail.com" class="block text-xl font-bold tracking-tight mb-2 hover:text-gradient transition">shaquille1106@gmail.com</a>
-                <a href="tel:+4915207049499" class="text-gray-400 text-lg font-light hover:text-white transition">+49 152 07049499</a>
-            </div>
-        </div>
-
-        <p class="text-zinc-800 text-[9px] font-bold uppercase tracking-[0.6em]">&copy; 2024 Dulidan Studios. Dream. Design. Develop. Dominate.</p>
-    </footer>
-
-    <script>
-        /* ─── Language Toggle ─── */
-        let currentLang = 'en';
-        function toggleLang() {
-            currentLang = currentLang === 'en' ? 'de' : 'en';
-            const label = currentLang === 'en' ? 'DE' : 'EN';
-            document.getElementById('lang-btn').innerText = label;
-            document.getElementById('lang-btn-mobile').innerText = label;
-            document.querySelectorAll('[data-en]').forEach(el => {
-                el.innerText = el.getAttribute('data-' + currentLang);
-            });
-        }
-
-        /* ─── Mobile Menu ─── */
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('open');
-        }
-
-        /* ─── Scroll Reveal ─── */
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.12 });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        /* ─── Particles ─── */
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-
-        let particles = [];
-        let W, H;
-
-        function resize() {
-            W = canvas.width = window.innerWidth;
-            H = canvas.height = window.innerHeight;
-        }
-        resize();
-        window.addEventListener('resize', resize);
-
-        class Particle {
-            constructor() { this.reset(); }
-            reset() {
-                this.x = Math.random() * W;
-                this.y = Math.random() * H;
-                this.r = Math.random() * 1.5 + 0.3;
-                this.vx = (Math.random() - 0.5) * 0.3;
-                this.vy = (Math.random() - 0.5) * 0.3;
-                this.alpha = Math.random() * 0.5 + 0.1;
-                this.color = Math.random() > 0.5 ? '129,34,181' : '218,41,207';
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${this.color},${this.alpha})`;
-                ctx.fill();
-            }
-        }
-
-        for (let i = 0; i < 90; i++) particles.push(new Particle());
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, W, H);
-            particles.forEach(p => { p.update(); p.draw(); });
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        /* ─── Nav scroll opacity ─── */
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 60) {
-                nav.style.background = 'rgba(0,0,0,0.95)';
-            } else {
-                nav.style.background = 'rgba(0,0,0,0.80)';
-            }
-        });
-    </script>
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
