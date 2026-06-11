@@ -18,18 +18,18 @@
   --muted: #6b6b80;
   --green: #1db87a;
 }
-
+ 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
 html { scroll-behavior: smooth; }
-
+ 
 body {
   font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
 }
-
+ 
 /* GRID OVERLAY — signature element */
 body::before {
   content: '';
@@ -42,7 +42,7 @@ body::before {
   pointer-events: none;
   z-index: 0;
 }
-
+ 
 /* NAV */
 nav {
   position: fixed;
@@ -57,7 +57,7 @@ nav {
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
 }
-
+ 
 .nav-logo {
   font-family: 'Space Mono', 'Courier New', Courier, monospace;
   font-size: 13px;
@@ -66,21 +66,21 @@ nav {
   color: var(--text);
   text-decoration: none;
 }
-
+ 
 .nav-logo span {
   background: linear-gradient(135deg, var(--purple), var(--magenta));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
+ 
 .nav-links {
   display: flex;
   align-items: center;
   gap: 32px;
   list-style: none;
 }
-
+ 
 .nav-links a {
   font-size: 11px;
   font-weight: 500;
@@ -91,7 +91,7 @@ nav {
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--text); }
-
+ 
 .nav-cta {
   font-size: 11px;
   font-weight: 700;
@@ -109,7 +109,7 @@ nav {
   background: rgba(218,41,207,0.12);
   border-color: var(--magenta);
 }
-
+ 
 /* HERO */
 .hero {
   position: relative;
@@ -122,7 +122,7 @@ nav {
   padding: 80px 24px 60px;
   z-index: 1;
 }
-
+ 
 .hero-glow {
   position: absolute;
   top: 50%; left: 50%;
@@ -134,12 +134,12 @@ nav {
   pointer-events: none;
   animation: glow-pulse 6s ease-in-out infinite;
 }
-
+ 
 @keyframes glow-pulse {
   0%, 100% { opacity: 0.7; transform: translate(-50%,-50%) scale(1); }
   50% { opacity: 1; transform: translate(-50%,-50%) scale(1.08); }
 }
-
+ 
 .hero-eyebrow {
   font-family: 'Space Mono', 'Courier New', Courier, monospace;
   font-size: 10px;
@@ -150,7 +150,7 @@ nav {
   opacity: 0;
   animation: fade-up 0.8s ease 0.2s forwards;
 }
-
+ 
 .hero-title {
   font-size: clamp(48px, 8vw, 96px);
   font-weight: 700;
@@ -160,14 +160,14 @@ nav {
   opacity: 0;
   animation: fade-up 0.8s ease 0.4s forwards;
 }
-
+ 
 .hero-title .grad {
   background: linear-gradient(135deg, var(--purple) 0%, var(--magenta) 60%, #ff6ef7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
+ 
 .hero-sub {
   font-size: 16px;
   line-height: 1.7;
@@ -177,7 +177,7 @@ nav {
   opacity: 0;
   animation: fade-up 0.8s ease 0.6s forwards;
 }
-
+ 
 .hero-actions {
   display: flex;
   gap: 14px;
@@ -186,7 +186,7 @@ nav {
   opacity: 0;
   animation: fade-up 0.8s ease 0.8s forwards;
 }
-
+ 
 .btn-primary {
   display: inline-block;
   padding: 14px 32px;
@@ -205,7 +205,7 @@ nav {
   transform: translateY(-2px);
   box-shadow: 0 8px 40px rgba(218,41,207,0.4);
 }
-
+ 
 .btn-secondary {
   display: inline-block;
   padding: 14px 32px;
@@ -224,7 +224,7 @@ nav {
   border-color: rgba(255,255,255,0.2);
   background: rgba(255,255,255,0.03);
 }
-
+ 
 /* HERO STATS */
 .hero-stats {
   display: flex;
@@ -235,11 +235,11 @@ nav {
   opacity: 0;
   animation: fade-up 0.8s ease 1s forwards;
 }
-
+ 
 .stat-item {
   text-align: center;
 }
-
+ 
 .stat-number {
   font-family: 'Space Mono', 'Courier New', Courier, monospace;
   font-size: 32px;
@@ -251,36 +251,36 @@ nav {
   line-height: 1;
   margin-bottom: 6px;
 }
-
+ 
 .stat-label {
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--muted);
 }
-
+ 
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
+ 
 @keyframes logo-pulse {
   0%, 100% { filter: drop-shadow(0 0 12px rgba(218,41,207,0.25)); }
   50% { filter: drop-shadow(0 0 28px rgba(218,41,207,0.5)) drop-shadow(0 0 50px rgba(129,34,181,0.3)); }
 }
-
+ 
 /* SECTIONS */
 section {
   position: relative;
   z-index: 1;
 }
-
+ 
 .section-inner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 100px 40px;
 }
-
+ 
 .section-label {
   font-family: 'Space Mono', 'Courier New', Courier, monospace;
   font-size: 10px;
@@ -289,7 +289,7 @@ section {
   color: var(--magenta);
   margin-bottom: 16px;
 }
-
+ 
 .section-title {
   font-size: clamp(28px, 4vw, 44px);
   font-weight: 700;
@@ -297,21 +297,21 @@ section {
   line-height: 1.1;
   margin-bottom: 20px;
 }
-
+ 
 .section-body {
   font-size: 16px;
   line-height: 1.75;
   color: var(--muted);
   max-width: 580px;
 }
-
+ 
 /* FEATURE CARDS */
 .features {
   background: var(--surface);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-
+ 
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -322,7 +322,7 @@ section {
   overflow: hidden;
   margin-top: 60px;
 }
-
+ 
 .feature-card {
   background: var(--surface);
   padding: 36px 32px;
@@ -331,7 +331,7 @@ section {
 .feature-card:hover {
   background: rgba(218,41,207,0.04);
 }
-
+ 
 .feature-icon {
   width: 40px;
   height: 40px;
@@ -343,27 +343,27 @@ section {
   margin-bottom: 20px;
   font-size: 18px;
 }
-
+ 
 .feature-title {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 10px;
   letter-spacing: -0.01em;
 }
-
+ 
 .feature-desc {
   font-size: 13px;
   line-height: 1.65;
   color: var(--muted);
 }
-
+ 
 /* GAMEPLAY SECTION */
 .gameplay {
   padding: 100px 40px;
   max-width: 1100px;
   margin: 0 auto;
 }
-
+ 
 .gameplay-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -371,7 +371,7 @@ section {
   align-items: center;
   margin-top: 60px;
 }
-
+ 
 .gameplay-visual {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -384,34 +384,34 @@ section {
   position: relative;
   overflow: hidden;
 }
-
+ 
 .gameplay-visual::before {
   content: '';
   position: absolute;
   top: -1px; left: 20px; right: 20px; height: 1px;
   background: linear-gradient(90deg, transparent, var(--magenta), transparent);
 }
-
+ 
 .log-line { display: flex; gap: 12px; }
 .log-round { color: var(--purple); flex-shrink: 0; }
 .log-text { color: var(--text); }
 .log-effect { color: var(--green); margin-left: auto; flex-shrink: 0; }
 .log-warning { color: #ef9f27; }
 .log-crisis { color: #e24b4a; }
-
+ 
 .gameplay-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
+ 
 .gameplay-item {
   display: flex;
   gap: 16px;
   align-items: flex-start;
 }
-
+ 
 .gameplay-item-dot {
   width: 6px;
   height: 6px;
@@ -420,25 +420,25 @@ section {
   margin-top: 7px;
   flex-shrink: 0;
 }
-
+ 
 .gameplay-item-text {
   font-size: 15px;
   line-height: 1.6;
   color: var(--muted);
 }
-
+ 
 .gameplay-item-text strong {
   color: var(--text);
   font-weight: 600;
 }
-
+ 
 /* FUNDING BADGE */
 .funding {
   background: var(--surface);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-
+ 
 .funding-inner {
   max-width: 1100px;
   margin: 0 auto;
@@ -447,7 +447,7 @@ section {
   align-items: center;
   gap: 40px;
 }
-
+ 
 .funding-badge {
   display: inline-flex;
   align-items: center;
@@ -458,19 +458,19 @@ section {
   padding: 10px 18px;
   flex-shrink: 0;
 }
-
+ 
 .funding-badge-dot {
   width: 7px; height: 7px;
   border-radius: 50%;
   background: var(--green);
   animation: blink 2s ease-in-out infinite;
 }
-
+ 
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
 }
-
+ 
 .funding-badge-text {
   font-size: 11px;
   font-weight: 700;
@@ -478,15 +478,15 @@ section {
   text-transform: uppercase;
   color: var(--green);
 }
-
+ 
 .funding-text {
   font-size: 15px;
   line-height: 1.6;
   color: var(--muted);
 }
-
+ 
 .funding-text strong { color: var(--text); }
-
+ 
 /* CONTACT */
 .contact-section {
   max-width: 700px;
@@ -494,7 +494,7 @@ section {
   padding: 100px 40px;
   text-align: center;
 }
-
+ 
 .contact-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -504,14 +504,14 @@ section {
   position: relative;
   overflow: hidden;
 }
-
+ 
 .contact-card::before {
   content: '';
   position: absolute;
   top: -1px; left: 25%; right: 25%; height: 1px;
   background: linear-gradient(90deg, transparent, var(--magenta), transparent);
 }
-
+ 
 .contact-email {
   font-size: 22px;
   font-weight: 600;
@@ -523,7 +523,7 @@ section {
   transition: color 0.2s;
 }
 .contact-email:hover { color: var(--magenta); }
-
+ 
 .contact-phone {
   font-size: 15px;
   color: var(--muted);
@@ -531,7 +531,7 @@ section {
   transition: color 0.2s;
 }
 .contact-phone:hover { color: var(--text); }
-
+ 
 /* FOOTER */
 footer {
   padding: 32px 40px;
@@ -542,7 +542,7 @@ footer {
   position: relative;
   z-index: 1;
 }
-
+ 
 .footer-logo {
   font-family: 'Space Mono', 'Courier New', Courier, monospace;
   font-size: 12px;
@@ -550,13 +550,13 @@ footer {
   letter-spacing: 0.08em;
   color: var(--muted);
 }
-
+ 
 .footer-copy {
   font-size: 11px;
   color: rgba(107,107,128,0.5);
   letter-spacing: 0.05em;
 }
-
+ 
 /* REVEAL */
 .reveal {
   opacity: 0;
@@ -567,7 +567,7 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-
+ 
 /* MOBILE */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
@@ -585,7 +585,7 @@ footer {
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
@@ -596,33 +596,34 @@ footer {
     <li><a href="#features">Features</a></li>
     <li><a href="#gameplay">Gameplay</a></li>
     <li><a href="#contact">Kontakt</a></li>
+    <li><a href="#impressum">Impressum</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Kontakt</a>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
-
+ 
   <div style="margin-bottom:32px;opacity:0;animation:fade-up 0.8s ease 0.1s forwards;">
     <img src="images/logo.png" alt="Politics AI" style="max-width:320px;width:80vw;filter:drop-shadow(0 0 30px rgba(218,41,207,0.35));animation:logo-pulse 5s ease-in-out infinite;" onerror="this.style.display='none'">
   </div>
-
+ 
   <p class="hero-eyebrow">Dulidan Studios — Öhringen</p>
-
+ 
   <h1 class="hero-title">
     Politics<br><span class="grad">AI</span>
   </h1>
-
+ 
   <p class="hero-sub">
     Der erste KI-basierte Geopolitik-Simulator. Du spielst Deutschland — und entscheidest über Krieg, Frieden, Wirtschaft und Bündnisse in einer sich verändernden Welt.
   </p>
-
+ 
   <div class="hero-actions">
     <a href="#features" class="btn-primary">Features entdecken</a>
     <a href="#contact" class="btn-secondary">Playtester werden</a>
   </div>
-
+ 
   <div class="hero-stats">
     <div class="stat-item">
       <div class="stat-number">70+</div>
@@ -638,7 +639,7 @@ footer {
     </div>
   </div>
 </section>
-
+ 
 <!-- FUNDING -->
 <div class="funding reveal">
   <div class="funding-inner">
@@ -652,14 +653,14 @@ footer {
     </p>
   </div>
 </div>
-
+ 
 <!-- FEATURES -->
 <section id="features" class="features">
   <div class="section-inner">
     <p class="section-label reveal">Was dich erwartet</p>
     <h2 class="section-title reveal">Echte Diplomatie.<br>Echte Konsequenzen.</h2>
     <p class="section-body reveal">Keine vorgefertigten Entscheidungen. Du schreibst frei — die KI verarbeitet es und die Welt reagiert realistisch.</p>
-
+ 
     <div class="features-grid reveal">
       <div class="feature-card">
         <div class="feature-icon">🌍</div>
@@ -694,13 +695,13 @@ footer {
     </div>
   </div>
 </section>
-
+ 
 <!-- GAMEPLAY -->
 <section id="gameplay">
   <div class="gameplay">
     <p class="section-label reveal">Wie es sich anfühlt</p>
     <h2 class="section-title reveal">Jede Entscheidung zählt.</h2>
-
+ 
     <div class="gameplay-split">
       <div class="gameplay-visual reveal">
         <div class="log-line"><span class="log-round">R3</span><span class="log-text">🇺🇦 Ukraine: "Wir brauchen Taurus-Lieferungen — sofort."</span></div>
@@ -711,7 +712,7 @@ footer {
         <div class="log-line"><span class="log-round" style="color:#e24b4a;">→</span><span class="log-text log-crisis">Russland −15 · Spannung +6</span></div>
         <div class="log-line" style="margin-top:8px;"><span class="log-round log-warning">⚠</span><span class="log-text log-warning">ULTIMATUM von 🇷🇺 Russland: "Stopp der Lieferungen oder wir schließen Nord Stream 3."</span></div>
       </div>
-
+ 
       <ul class="gameplay-list reveal">
         <li class="gameplay-item">
           <div class="gameplay-item-dot"></div>
@@ -733,30 +734,95 @@ footer {
     </div>
   </div>
 </section>
-
+ 
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-section">
     <p class="section-label reveal">Dulidan Studios</p>
     <h2 class="section-title reveal">Interesse?</h2>
     <p class="section-body reveal" style="margin:0 auto 0;">Playtester gesucht. Pressekontakt. Oder einfach neugierig — meld dich.</p>
-
+ 
     <div class="contact-card reveal">
       <a href="mailto:shaquille1106@gmail.com" class="contact-email">shaquille1106@gmail.com</a>
       <a href="tel:+4915207049499" class="contact-phone">+49 152 07049499</a>
     </div>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
+ 
+<!-- IMPRESSUM -->
+<section id="impressum" style="border-top:1px solid var(--border);">
+  <div style="max-width:700px;margin:0 auto;padding:80px 40px;">
+    <p class="section-label reveal">Rechtliches</p>
+    <h2 class="section-title reveal">Impressum</h2>
+ 
+    <div style="margin-top:40px;display:flex;flex-direction:column;gap:32px;">
+ 
+      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Angaben gemäß §5 TMG</p>
+        <p style="font-size:15px;line-height:2;color:var(--text);">
+          <strong>Shaquille Abid El Moussaoui</strong><br>
+          Dulidan Studios<br>
+          Theodor-Fontane-Weg 11<br>
+          74613 Öhringen<br>
+          Deutschland
+        </p>
+      </div>
+ 
+      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Kontakt</p>
+        <p style="font-size:15px;line-height:2;color:var(--text);">
+          Telefon: <a href="tel:+4915207049499" style="color:var(--text);text-decoration:none;">+49 152 07049499</a><br>
+          E-Mail: <a href="mailto:shaquille1106@gmail.com" style="color:var(--text);text-decoration:none;">shaquille1106@gmail.com</a>
+        </p>
+      </div>
+ 
+      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Kleinunternehmerregelung</p>
+        <p style="font-size:14px;line-height:1.75;color:var(--muted);">
+          Gemäß §19 UStG wird keine Umsatzsteuer berechnet und ausgewiesen.
+        </p>
+      </div>
+ 
+      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Verantwortlich für den Inhalt gemäß §55 Abs. 2 RStV</p>
+        <p style="font-size:15px;line-height:2;color:var(--text);">
+          Shaquille Abid El Moussaoui<br>
+          Theodor-Fontane-Weg 11<br>
+          74613 Öhringen
+        </p>
+      </div>
+ 
+      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Haftung für Inhalte</p>
+        <p style="font-size:14px;line-height:1.75;color:var(--muted);">
+          Als Diensteanbieter sind wir gemäß §7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+        </p>
+      </div>
+ 
+      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Urheberrecht</p>
+        <p style="font-size:14px;line-height:1.75;color:var(--muted);">
+          Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+        </p>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
 <footer>
   <div class="footer-logo">
     <img src="images/biglogo.png" alt="Dulidan Studios" style="height:28px;opacity:0.4;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
     <span style="display:none;">DULIDAN STUDIOS</span>
   </div>
-  <div class="footer-copy">© 2025 Dulidan Studios · Öhringen, Deutschland</div>
+  <div class="footer-copy">
+    © 2025 Dulidan Studios · Öhringen, Deutschland ·
+    <a href="#impressum" style="color:rgba(107,107,128,0.5);text-decoration:none;">Impressum</a>
+  </div>
 </footer>
-
+ 
 <script>
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
