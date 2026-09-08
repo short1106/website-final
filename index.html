@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Politics AI — Dulidan Studios</title>
+<title>Dulidan Studios — Kreativstudio</title>
 <style>
 :root {
   --bg: #08090d;
@@ -96,6 +96,70 @@ nav {
   border-color: var(--magenta);
 }
 
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed;
+  top: 60px; left: 0; right: 0;
+  background: rgba(8,9,13,0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  gap: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  z-index: 99;
+}
+.mobile-menu.open {
+  max-height: 420px;
+  opacity: 1;
+  padding: 8px 20px 20px;
+}
+.mobile-menu a {
+  padding: 14px 4px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+.mobile-menu a:last-child {
+  border-bottom: none;
+  text-align: center;
+  margin-top: 10px;
+  color: var(--magenta);
+  font-weight: 700;
+}
+
 .hero {
   position: relative;
   min-height: 100vh;
@@ -137,9 +201,9 @@ nav {
 }
 
 .hero-title {
-  font-size: clamp(48px, 8vw, 96px);
+  font-size: clamp(40px, 7vw, 80px);
   font-weight: 700;
-  line-height: 0.95;
+  line-height: 1.05;
   letter-spacing: -0.03em;
   margin-bottom: 28px;
   opacity: 0;
@@ -157,7 +221,7 @@ nav {
   font-size: 16px;
   line-height: 1.7;
   color: var(--muted);
-  max-width: 520px;
+  max-width: 540px;
   margin-bottom: 48px;
   opacity: 0;
   animation: fade-up 0.8s ease 0.6s forwards;
@@ -210,37 +274,6 @@ nav {
   background: rgba(255,255,255,0.03);
 }
 
-.hero-stats {
-  display: flex;
-  gap: 48px;
-  margin-top: 72px;
-  padding-top: 48px;
-  border-top: 1px solid var(--border);
-  opacity: 0;
-  animation: fade-up 0.8s ease 1s forwards;
-}
-
-.stat-item { text-align: center; }
-
-.stat-number {
-  font-family: 'Space Mono', 'Courier New', Courier, monospace;
-  font-size: 32px;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--purple), var(--magenta));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.stat-label {
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
@@ -283,13 +316,13 @@ section { position: relative; z-index: 1; }
   max-width: 580px;
 }
 
-.features {
+.services {
   background: var(--surface);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 
-.features-grid {
+.services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
@@ -300,14 +333,14 @@ section { position: relative; z-index: 1; }
   margin-top: 60px;
 }
 
-.feature-card {
+.service-card {
   background: var(--surface);
   padding: 36px 32px;
   transition: background 0.3s;
 }
-.feature-card:hover { background: rgba(218,41,207,0.04); }
+.service-card:hover { background: rgba(218,41,207,0.04); }
 
-.feature-icon {
+.service-icon {
   width: 40px;
   height: 40px;
   border-radius: 10px;
@@ -319,263 +352,22 @@ section { position: relative; z-index: 1; }
   font-size: 18px;
 }
 
-.feature-title {
+.service-title {
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 10px;
   letter-spacing: -0.01em;
 }
 
-.feature-desc {
+.service-desc {
   font-size: 13px;
   line-height: 1.65;
   color: var(--muted);
 }
 
-.gameplay {
-  padding: 100px 40px;
-  max-width: 1100px;
-  margin: 0 auto;
+.services-cta {
+  margin-top: 44px;
 }
-
-.gameplay-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  margin-top: 60px;
-}
-
-.gameplay-visual {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 28px;
-  font-family: 'Space Mono', 'Courier New', Courier, monospace;
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 2;
-  position: relative;
-  overflow: hidden;
-}
-
-.gameplay-visual::before {
-  content: '';
-  position: absolute;
-  top: -1px; left: 20px; right: 20px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--magenta), transparent);
-}
-
-.log-line { display: flex; gap: 12px; }
-.log-round { color: var(--purple); flex-shrink: 0; }
-.log-text { color: var(--text); }
-.log-effect { color: var(--green); margin-left: auto; flex-shrink: 0; }
-.log-warning { color: #ef9f27; }
-.log-crisis { color: #e24b4a; }
-
-.gameplay-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.gameplay-item {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-
-.gameplay-item-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--magenta);
-  margin-top: 7px;
-  flex-shrink: 0;
-}
-
-.gameplay-item-text {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--muted);
-}
-
-.gameplay-item-text strong {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.funding {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.funding-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.funding-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(29,184,122,0.08);
-  border: 1px solid rgba(29,184,122,0.2);
-  border-radius: 8px;
-  padding: 10px 18px;
-  flex-shrink: 0;
-}
-
-.funding-badge-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--green);
-  animation: blink 2s ease-in-out infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
-.funding-badge-text {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--green);
-}
-
-.funding-text {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--muted);
-}
-.funding-text strong { color: var(--text); }
-
-/* PLAYTESTER MODAL */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(8,9,13,0.85);
-  backdrop-filter: blur(8px);
-  z-index: 200;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-.modal-overlay.open { display: flex; }
-
-.modal {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 48px;
-  max-width: 540px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.modal::before {
-  content: '';
-  position: absolute;
-  top: -1px; left: 25%; right: 25%; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--magenta), transparent);
-}
-
-.modal-close {
-  position: absolute;
-  top: 20px; right: 20px;
-  background: none;
-  border: none;
-  color: var(--muted);
-  font-size: 20px;
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 6px;
-  transition: color 0.2s;
-}
-.modal-close:hover { color: var(--text); }
-
-.modal-title {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
-}
-
-.modal-sub {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 32px;
-  line-height: 1.6;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-label {
-  display: block;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.form-input, .form-select {
-  width: 100%;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 16px;
-  color: var(--text);
-  font-size: 14px;
-  font-family: inherit;
-  transition: border-color 0.2s;
-  outline: none;
-}
-.form-input:focus, .form-select:focus {
-  border-color: rgba(218,41,207,0.4);
-}
-.form-select option { background: var(--surface); }
-
-.form-submit {
-  width: 100%;
-  padding: 14px;
-  background: linear-gradient(135deg, var(--purple), var(--magenta));
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
-  margin-top: 8px;
-}
-.form-submit:hover { opacity: 0.9; transform: translateY(-1px); }
-.form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
-
-.form-success {
-  display: none;
-  text-align: center;
-  padding: 20px 0;
-}
-.form-success-icon { font-size: 48px; margin-bottom: 16px; }
-.form-success-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-.form-success-text { font-size: 14px; color: var(--muted); }
 
 /* CONTACT */
 .contact-section {
@@ -622,6 +414,19 @@ section { position: relative; z-index: 1; }
 }
 .contact-phone:hover { color: var(--text); }
 
+.legal-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.legal-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+}
+
 footer {
   padding: 32px 40px;
   border-top: 1px solid var(--border);
@@ -659,88 +464,27 @@ footer {
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
   .nav-links { display: none; }
+  nav > .nav-cta { display: none; }
+  .nav-toggle { display: flex; }
+  .hero-eyebrow, .section-label { font-size: 11px; letter-spacing: 0.18em; }
   .section-inner { padding: 70px 20px; }
-  .features-grid { grid-template-columns: 1fr; }
-  .gameplay-split { grid-template-columns: 1fr; gap: 40px; }
-  .gameplay { padding: 70px 20px; }
-  .funding-inner { flex-direction: column; gap: 20px; padding: 48px 20px; }
+  .services-grid { grid-template-columns: 1fr; }
   .contact-section { padding: 70px 20px; }
   .contact-card { padding: 32px 24px; }
+  .legal-section { padding: 60px 20px; }
+  .legal-card { padding: 24px 20px; }
   footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
-  .hero-stats { gap: 28px; }
-  .modal { padding: 32px 24px; }
+  /* Scroll-Fade-In auf Mobile abschwächen: Inhalte sind sofort sichtbar statt erst beim Scrollen */
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 380px) {
+  .hero-actions { flex-direction: column; width: 100%; }
+  .hero-actions .btn-primary, .hero-actions .btn-secondary { text-align: center; }
 }
 </style>
 </head>
 <body>
-
-<!-- MODAL PLAYTESTING -->
-<div class="modal-overlay" id="playtestModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div id="formContent">
-      <p class="section-label" style="margin-bottom:12px;">Playtester werden</p>
-      <h2 class="modal-title">Jetzt anmelden</h2>
-      <p class="modal-sub">Hilf uns Politics AI besser zu machen. Wir melden uns bei dir sobald die Beta verfügbar ist.</p>
-
-      <div class="form-group">
-        <label class="form-label">Name *</label>
-        <input type="text" class="form-input" id="pt-name" placeholder="Dein Name" required>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">E-Mail *</label>
-        <input type="email" class="form-input" id="pt-email" placeholder="deine@email.com" required>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Woher kommst du?</label>
-        <select class="form-select" id="pt-country">
-          <option value="">Bitte auswählen</option>
-          <option>Deutschland</option>
-          <option>Österreich</option>
-          <option>Schweiz</option>
-          <option>Anderes EU-Land</option>
-          <option>Außerhalb EU</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Was machst du?</label>
-        <select class="form-select" id="pt-role">
-          <option value="">Bitte auswählen</option>
-          <option>Schüler / Student</option>
-          <option>Lehrer / Dozent</option>
-          <option>Journalist / Medien</option>
-          <option>Politikinteressierter</option>
-          <option>Spieleentwickler</option>
-          <option>Sonstiges</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Wie bist du auf Politics AI gestoßen?</label>
-        <select class="form-select" id="pt-source">
-          <option value="">Bitte auswählen</option>
-          <option>Social Media</option>
-          <option>Freunde / Bekannte</option>
-          <option>LinkedIn</option>
-          <option>Discord</option>
-          <option>Presse / Artikel</option>
-          <option>Sonstiges</option>
-        </select>
-      </div>
-
-      <button class="form-submit" id="submitBtn" onclick="submitForm()">Anmeldung absenden</button>
-    </div>
-
-    <div class="form-success" id="formSuccess">
-      <div class="form-success-icon">✅</div>
-      <div class="form-success-title">Anmeldung erhalten!</div>
-      <div class="form-success-text">Wir melden uns sobald die Beta startet. Danke für dein Interesse an Politics AI.</div>
-    </div>
-  </div>
-</div>
 
 <!-- NAV -->
 <nav>
@@ -749,131 +493,76 @@ footer {
     <span style="display:none;">DULIDAN<span style="background:linear-gradient(135deg,#8122b5,#da29cf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">.</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#features">Features</a></li>
-    <li><a href="#gameplay">Gameplay</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#contact">Kontakt</a></li>
     <li><a href="#impressum">Impressum</a></li>
     <li><a href="#datenschutz">Datenschutz</a></li>
   </ul>
-  <a href="#" class="nav-cta" onclick="openModal(); return false;">Playtester werden</a>
+  <a href="mailto:info@dulidan-studios.com" class="nav-cta">Anfrage stellen</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Services</a>
+  <a href="#contact">Kontakt</a>
+  <a href="#impressum">Impressum</a>
+  <a href="#datenschutz">Datenschutz</a>
+  <a href="mailto:info@dulidan-studios.com">Anfrage stellen</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
-  <div style="margin-bottom:32px;opacity:0;animation:fade-up 0.8s ease 0.1s forwards;">
-    <img src="images/logo.png" alt="Politics AI" style="max-width:320px;width:80vw;filter:drop-shadow(0 0 30px rgba(218,41,207,0.35));animation:logo-pulse 5s ease-in-out infinite;" onerror="this.style.display='none'">
-  </div>
-  <p class="hero-eyebrow">Dulidan Studios — Öhringen</p>
-  <h1 class="hero-title">Politics<br><span class="grad">AI</span></h1>
-  <p class="hero-sub">Der erste KI-basierte Geopolitik-Simulator. Du spielst Deutschland und entscheidest über Krieg, Frieden, Wirtschaft und Bündnisse in einer sich verändernden Welt.</p>
+  <p class="hero-eyebrow">Kreativstudio — Öhringen</p>
+  <h1 class="hero-title">Deine Idee.<br><span class="grad">Unsere Umsetzung.</span></h1>
+  <p class="hero-sub">Dulidan Studios ist ein Kreativstudio für Webdesign, Grafikdesign, 3D-Modellierung, Branding und Print — alles auf Kommission, ganz nach dem was du brauchst.</p>
   <div class="hero-actions">
-    <a href="#features" class="btn-primary">Features entdecken</a>
-    <a href="#" class="btn-secondary" onclick="openModal(); return false;">Playtester werden</a>
-  </div>
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-number">70+</div>
-      <div class="stat-label">Länder</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">8</div>
-      <div class="stat-label">Aktive Konflikte</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-number">∞</div>
-      <div class="stat-label">Szenarien</div>
-    </div>
+    <a href="#services" class="btn-primary">Leistungen entdecken</a>
+    <a href="mailto:info@dulidan-studios.com" class="btn-secondary">Anfrage stellen</a>
   </div>
 </section>
 
-<!-- FUNDING -->
-<div class="funding reveal">
-  <div class="funding-inner">
-    <div class="funding-badge">
-      <div class="funding-badge-dot"></div>
-      <span class="funding-badge-text">Staatlich gefördert</span>
-    </div>
-    <p class="funding-text">
-      Politics AI hat Intresse an <strong>MFG Baden-Württemberg / Games BW</strong> gezeigt, um eines der ersten staatlich geförderten KI-gestützten Serious-Game-Projekte aus Baden-Württembergs zu sein.
-    </p>
-  </div>
-</div>
-
-<!-- FEATURES -->
-<section id="features" class="features">
+<!-- SERVICES -->
+<section id="services" class="services">
   <div class="section-inner">
-    <p class="section-label reveal">Was dich erwartet</p>
-    <h2 class="section-title reveal">Echte Diplomatie.<br>Echte Konsequenzen.</h2>
-    <p class="section-body reveal">Keine vorgefertigten Entscheidungen. Du schreibst frei — die KI verarbeitet es und die Welt reagiert realistisch.</p>
-    <div class="features-grid reveal">
-      <div class="feature-card">
-        <div class="feature-icon">🌍</div>
-        <div class="feature-title">KI-gesteuerte Länder</div>
-        <div class="feature-desc">Über 70 Länder mit eigenen Agenden, roten Linien und Wirtschaftsdaten — alle reagieren realistisch auf deine Entscheidungen.</div>
+    <p class="section-label reveal">Was wir machen</p>
+    <h2 class="section-title reveal">Dream. Design. Develop. Dominate.</h2>
+    <p class="section-body reveal">Alles auf Kommission. Keine festen Pakete — du sagst was du brauchst, wir machen es.</p>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <div class="service-title">Webdesign</div>
+        <div class="service-desc">Von der Landingpage bis zur kompletten Website.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">🤝</div>
-        <div class="feature-title">Multilaterale Gruppen</div>
-        <div class="feature-desc">Gründe Koalitionen, führe Friedenskonferenzen, starte Abstimmungen. Länder streiten miteinander — auch ohne deinen Input.</div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <div class="service-title">Grafikdesign</div>
+        <div class="service-desc">Logos, Visitenkarten, Poster, Flyer, Social Media.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <div class="feature-title">Realistische Stats</div>
-        <div class="feature-desc">Wirtschaft, Militär, Diplomatie und Bevölkerungszufriedenheit — alle Werte hängen zusammen und kaskadieren realistisch.</div>
+      <div class="service-card">
+        <div class="service-icon">📦</div>
+        <div class="service-title">3D-Modellierung</div>
+        <div class="service-desc">Produktvisualisierungen, Renderings, 3D-Assets.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <div class="feature-title">Aktive Weltkonflikte</div>
-        <div class="feature-desc">Ukraine, Gaza, Taiwan, Iran — 8 laufende Konflikte die du beeinflussen kannst. Oder ignorierst. Beides hat Folgen.</div>
+      <div class="service-card">
+        <div class="service-icon">📣</div>
+        <div class="service-title">Werbecontent</div>
+        <div class="service-desc">Anzeigen, Kampagnenmaterial, digitale Werbung.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">🎯</div>
-        <div class="feature-title">Freie Texteingabe</div>
-        <div class="feature-desc">Kein Klicken durch Menüs. Du schreibst direkt an Länder — auf Deutsch, auf Englisch, diplomatisch oder konfrontativ.</div>
+      <div class="service-card">
+        <div class="service-icon">🏷️</div>
+        <div class="service-title">Branding</div>
+        <div class="service-desc">Komplette Markenidentität, Style Guides.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">🏛️</div>
-        <div class="feature-title">Bestehende Orgs</div>
-        <div class="feature-desc">NATO, EU, G7, BRICS — alle als aktive Gruppen spielbar. Nutze deinen Einfluss oder verliere ihn an andere Mächte.</div>
+      <div class="service-card">
+        <div class="service-icon">🖨️</div>
+        <div class="service-title">Print &amp; Digital</div>
+        <div class="service-desc">Von Visitenkarten bis großformatige Drucksachen.</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- GAMEPLAY -->
-<section id="gameplay">
-  <div class="gameplay">
-    <p class="section-label reveal">Wie es sich anfühlt</p>
-    <h2 class="section-title reveal">Jede Entscheidung zählt.</h2>
-    <div class="gameplay-split">
-      <div class="gameplay-visual reveal">
-        <div class="log-line"><span class="log-round">R3</span><span class="log-text">🇺🇦 Ukraine: "Wir brauchen Taurus-Lieferungen — sofort."</span></div>
-        <div class="log-line"><span class="log-round">R3</span><span class="log-text">🇷🇺 Russland ↳ antwortet auf Ukraine: "Jede deutsche Waffenlieferung ist eine Kriegserklärung."</span></div>
-        <div class="log-line"><span class="log-round">R3</span><span class="log-text" style="color:#8b8b9a;font-style:italic;">— Russland verlässt empört den Raum</span></div>
-        <div class="log-line" style="margin-top:8px;"><span class="log-round">R3</span><span class="log-text">🇩🇪 Deutschland: "Wir liefern 50 Taurus — und fordern Waffenstillstandsgespräche."</span></div>
-        <div class="log-line"><span class="log-round" style="color:var(--green);">→</span><span class="log-text log-effect">Militär +8 · Ukraine +12</span></div>
-        <div class="log-line"><span class="log-round" style="color:#e24b4a;">→</span><span class="log-text log-crisis">Russland −15 · Spannung +6</span></div>
-        <div class="log-line" style="margin-top:8px;"><span class="log-round log-warning">⚠</span><span class="log-text log-warning">ULTIMATUM von 🇷🇺 Russland: "Stopp der Lieferungen oder wir schließen Nord Stream 3."</span></div>
-      </div>
-      <ul class="gameplay-list reveal">
-        <li class="gameplay-item">
-          <div class="gameplay-item-dot"></div>
-          <div class="gameplay-item-text"><strong>Schreib frei.</strong> Kein Klickmenü — du formulierst deine Diplomatie selbst, auf Deutsch oder Englisch.</div>
-        </li>
-        <li class="gameplay-item">
-          <div class="gameplay-item-dot"></div>
-          <div class="gameplay-item-text"><strong>Die KI antwortet realistisch.</strong> Länder haben Agenden, rote Linien, Emotionen — und eskalieren wenn du sie provozierst.</div>
-        </li>
-        <li class="gameplay-item">
-          <div class="gameplay-item-dot"></div>
-          <div class="gameplay-item-text"><strong>Konsequenzen kaskadieren.</strong> Eine Waffenlieferung stärkt die Ukraine, irritiert Russland, nervt deine Bevölkerung — alles gleichzeitig.</div>
-        </li>
-        <li class="gameplay-item">
-          <div class="gameplay-item-dot"></div>
-          <div class="gameplay-item-text"><strong>Dramatik passiert selten, aber echt.</strong> Ein Austritt aus der NATO-Gruppe, ein Veto, ein Geheimabkommen — wenn es passiert, fühlt es sich verdient an.</div>
-        </li>
-      </ul>
+    <div class="services-cta reveal">
+      <a href="mailto:info@dulidan-studios.com" class="btn-primary">Anfrage stellen</a>
     </div>
   </div>
 </section>
@@ -883,12 +572,12 @@ footer {
   <div class="contact-section">
     <p class="section-label reveal">Dulidan Studios</p>
     <h2 class="section-title reveal">Interesse?</h2>
-    <p class="section-body reveal" style="margin:0 auto 0;">Playtester gesucht. Pressekontakt. Oder einfach neugierig — meld dich.</p>
+    <p class="section-body reveal" style="margin:0 auto 0;">Projektanfrage, Presse, oder einfach neugierig — meld dich.</p>
     <div class="contact-card reveal">
       <a href="mailto:info@dulidan-studios.com" class="contact-email">info@dulidan-studios.com</a>
       <a href="tel:+4915207049499" class="contact-phone">+49 152 07049499</a>
       <div style="margin-top:24px;">
-        <a href="#" class="btn-primary" onclick="openModal(); return false;">Playtester werden</a>
+        <a href="mailto:info@dulidan-studios.com" class="btn-primary">Anfrage stellen</a>
       </div>
     </div>
   </div>
@@ -896,11 +585,11 @@ footer {
 
 <!-- IMPRESSUM -->
 <section id="impressum" style="border-top:1px solid var(--border);">
-  <div style="max-width:700px;margin:0 auto;padding:80px 40px;">
+  <div class="legal-section">
     <p class="section-label reveal">Rechtliches</p>
     <h2 class="section-title reveal">Impressum</h2>
     <div style="margin-top:40px;display:flex;flex-direction:column;gap:32px;">
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div class="reveal legal-card">
         <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Angaben gemäß §5 TMG</p>
         <p style="font-size:15px;line-height:2;color:var(--text);">
           <strong>Shaquille Abid El Moussaoui</strong><br>
@@ -910,18 +599,19 @@ footer {
           Deutschland
         </p>
       </div>
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div class="reveal legal-card">
         <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Kontakt</p>
         <p style="font-size:15px;line-height:2;color:var(--text);">
           Telefon: <a href="tel:+4915207049499" style="color:var(--text);text-decoration:none;">+49 152 07049499</a><br>
           E-Mail: <a href="mailto:info@dulidan-studios.com" style="color:var(--text);text-decoration:none;">info@dulidan-studios.com</a>
         </p>
       </div>
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div class="reveal legal-card">
         <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Kleinunternehmerregelung</p>
         <p style="font-size:14px;line-height:1.75;color:var(--muted);">Gemäß §19 UStG wird keine Umsatzsteuer berechnet und ausgewiesen.</p>
+        <p style="font-size:14px;line-height:1.75;color:var(--muted);margin-top:12px;">Steuernummer: 76226/08735</p>
       </div>
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div class="reveal legal-card">
         <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Verantwortlich für den Inhalt gemäß §55 Abs. 2 RStV</p>
         <p style="font-size:15px;line-height:2;color:var(--text);">
           Shaquille Abid El Moussaoui<br>
@@ -929,11 +619,11 @@ footer {
           74613 Öhringen
         </p>
       </div>
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div class="reveal legal-card">
         <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Haftung für Inhalte</p>
         <p style="font-size:14px;line-height:1.75;color:var(--muted);">Als Diensteanbieter sind wir gemäß §7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
       </div>
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div class="reveal legal-card">
         <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Urheberrecht</p>
         <p style="font-size:14px;line-height:1.75;color:var(--muted);">Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
       </div>
@@ -943,11 +633,11 @@ footer {
 
 <!-- DATENSCHUTZ -->
 <section id="datenschutz" style="border-top:1px solid var(--border);">
-  <div style="max-width:700px;margin:0 auto;padding:80px 40px;">
+  <div class="legal-section">
     <p class="section-label reveal">Rechtliches</p>
     <h2 class="section-title reveal">Datenschutzerklärung</h2>
     <div style="margin-top:40px;display:flex;flex-direction:column;gap:32px;">
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div class="reveal legal-card">
         <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">1. Verantwortlicher</p>
         <p style="font-size:14px;line-height:1.75;color:var(--muted);">Verantwortlich im Sinne der DSGVO ist:<br><br>
         <span style="color:var(--text);">Shaquille Abid El Moussaoui<br>
@@ -956,24 +646,24 @@ footer {
         74613 Öhringen<br>
         E-Mail: info@dulidan-studios.com</span></p>
       </div>
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div class="reveal legal-card">
         <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">2. Erhobene Daten</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Beim Ausfüllen des Playtester-Anmeldeformulars erheben wir folgende Daten: Name, E-Mail-Adresse, Herkunftsland, Berufsbezeichnung und Angabe wie du auf uns aufmerksam geworden bist. Diese Daten werden ausschließlich zur Kontaktaufnahme im Rahmen des Playtesting-Programms verwendet.</p>
+        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Diese Website erhebt selbst keine personenbezogenen Daten über ein Formular. Die Kontaktaufnahme erfolgt ausschließlich über die bereitgestellten E-Mail- und Telefon-Links — dabei übermittelte Daten (z. B. Name und E-Mail-Adresse) werden nur zur Bearbeitung deiner Anfrage verwendet.</p>
       </div>
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div class="reveal legal-card">
         <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">3. Zweck der Datenverarbeitung</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Die erhobenen Daten werden verwendet um dich über den Start der Beta-Version von Politics AI zu informieren und dich als Playtester zu kontaktieren. Eine Weitergabe an Dritte findet nicht statt.</p>
+        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Über E-Mail oder Telefon übermittelte Daten werden ausschließlich zur Beantwortung und Bearbeitung deiner Anfrage genutzt. Eine Weitergabe an Dritte findet nicht statt.</p>
       </div>
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div class="reveal legal-card">
         <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">4. Rechtsgrundlage</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Die Verarbeitung erfolgt auf Grundlage deiner Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO durch das Absenden des Formulars.</p>
+        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Die Verarbeitung erfolgt auf Grundlage deiner Kontaktaufnahme zur Bearbeitung bzw. Anbahnung eines Auftrags gemäß Art. 6 Abs. 1 lit. b, f DSGVO.</p>
       </div>
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
+      <div class="reveal legal-card">
         <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">5. Deine Rechte</p>
         <p style="font-size:14px;line-height:1.75;color:var(--muted);">Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten. Zur Ausübung dieser Rechte wende dich an: info@dulidan-studios.com</p>
       </div>
-      <div class="reveal" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">6. Hosting & Cookies</p>
+      <div class="reveal legal-card">
+        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">6. Hosting &amp; Cookies</p>
         <p style="font-size:14px;line-height:1.75;color:var(--muted);">Diese Website wird über IONOS SE gehostet. Es werden keine Tracking-Cookies eingesetzt. Die Website erhebt keine automatischen Nutzungsdaten.</p>
       </div>
     </div>
@@ -999,48 +689,19 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Modal
-function openModal() {
-  document.getElementById('playtestModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  document.getElementById('playtestModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('playtestModal').addEventListener('click', function(e) {
-  if(e.target === this) closeModal();
+// Mobile menu toggle
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+navToggle.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 });
-
-// Form submit — sendet Mail über mailto (einfachste Lösung ohne Backend)
-function submitForm() {
-  const name = document.getElementById('pt-name').value.trim();
-  const email = document.getElementById('pt-email').value.trim();
-  const country = document.getElementById('pt-country').value;
-  const role = document.getElementById('pt-role').value;
-  const source = document.getElementById('pt-source').value;
-
-  if(!name || !email) {
-    alert('Bitte fülle Name und E-Mail aus.');
-    return;
-  }
-
-  const subject = encodeURIComponent('Neuer Playtester: ' + name);
-  const body = encodeURIComponent(
-    'Name: ' + name + '\n' +
-    'E-Mail: ' + email + '\n' +
-    'Herkunft: ' + (country || 'Keine Angabe') + '\n' +
-    'Beruf: ' + (role || 'Keine Angabe') + '\n' +
-    'Gefunden über: ' + (source || 'Keine Angabe')
-  );
-
-  window.location.href = 'mailto:info@dulidan-studios.com?subject=' + subject + '&body=' + body;
-
-  document.getElementById('formContent').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-}
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
 </script>
 </body>
 </html>
