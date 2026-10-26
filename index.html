@@ -2,706 +2,604 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dulidan Studios — Kreativstudio</title>
-<style>
-:root {
-  --bg: #08090d;
-  --surface: #0f1118;
-  --border: rgba(255,255,255,0.06);
-  --purple: #8122b5;
-  --magenta: #da29cf;
-  --text: #e8e8f0;
-  --muted: #6b6b80;
-  --green: #1db87a;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(129,34,181,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(129,34,181,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 0 40px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(8,9,13,0.8);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-logo {
-  font-family: 'Space Mono', 'Courier New', Courier, monospace;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--text);
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--text); }
-
-.nav-cta {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 9px 20px;
-  border-radius: 6px;
-  border: 1px solid rgba(218,41,207,0.4);
-  color: var(--magenta);
-  text-decoration: none;
-  transition: all 0.2s;
-  background: rgba(218,41,207,0.05);
-}
-.nav-cta:hover {
-  background: rgba(218,41,207,0.12);
-  border-color: var(--magenta);
-}
-
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 32px;
-  height: 32px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  -webkit-tap-highlight-color: transparent;
-}
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
-.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-.mobile-menu {
-  position: fixed;
-  top: 60px; left: 0; right: 0;
-  background: rgba(8,9,13,0.97);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  padding: 0 20px;
-  gap: 0;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
-  z-index: 99;
-}
-.mobile-menu.open {
-  max-height: 420px;
-  opacity: 1;
-  padding: 8px 20px 20px;
-}
-.mobile-menu a {
-  padding: 14px 4px;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  border-bottom: 1px solid var(--border);
-}
-.mobile-menu a:last-child {
-  border-bottom: none;
-  text-align: center;
-  margin-top: 10px;
-  color: var(--magenta);
-  font-weight: 700;
-}
-
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 80px 24px 60px;
-  z-index: 1;
-}
-
-.hero-glow {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(218,41,207,0.12) 0%, rgba(129,34,181,0.06) 40%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: glow-pulse 6s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.7; transform: translate(-50%,-50%) scale(1); }
-  50% { opacity: 1; transform: translate(-50%,-50%) scale(1.08); }
-}
-
-.hero-eyebrow {
-  font-family: 'Space Mono', 'Courier New', Courier, monospace;
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--magenta);
-  margin-bottom: 28px;
-  opacity: 0;
-  animation: fade-up 0.8s ease 0.2s forwards;
-}
-
-.hero-title {
-  font-size: clamp(40px, 7vw, 80px);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 28px;
-  opacity: 0;
-  animation: fade-up 0.8s ease 0.4s forwards;
-}
-
-.hero-title .grad {
-  background: linear-gradient(135deg, var(--purple) 0%, var(--magenta) 60%, #ff6ef7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-sub {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--muted);
-  max-width: 540px;
-  margin-bottom: 48px;
-  opacity: 0;
-  animation: fade-up 0.8s ease 0.6s forwards;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: center;
-  opacity: 0;
-  animation: fade-up 0.8s ease 0.8s forwards;
-}
-
-.btn-primary {
-  display: inline-block;
-  padding: 14px 32px;
-  background: linear-gradient(135deg, var(--purple), var(--magenta));
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0 30px rgba(218,41,207,0.25);
-}
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 40px rgba(218,41,207,0.4);
-}
-
-.btn-secondary {
-  display: inline-block;
-  padding: 14px 32px;
-  background: transparent;
-  color: var(--text);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  text-decoration: none;
-  transition: border-color 0.2s, background 0.2s;
-}
-.btn-secondary:hover {
-  border-color: rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.03);
-}
-
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes logo-pulse {
-  0%, 100% { filter: drop-shadow(0 0 12px rgba(218,41,207,0.25)); }
-  50% { filter: drop-shadow(0 0 28px rgba(218,41,207,0.5)) drop-shadow(0 0 50px rgba(129,34,181,0.3)); }
-}
-
-section { position: relative; z-index: 1; }
-
-.section-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 100px 40px;
-}
-
-.section-label {
-  font-family: 'Space Mono', 'Courier New', Courier, monospace;
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--magenta);
-  margin-bottom: 16px;
-}
-
-.section-title {
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-
-.section-body {
-  font-size: 16px;
-  line-height: 1.75;
-  color: var(--muted);
-  max-width: 580px;
-}
-
-.services {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-top: 60px;
-}
-
-.service-card {
-  background: var(--surface);
-  padding: 36px 32px;
-  transition: background 0.3s;
-}
-.service-card:hover { background: rgba(218,41,207,0.04); }
-
-.service-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(129,34,181,0.2), rgba(218,41,207,0.2));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  font-size: 18px;
-}
-
-.service-title {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  letter-spacing: -0.01em;
-}
-
-.service-desc {
-  font-size: 13px;
-  line-height: 1.65;
-  color: var(--muted);
-}
-
-.services-cta {
-  margin-top: 44px;
-}
-
-/* CONTACT */
-.contact-section {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 100px 40px;
-  text-align: center;
-}
-
-.contact-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 48px;
-  margin-top: 48px;
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-card::before {
-  content: '';
-  position: absolute;
-  top: -1px; left: 25%; right: 25%; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--magenta), transparent);
-}
-
-.contact-email {
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--text);
-  text-decoration: none;
-  letter-spacing: -0.01em;
-  display: block;
-  margin-bottom: 10px;
-  transition: color 0.2s;
-}
-.contact-email:hover { color: var(--magenta); }
-
-.contact-phone {
-  font-size: 15px;
-  color: var(--muted);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.contact-phone:hover { color: var(--text); }
-
-.legal-section {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 80px 40px;
-}
-
-.legal-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 32px;
-}
-
-footer {
-  padding: 32px 40px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-}
-
-.footer-logo {
-  font-family: 'Space Mono', 'Courier New', Courier, monospace;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-}
-
-.footer-copy {
-  font-size: 11px;
-  color: rgba(107,107,128,0.5);
-  letter-spacing: 0.05em;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  nav > .nav-cta { display: none; }
-  .nav-toggle { display: flex; }
-  .hero-eyebrow, .section-label { font-size: 11px; letter-spacing: 0.18em; }
-  .section-inner { padding: 70px 20px; }
-  .services-grid { grid-template-columns: 1fr; }
-  .contact-section { padding: 70px 20px; }
-  .contact-card { padding: 32px 24px; }
-  .legal-section { padding: 60px 20px; }
-  .legal-card { padding: 24px 20px; }
-  footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
-  /* Scroll-Fade-In auf Mobile abschwächen: Inhalte sind sofort sichtbar statt erst beim Scrollen */
-  .reveal { opacity: 1; transform: none; transition: none; }
-}
-
-@media (max-width: 380px) {
-  .hero-actions { flex-direction: column; width: 100%; }
-  .hero-actions .btn-primary, .hero-actions .btn-secondary { text-align: center; }
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dulidan Studios · Webdesign, 3D & Content aus Öhringen</title>
+<meta name="description" content="Dulidan Studios ist das Kreativstudio von Shaquille aus Öhringen: Webdesign, Werbe-Content, 3D-Modeling und Logo-Erneuerung. Mit Herz aus Duisburg.">
+<meta name="theme-color" content="#07060b">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://dulidan-studios.com/">
+<link rel="alternate" hreflang="de" href="https://dulidan-studios.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dulidan Studios">
+<meta property="og:title" content="Dulidan Studios · Design, das hochfährt.">
+<meta property="og:description" content="Webdesign, Werbe-Content, 3D und Logos. Kreativstudio aus Öhringen, mit Herz aus Duisburg.">
+<meta property="og:url" content="https://dulidan-studios.com/">
+<meta property="og:image" content="https://dulidan-studios.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css">
+<noscript><style>.rv,.rv-mask{opacity:1!important;transform:none!important;clip-path:none!important}.hero-title .l span{transform:none!important}</style></noscript>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Dulidan Studios","url":"https://dulidan-studios.com/","logo":"https://dulidan-studios.com/assets/img/icon-192.png","email":"info@dulidan-studios.com","foundingDate":"2026-06-11","founder":{"@type":"Person","name":"Shaquille Abid El Moussaoui"},"address":{"@type":"PostalAddress","streetAddress":"Theodor-Fontane-Weg 11","postalCode":"74613","addressLocality":"Öhringen","addressRegion":"Baden-Württemberg","addressCountry":"DE"},"sameAs":["https://github.com/short1106"]}
+</script>
+<script>try{if(localStorage.getItem("dd_lang")==="en")document.documentElement.lang="en";if(!localStorage.getItem("dd_booted")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("booting")}catch(e){}</script>
+<script src="/assets/js/main.js" defer></script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- TODO: April-Illustration durch finale Grafik ersetzen (Platzhalter-Vektor) -->
+    <symbol id="april" viewBox="0 0 100 100">
+      <path fill="#ff7ae6" d="M24 38C6 44 2 70 10 92c6-6 12-26 20-38z"/>
+      <path fill="#ff7ae6" d="M76 38c18 6 22 32 14 54-6-6-12-26-20-38z"/>
+      <circle cx="25" cy="37" r="4.5" fill="#8122b5"/><circle cx="75" cy="37" r="4.5" fill="#8122b5"/>
+      <circle cx="50" cy="46" r="27" fill="#ff7ae6"/>
+      <path fill="#2a1736" d="M22 100c2-16 13-24 28-24s26 8 28 24z"/>
+      <path fill="#8122b5" d="M24 100c2-14 12-21 26-21s24 7 26 21z"/>
+      <path fill="#c020b8" d="M42 79l8 9 8-9-8 3z"/>
+      <path fill="#fff" opacity=".9" d="M62 88h7v7h-7z"/>
+      <ellipse cx="50" cy="54" rx="21" ry="20" fill="#ffe6f2"/>
+      <path fill="#ff7ae6" d="M28 50c0-16 10-25 22-25s22 9 22 25c-6-6-10-12-12-16-4 6-14 10-22 10-4 2-8 4-10 6z"/>
+      <ellipse cx="42" cy="56" rx="3.6" ry="4.6" fill="#5b1782"/><ellipse cx="58" cy="56" rx="3.6" ry="4.6" fill="#5b1782"/>
+      <circle cx="43.2" cy="54.4" r="1.3" fill="#fff"/><circle cx="59.2" cy="54.4" r="1.3" fill="#fff"/>
+      <path d="M46 65q4 3 8 0" stroke="#c0407a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <ellipse cx="36" cy="63" rx="3.5" ry="2" fill="#ff9fd0" opacity=".7"/><ellipse cx="64" cy="63" rx="3.5" ry="2" fill="#ff9fd0" opacity=".7"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 16 16"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  </defs>
+</svg>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">
-    <img src="images/biglogo.png" alt="Dulidan Studios" style="height:36px;" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
-    <span style="display:none;">DULIDAN<span style="background:linear-gradient(135deg,#8122b5,#da29cf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">.</span></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#contact">Kontakt</a></li>
-    <li><a href="#impressum">Impressum</a></li>
-    <li><a href="#datenschutz">Datenschutz</a></li>
-  </ul>
-  <a href="mailto:info@dulidan-studios.com" class="nav-cta">Anfrage stellen</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#services">Services</a>
-  <a href="#contact">Kontakt</a>
-  <a href="#impressum">Impressum</a>
-  <a href="#datenschutz">Datenschutz</a>
-  <a href="mailto:info@dulidan-studios.com">Anfrage stellen</a>
+<a class="skip" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"></div>
+<div class="fx fx-noise" aria-hidden="true"></div>
+<div class="fx fx-scan" aria-hidden="true"></div>
+
+<!-- BOOT -->
+<div class="boot" id="boot" role="dialog" aria-modal="true" aria-label="Startsequenz" hidden>
+  <div class="boot-in">
+    <img class="boot-logo" src="/assets/img/logo-mark.webp" alt="" width="56" height="56">
+    <div class="boot-lines" id="bootLines" aria-live="polite"></div>
+    <div class="boot-bar"><i id="bootBar"></i></div>
+    <div class="boot-foot"><span>DULIDAN_OS v1.0</span><span id="bootPct">0%</span></div>
+  </div>
+  <button class="boot-skip" id="bootSkip" type="button" data-en="Skip [Enter]">Überspringen [Enter]</button>
 </div>
 
+<!-- HUD -->
+<div class="hud hud-progress" aria-hidden="true"><i id="progress"></i></div>
+<div class="hud hud-r" aria-hidden="true"><span class="idx mono" id="hudIdx">00</span><span class="bar"><i id="hudBar"></i></span><span class="name" id="hudName">Start</span></div>
+<div class="hud hud-bl" aria-hidden="true"><span class="status-dot"></span>Öhringen <b class="mono" id="hudClock">--:--:--</b> · 49.20°N 9.50°E</div>
+<div class="hud hud-br" aria-hidden="true">Scroll <b class="mono" id="hudPct">000%</b> · <span data-en="Ctrl+K Command">Strg+K Kommando</span></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a class="nav-logo" href="#top" aria-label="Dulidan Studios – zum Start"><img src="/assets/img/logo-full.webp" alt="Dulidan Studios" width="458" height="115"></a>
+  <nav aria-label="Hauptnavigation">
+    <ul class="nav-links">
+      <li><a href="#about" data-en="About">Über mich</a></li>
+      <li><a href="#services" data-en="Services">Services</a></li>
+      <li><a href="#projekte" data-en="Work">Projekte</a></li>
+      <li><a href="#kunst" data-en="Art">Kunst</a></li>
+      <li><a href="#lab">Lab</a></li>
+      <li><a href="#kontakt" data-en="Contact">Kontakt</a></li>
+    </ul>
+  </nav>
+  <div class="nav-tools">
+    <button class="chip-btn cmdk-btn" type="button" id="cmdkBtn" aria-label="Kommandozentrale öffnen"><kbd>Ctrl</kbd><kbd>K</kbd></button>
+    <button class="chip-btn lang-btn" type="button" id="langBtn" aria-label="Sprache wechseln / switch language"><span data-l="de">DE</span>/<span data-l="en">EN</span></button>
+    <button class="burger" id="burger" type="button" aria-label="Menü" aria-expanded="false" aria-controls="mmenu"><span></span></button>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="#about"><span>01</span><b data-en="About">Über mich</b></a>
+  <a href="#services"><span>02</span><b>Services</b></a>
+  <a href="#projekte"><span>03</span><b data-en="Work">Projekte</b></a>
+  <a href="#kunst"><span>04</span><b data-en="Photo &amp; Art">Foto &amp; Kunst</b></a>
+  <a href="#buch"><span>05</span><b data-en="Book">Buch</b></a>
+  <a href="#lab"><span>06</span><b>Lab</b></a>
+  <a href="#prozess"><span>07</span><b data-en="Process">Prozess</b></a>
+  <a href="#kontakt"><span>08</span><b data-en="Contact">Kontakt</b></a>
+</div>
+
+<main id="main">
+
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-glow"></div>
-  <p class="hero-eyebrow">Kreativstudio — Öhringen</p>
-  <h1 class="hero-title">Deine Idee.<br><span class="grad">Unsere Umsetzung.</span></h1>
-  <p class="hero-sub">Dulidan Studios ist ein Kreativstudio für Webdesign, Grafikdesign, 3D-Modellierung, Branding und Print — alles auf Kommission, ganz nach dem was du brauchst.</p>
-  <div class="hero-actions">
-    <a href="#services" class="btn-primary">Leistungen entdecken</a>
-    <a href="mailto:info@dulidan-studios.com" class="btn-secondary">Anfrage stellen</a>
+<section class="hero" id="top" data-sec="Start" aria-labelledby="hero-h">
+  <div class="hero-canvas" id="heroCanvas" aria-hidden="true">
+    <img class="hero-fallback" id="heroFallback" src="/assets/img/logo-mark.webp" alt="" width="512" height="512">
+  </div>
+  <div class="wrap">
+    <p class="hero-kicker"><span class="status-dot"></span><span data-en="System online · Öhringen, BW · taking projects">System online · Öhringen, BW · nimmt Projekte an</span></p>
+    <h1 class="hero-title" id="hero-h"><span class="l"><span>Dulidan</span></span><span class="l l2"><span class="outline">Studios</span></span></h1>
+    <p class="hero-claim" data-en="Design that boots up.">Design, das hochfährt.</p>
+    <p class="hero-sub" data-en="The creative studio of Shaquille from Öhringen: web design, ad content, 3D and logos. Heart from Duisburg, slight tendency to overengineer.">Das Kreativstudio von Shaquille aus Öhringen: Webdesign, Werbe-Content, 3D und Logos. Herz aus Duisburg, leichter Hang zum Overengineering.</p>
+    <div class="hero-cta">
+      <a class="btn btn-solid mag" href="#kontakt" data-cursor="Los"><span data-en="Start a project">Projekt starten</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn mag" href="#projekte" data-cursor="Work"><span data-en="See the work">Arbeiten ansehen</span></a>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><span>SCROLL</span><i></i></div>
+  <div class="hero-meta wrap" style="padding:0">
+    <div><span data-en="Founded">Gegründet</span><b class="mono">11.06.2026</b></div>
+    <div>Base<b>Öhringen, BW</b></div>
+    <div><span data-en="Origin">Herkunft</span><b>Duisburg</b></div>
+    <div><span data-en="Local time">Ortszeit</span><b class="mono" id="heroClock">--:--</b></div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Webdesign</span><span>Werbe-Content</span><span>3D-Modeling</span><span>Rendering</span><span>Logo-Erneuerung</span><span>Politics AI</span>
+    <span>Webdesign</span><span>Werbe-Content</span><span>3D-Modeling</span><span>Rendering</span><span>Logo-Erneuerung</span><span>Politics AI</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about" data-sec="Über mich" data-sec-en="About" aria-labelledby="about-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">01</span><span data-en="About">Über mich</span></p>
+    <h2 class="h2 rv-mask" id="about-h" data-en="19, from Duisburg, <em>building things.</em>">19, aus Duisburg, <em>baut Dinge.</em></h2>
+    <div class="about-grid">
+      <div class="rv" data-speed="-0.04">
+        <div class="photo">
+          <!-- TODO: Foto von Shaquille einsetzen (z. B. /assets/img/shaquille.webp, 800x1000) -->
+          <svg viewBox="0 0 400 500" role="img" aria-label="Platzhalter für ein Foto von Shaquille">
+            <defs><linearGradient id="phg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b1328"/><stop offset="1" stop-color="#0c0a13"/></linearGradient></defs>
+            <rect width="400" height="500" fill="url(#phg)"/>
+            <g stroke="rgba(239,234,247,.06)"><path d="M0 100h400M0 200h400M0 300h400M0 400h400M100 0v500M200 0v500M300 0v500"/></g>
+            <circle cx="200" cy="205" r="74" fill="#231a33"/>
+            <path d="M70 500c6-110 62-170 130-170s124 60 130 170z" fill="#231a33"/>
+            <circle cx="200" cy="205" r="92" fill="none" stroke="#c020b8" stroke-opacity=".5" stroke-dasharray="4 8"/>
+            <text x="200" y="460" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="3" fill="#6f6882">FOTO FOLGT</text>
+          </svg>
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <span class="photo-tag mono">ID: SHAQUILLE // FOUNDER</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="rv" data-en="Hi, I'm <strong>Shaquille</strong>. 19, born and raised in Duisburg, now living in Öhringen, Baden-Württemberg. On <strong>11 June 2026</strong> I founded Dulidan Studios.">Hi, ich bin <strong>Shaquille</strong>. 19, geboren und aufgewachsen in Duisburg, inzwischen zu Hause in Öhringen, Baden-Württemberg. Am <strong>11. Juni 2026</strong> habe ich Dulidan Studios gegründet.</p>
+        <p class="rv" data-en="I've been building stuff for as long as I can remember: websites, 3D models, game mods, an RC jet with thrust reversal and, right now, an AI world simulator. Dulidan is where all of that comes together, and where I build it for other people too.">Ich baue Dinge, seit ich denken kann: Websites, 3D-Modelle, Mods, einen RC-Jet mit Schubumkehr und gerade einen KI-Weltsimulator. Dulidan ist der Ort, an dem das alles zusammenkommt, und an dem ich das auch für andere baue.</p>
+        <p class="rv" data-en="What you get: a direct line to me, honest opinions instead of agency speak, and work I actually care about. What you don't get: a template with your logo slapped on it.">Was du bekommst: einen direkten Draht zu mir, ehrliche Einschätzungen statt Agentursprech und Arbeit, auf die ich selbst Bock habe. Was du nicht bekommst: ein Template mit deinem Logo drauf.</p>
+        <div class="readout rv">
+          <div>Name<b>Shaquille</b></div>
+          <div><span data-en="Role">Rolle</span><b data-en="Founder">Gründer</b></div>
+          <div><span data-en="Age">Alter</span><b class="mono">19</b></div>
+          <div><span data-en="Origin">Herkunft</span><b>Duisburg</b></div>
+          <div>Base<b>Öhringen</b></div>
+          <div><span data-en="Founded">Gegründet</span><b class="mono">11.06.2026</b></div>
+        </div>
+        <button class="hidden-april" type="button" data-april="1" aria-label="Versteckte April"><svg aria-hidden="true"><use href="#april"/></svg></button>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="services">
-  <div class="section-inner">
-    <p class="section-label reveal">Was wir machen</p>
-    <h2 class="section-title reveal">Dream. Design. Develop. Dominate.</h2>
-    <p class="section-body reveal">Alles auf Kommission. Keine festen Pakete — du sagst was du brauchst, wir machen es.</p>
-    <div class="services-grid reveal">
-      <div class="service-card">
-        <div class="service-icon">🌐</div>
-        <div class="service-title">Webdesign</div>
-        <div class="service-desc">Von der Landingpage bis zur kompletten Website.</div>
+<section class="sec" id="services" data-sec="Services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">02</span>Services</p>
+    <h2 class="h2 rv-mask" id="svc-h" data-en="Four things. <em>Done properly.</em>">Vier Dinge. <em>Richtig gemacht.</em></h2>
+    <p class="lead rv" data-en="No packages, no price lists on the internet. You tell me what you need, I tell you honestly what makes sense.">Keine Pakete von der Stange. Du sagst, was du brauchst, ich sag dir ehrlich, was Sinn ergibt.</p>
+    <div class="svc-grid">
+      <article class="svc rv tilt">
+        <div class="svc-top"><span class="svc-n">S/01</span>
+          <svg class="svc-ico ico-web" viewBox="0 0 120 96" aria-hidden="true" fill="none" stroke="#c020b8" stroke-width="1.2"><rect x="4" y="8" width="112" height="80" rx="4"/><path d="M4 22h112"/><circle cx="12" cy="15" r="2" fill="#c020b8"/><circle cx="19" cy="15" r="2"/><rect class="blk" x="14" y="32" width="60" height="8" fill="rgba(192,32,184,.35)" stroke="none"/><rect class="blk" x="14" y="46" width="88" height="4" fill="rgba(239,234,247,.25)" stroke="none"/><rect class="blk" x="14" y="55" width="72" height="4" fill="rgba(239,234,247,.25)" stroke="none"/><rect x="14" y="68" width="30" height="10" rx="2"/><rect class="cur-b" x="78" y="31" width="2" height="10" fill="#ff7ae6" stroke="none"/></svg>
+        </div>
+        <h3>Webdesign</h3>
+        <p data-en="Websites that load fast, work on phones and still look like something. From landing pages to a full presence for your business.">Websites, die schnell laden, auf dem Handy funktionieren und trotzdem nach etwas aussehen. Von der Landingpage bis zum kompletten Auftritt für deinen Betrieb.</p>
+        <ul><li>Design</li><li>Code</li><li>Mobile first</li><li>SEO-Basics</li></ul>
+      </article>
+      <article class="svc rv tilt" style="--d:.08s">
+        <div class="svc-top"><span class="svc-n">S/02</span>
+          <svg class="svc-ico ico-ads" viewBox="0 0 120 96" aria-hidden="true" fill="none" stroke-width="1.2"><g class="fr"><rect x="34" y="10" width="52" height="76" rx="4" stroke="#8122b5" fill="rgba(129,34,181,.12)"/></g><g class="fr"><rect x="34" y="10" width="52" height="76" rx="4" stroke="#c020b8" fill="rgba(192,32,184,.12)"/><path d="M44 66h32M44 74h20" stroke="#ff7ae6"/></g><g class="fr"><rect x="34" y="10" width="52" height="76" rx="4" stroke="#ff7ae6" fill="rgba(255,122,230,.08)"/><circle cx="60" cy="40" r="12" stroke="#ff7ae6"/></g></svg>
+        </div>
+        <h3 data-en="Ad content">Werbe-Content</h3>
+        <p data-en="Ads, social posts and visuals that don't drown in the feed. Concept and design from one hand.">Ads, Social-Media-Posts und Visuals, die im Feed nicht untergehen. Konzept und Gestaltung aus einer Hand.</p>
+        <ul><li>Ads</li><li>Social</li><li>Visuals</li></ul>
+      </article>
+      <article class="svc rv tilt">
+        <div class="svc-top"><span class="svc-n">S/03</span>
+          <div class="svc-ico cube-wrap" aria-hidden="true"><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div>
+        <h3 data-en="3D modeling &amp; rendering">3D-Modeling &amp; Rendering</h3>
+        <p data-en="Products, objects and scenes in 3D: modeled, lit and rendered before they even exist.">Produkte, Objekte und Szenen in 3D: modelliert, beleuchtet und gerendert, bevor es sie überhaupt gibt.</p>
+        <ul><li>Modeling</li><li>Rendering</li><li>Visualisierung</li></ul>
+      </article>
+      <article class="svc rv tilt" style="--d:.08s">
+        <div class="svc-top"><span class="svc-n">S/04</span>
+          <svg class="svc-ico ico-logo" viewBox="0 0 120 96" aria-hidden="true" fill="none" stroke-width="1.4"><g class="old" stroke="#6f6882"><circle cx="60" cy="48" r="26"/><path d="M48 36v24h10a12 12 0 000-24z"/></g><g class="new"><path d="M44 30h10v36H44z" fill="#8122b5"/><path d="M58 30h6a18 18 0 010 36h-6v-10h6a8 8 0 000-16h-6z" fill="#c020b8"/></g><rect class="sweep" x="0" y="14" width="2" height="68" fill="#ff7ae6"/></svg>
+        </div>
+        <h3 data-en="Logo refresh">Logo-Erneuerung</h3>
+        <p data-en="Your logo has seen better days? I make it clearer, more modern and fit for every format, without losing what makes it recognisable.">Dein Logo ist in die Jahre gekommen? Ich mache es klarer, moderner und fit für alle Formate, ohne dass man es nicht mehr wiedererkennt.</p>
+        <ul><li>Redesign</li><li>Formate</li><li>Mini-Styleguide</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec" id="projekte" data-sec="Projekte" data-sec-en="Work" aria-labelledby="proj-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">03</span><span data-en="Selected work">Projekte</span></p>
+    <h2 class="h2 rv-mask" id="proj-h" data-en="Things I've <em>built.</em>">Was ich <em>gebaut habe.</em></h2>
+
+    <div class="projects">
+      <!-- Politics AI -->
+      <article class="case flag rv" id="p-politics">
+        <span class="case-num" aria-hidden="true">01</span>
+        <div class="case-in">
+          <div>
+            <div class="case-tag"><span class="pill hot" data-en="Flagship">Flaggschiff</span><span class="pill wip">Alpha 3</span></div>
+            <h3>Politics AI</h3>
+            <p data-en="A geopolitical AI world simulator in the browser. You are the German chancellor; more than 190 countries react with their own agenda, red lines and memory. You type freely, there are no dialogue options.">Ein geopolitischer KI-Weltsimulator im Browser. Du bist Bundeskanzler, über 190 Länder reagieren mit eigener Agenda, roten Linien und Gedächtnis. Du schreibst frei, es gibt keine Dialogauswahl.</p>
+            <div class="facts">
+              <div>Status<b>Alpha 3</b></div>
+              <div><span data-en="Public launch">Öffentlicher Launch</span><b data-en="planned: Jan 2027">geplant: Januar 2027</b></div>
+              <div><span data-en="Countries">Länder</span><b data-en="more than 190">über 190</b></div>
+              <div><span data-en="Platform">Plattform</span><b>Browser</b></div>
+            </div>
+            <ul class="feat">
+              <li class="pill">Jarvis-HUD-Design</li><li class="pill">Groups-System</li><li class="pill" data-en="Stats with cascade effects">Stats mit Kaskadeneffekten</li><li class="pill" data-en="Dynamic Germany panel">Deutschland-Detailpanel</li>
+            </ul>
+            <div class="acts">
+              <a class="btn btn-solid mag" href="/politics-ai/" data-cursor="Open"><span data-en="Enter the situation room">Ins Lagezentrum</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+          <div class="case-media">
+            <div class="demo" id="paiDemo">
+              <div class="demo-h"><span><span class="flag-de" aria-hidden="true"><i style="background:#111"></i><i style="background:#d00"></i><i style="background:#fc0"></i></span><span data-en="GERMANY // DETAIL PANEL">DEUTSCHLAND // DETAILPANEL</span></span><span id="paiRound">R 01</span></div>
+              <div class="demo-globe">
+                <canvas id="miniGlobe" width="220" height="220" aria-label="Mini-Weltkugel" role="img"></canvas>
+                <div class="mini-feed" id="miniFeed" aria-hidden="true"></div>
+              </div>
+              <div class="stats" id="paiStats"></div>
+              <div class="decide" role="group" aria-label="Entscheidung treffen">
+                <button type="button" data-dec="def" data-en="Defence +10%">Verteidigung +10 %</button>
+                <button type="button" data-dec="trade" data-en="Trade deal">Handelsabkommen</button>
+                <button type="button" data-dec="sanc" data-en="Sanctions">Sanktionen</button>
+              </div>
+              <div class="cascade" id="paiLog" aria-live="polite"><div class="on" data-en="&gt; Make a decision. Watch the cascade.">&gt; Triff eine Entscheidung. Sieh die Kaskade.</div></div>
+              <p class="demo-note" data-en="Demo simulation with sample values, not the real game engine.">Demo-Simulation mit Beispielwerten, nicht die echte Spiel-Engine.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Zimmerei -->
+      <article class="case rv">
+        <span class="case-num" aria-hidden="true">02</span>
+        <div class="case-in">
+          <div>
+            <div class="case-tag"><span class="pill live">Live</span><span class="pill">Webdesign</span></div>
+            <h3>Zimmerei Weberhof</h3>
+            <p data-en="Demo website for the fictional carpentry business “Zimmerei Weberhof”: an example of what a modern web presence for local craft businesses can look like.">Demo-Website für den fiktiven Betrieb „Zimmerei Weberhof“: ein Beispiel dafür, wie ein moderner Auftritt für lokale Handwerksbetriebe aussehen kann.</p>
+            <div class="acts">
+              <a class="link-arrow" href="https://zimmerei-bsp.dulidan-studios.com" target="_blank" rel="noopener" data-cursor="Live"><span data-en="Open live site">Live ansehen</span><svg width="14" height="14" aria-hidden="true"><use href="#i-ext"/></svg></a>
+            </div>
+          </div>
+          <div class="case-media">
+            <a class="browser tilt-b" href="https://zimmerei-bsp.dulidan-studios.com" target="_blank" rel="noopener" aria-label="Vorschau Zimmerei Weberhof, öffnet die Live-Seite" data-cursor="Live">
+              <div class="browser-bar"><i></i><i></i><i></i><span>zimmerei-bsp.dulidan-studios.com</span></div>
+              <div class="browser-view">
+                <!-- TODO: echten Screenshot einsetzen: SVG unten ersetzen durch
+                     <img src="/assets/img/zimmerei.webp" alt="Screenshot der Demo-Website Zimmerei Weberhof" loading="lazy" width="1600" height="1000"> -->
+                <svg viewBox="0 0 800 500" aria-hidden="true">
+                  <rect width="800" height="500" fill="#f3ede4"/>
+                  <rect width="800" height="56" fill="#2b2118"/>
+                  <text x="32" y="35" font-family="Space Grotesk,sans-serif" font-size="18" font-weight="700" fill="#f3ede4" letter-spacing="2">ZIMMEREI WEBERHOF</text>
+                  <g fill="#d9c7ad"><rect x="520" y="24" width="50" height="8" rx="2"/><rect x="590" y="24" width="50" height="8" rx="2"/><rect x="660" y="24" width="50" height="8" rx="2"/></g>
+                  <rect x="0" y="56" width="800" height="230" fill="#6b4a2f"/>
+                  <g stroke="#7e5838" stroke-width="10"><path d="M-20 286l300-230M120 286l300-230M260 286l300-230M400 286l300-230M540 286l300-230"/></g>
+                  <rect x="40" y="110" width="360" height="130" fill="rgba(43,33,24,.85)"/>
+                  <text x="64" y="160" font-family="Space Grotesk,sans-serif" font-size="30" font-weight="700" fill="#f3ede4">Holz. Handwerk.</text>
+                  <text x="64" y="196" font-family="Space Grotesk,sans-serif" font-size="30" font-weight="700" fill="#e0a868">Heimat.</text>
+                  <rect x="64" y="212" width="110" height="16" rx="2" fill="#e0a868"/>
+                  <g fill="#fff" stroke="#e2d6c4"><rect x="40" y="316" width="230" height="150" rx="4"/><rect x="285" y="316" width="230" height="150" rx="4"/><rect x="530" y="316" width="230" height="150" rx="4"/></g>
+                  <g fill="#c9a679"><rect x="60" y="340" width="60" height="60" rx="30"/><rect x="305" y="340" width="60" height="60" rx="30"/><rect x="550" y="340" width="60" height="60" rx="30"/></g>
+                  <g fill="#cdbfaa"><rect x="60" y="420" width="160" height="8"/><rect x="305" y="420" width="160" height="8"/><rect x="550" y="420" width="160" height="8"/></g>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Folierung -->
+      <article class="case rev rv">
+        <span class="case-num" aria-hidden="true">03</span>
+        <div class="case-in">
+          <div>
+            <div class="case-tag"><span class="pill" data-en="Vehicle wrap">Fahrzeugfolierung</span><span class="pill">5 <span data-en="concepts">Konzepte</span></span></div>
+            <h3>Berlingo-Wrap</h3>
+            <p data-en="A vehicle wrap for a Berlingo: five design concepts, one winner. The client chose “Frosted”. Click through the concepts.">Fahrzeugfolierung für einen Berlingo: fünf Designkonzepte, ein Gewinner. Gewählt wurde „Frosted“. Klick dich durch die Konzepte.</p>
+          </div>
+          <div class="case-media">
+            <div class="van-box">
+              <svg viewBox="0 0 620 270" role="img" aria-label="Stilisierte Seitenansicht eines Berlingo mit wechselndem Folierungskonzept">
+                <defs>
+                  <pattern id="pc1" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)"><rect width="28" height="28" fill="#1b1028"/><rect width="10" height="28" fill="#8122b5"/></pattern>
+                  <pattern id="pc2" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#0e0b16"/><path d="M24 0H0v24" fill="none" stroke="#c020b8" stroke-width="1"/></pattern>
+                  <linearGradient id="pc3" x1="0" x2="1"><stop offset="0" stop-color="#ece7f2"/><stop offset=".55" stop-color="#ece7f2"/><stop offset=".55" stop-color="#8122b5"/><stop offset="1" stop-color="#8122b5"/></linearGradient>
+                  <pattern id="pc4" width="80" height="40" patternUnits="userSpaceOnUse"><rect width="80" height="40" fill="#160d22"/><path d="M0 30q20-20 40 0t40 0" fill="none" stroke="#ff7ae6" stroke-width="3"/></pattern>
+                  <linearGradient id="pfr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8122b5"/><stop offset=".6" stop-color="#c020b8"/><stop offset="1" stop-color="#ff9cec"/></linearGradient>
+                  <linearGradient id="frost" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+                  <clipPath id="vanClip"><path id="vanPath" d="M30 200V128q0-18 18-22l92-12 52-56q8-10 22-10h338q22 0 24 22l6 150z"/></clipPath>
+                </defs>
+                <ellipse cx="310" cy="236" rx="290" ry="10" fill="rgba(0,0,0,.5)"/>
+                <path class="van-body" id="vanBody" d="M30 200V128q0-18 18-22l92-12 52-56q8-10 22-10h338q22 0 24 22l6 150z" fill="url(#pfr)"/>
+                <g clip-path="url(#vanClip)" id="vanFx">
+                  <rect id="frostLayer" x="0" y="0" width="620" height="210" fill="url(#frost)"/>
+                  <g id="frostDots" fill="#fff" opacity=".22"></g>
+                </g>
+                <path d="M30 200V128q0-18 18-22l92-12 52-56q8-10 22-10h338q22 0 24 22l6 150z" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+                <path d="M152 92l46-48q6-6 14-6h66v58z" fill="#0b0912" stroke="rgba(255,255,255,.3)"/>
+                <path d="M290 38h96v58h-96z" fill="#0b0912" stroke="rgba(255,255,255,.3)"/>
+                <path d="M286 104v92M396 40v156" stroke="rgba(0,0,0,.35)" stroke-width="2"/>
+                <rect x="30" y="160" width="20" height="10" rx="2" fill="#ffd27a"/>
+                <rect x="556" y="150" width="10" height="22" rx="2" fill="#ff4d6a"/>
+                <text id="vanBrand" x="430" y="150" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="22" font-weight="700" fill="#fff" letter-spacing="3">DULIDAN</text>
+                <g><circle cx="140" cy="206" r="36" fill="#0a0910"/><circle cx="140" cy="206" r="20" fill="#2b2638" stroke="#6f6882"/><circle cx="480" cy="206" r="36" fill="#0a0910"/><circle cx="480" cy="206" r="20" fill="#2b2638" stroke="#6f6882"/></g>
+              </svg>
+              <div class="concepts" id="concepts" role="group" aria-label="Designkonzepte">
+                <button type="button" data-c="pc1" aria-pressed="false">K01</button>
+                <button type="button" data-c="pc2" aria-pressed="false">K02</button>
+                <button type="button" data-c="pc3" aria-pressed="false">K03</button>
+                <button type="button" data-c="pc4" aria-pressed="false">K04</button>
+                <button type="button" data-c="pfr" aria-pressed="true">Frosted<span class="w" data-en="✓ chosen">✓ gewählt</span></button>
+              </div>
+              <!-- TODO: echte Konzeptnamen + Renderings der 5 Entwürfe einsetzen -->
+              <p class="van-cap" data-en="Schematic placeholder visualisation. Real renderings coming.">Schematische Platzhalter-Visualisierung. Echte Renderings folgen.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- April -->
+      <article class="case rv">
+        <span class="case-num" aria-hidden="true">04</span>
+        <div class="case-in">
+          <div>
+            <div class="case-tag"><span class="pill wip" data-en="In development">In Entwicklung</span><span class="pill">App</span></div>
+            <h3>April</h3>
+            <p data-en="A personal AI companion as its own app. The vision: make everyday life more alive, not just prettier. April is also the studio's mascot: pink twintails, purple, Dulidan polo. You might bump into her on this page.">Ein persönlicher KI-Companion als eigene App. Die Vision: den Alltag lebendiger machen, nicht nur schöner. April ist auch das Maskottchen des Studios: pinke Twintails, lila, Dulidan-Polo. Vielleicht begegnet sie dir hier auf der Seite.</p>
+            <div class="acts"><button class="link-arrow" type="button" id="meetApril"><span data-en="Say hi to April">April Hallo sagen</span><svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+          </div>
+          <div class="case-media">
+            <div class="phone" aria-label="Konzept-Skizze der April-App" role="img">
+              <div class="phone-in" id="phone">
+                <svg class="av" aria-hidden="true"><use href="#april"/></svg>
+                <div class="nm">APRIL</div>
+                <div class="bub a" data-en="Morning! Shall we make today a bit more exciting?">Morgen! Wollen wir den Tag heute ein bisschen spannender machen?</div>
+                <div class="bub u" data-en="Sure, what have you got?">Klar, was hast du?</div>
+                <div class="bub a" data-en="Concept sketch. The rest is still being built. ✦">Konzept-Skizze. Der Rest wird gerade gebaut. ✦</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ART -->
+<section class="sec" id="kunst" data-sec="Foto & Kunst" data-sec-en="Photo & Art" aria-labelledby="art-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">04</span><span data-en="Photo &amp; Art">Foto &amp; Kunst</span></p>
+    <h2 class="h2 rv-mask" id="art-h" data-en="Concepts that <em>stick.</em>">Konzepte, die <em>hängen bleiben.</em></h2>
+    <div class="gallery">
+      <button class="art rv" type="button" data-lb="0" data-cursor="Zoom">
+        <div class="art-img">
+          <!-- TODO: Foto „Menschlichkeit“ als /assets/img/menschlichkeit.webp einsetzen -->
+          <svg viewBox="0 0 800 600" role="img" aria-label="Platzhalter: Toilettenpapierrolle, auf dem abgerollten Blatt steht das Wort Menschlichkeit">
+            <rect width="800" height="600" fill="#e9e4dc"/>
+            <rect y="420" width="800" height="180" fill="#d8d1c6"/>
+            <ellipse cx="400" cy="300" rx="120" ry="40" fill="#f7f5f1" stroke="#cfc7ba"/>
+            <rect x="280" y="180" width="240" height="120" fill="#f7f5f1"/>
+            <ellipse cx="400" cy="180" rx="120" ry="40" fill="#fbfaf8" stroke="#d7d0c4"/>
+            <ellipse cx="400" cy="180" rx="34" ry="12" fill="#c8b9a3"/>
+            <path d="M280 300v-120M520 300v-120" stroke="#ddd5c8"/>
+            <path d="M300 320l-10 240h220l-10-240z" fill="#fbfaf8" stroke="#e1dace"/>
+            <path d="M296 400h208M293 480h214" stroke="#e8e2d8" stroke-dasharray="3 5"/>
+            <text x="400" y="445" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="30" fill="#2a2430">Menschlichkeit</text>
+            <text x="24" y="580" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="3" fill="#8f877a">PLATZHALTER · FOTO FOLGT</text>
+          </svg>
+        </div>
+        <div class="art-cap">
+          <div><h3>Menschlichkeit</h3><p data-en="Concept photography. Exhibited at the SPC Photo Awards Stuttgart, Rotebühlplatz, June 2026.">Konzeptfotografie. Ausgestellt bei den SPC Photo Awards Stuttgart, Rotebühlplatz, Juni 2026.</p></div>
+          <span class="pill hot" data-en="Exhibited">Ausgestellt</span>
+        </div>
+      </button>
+      <button class="art locked rv" type="button" data-lb="1" style="--d:.1s" data-cursor="Soon">
+        <div class="art-img">
+          <svg viewBox="0 0 800 600" role="img" aria-label="Teaser: verschütteter Kaffee auf einer Kriegsstrategiekarte">
+            <rect width="800" height="600" fill="#c9b98f"/>
+            <g stroke="#a8956a" stroke-width="1" opacity=".7"><path d="M0 100h800M0 200h800M0 300h800M0 400h800M0 500h800M100 0v600M200 0v600M300 0v600M400 0v600M500 0v600M600 0v600M700 0v600"/></g>
+            <path d="M80 420c60-80 160-60 220-140s200-100 260-60 120 40 180 10" fill="none" stroke="#7a6a48" stroke-width="3"/>
+            <g fill="#3a5bd9"><path d="M180 300l40-20v40z"/><path d="M240 260l40-20v40z"/></g>
+            <g fill="#c2263a"><path d="M560 220l-40-20v40z"/><path d="M600 300l-40-20v40z"/></g>
+            <path d="M220 290q120-60 280-80" stroke="#3a5bd9" stroke-width="5" fill="none" marker-end="none"/>
+            <path d="M330 260c40-60 140-70 190-20 40 40 60 110 10 150-50 40-150 30-190-10-30-30-40-80-10-120z" fill="#5a3418" opacity=".85"/>
+            <path d="M480 380c50 20 120 60 170 140" stroke="#5a3418" stroke-width="18" stroke-linecap="round" opacity=".7" fill="none"/>
+            <ellipse cx="660" cy="130" rx="70" ry="70" fill="none" stroke="#5a3418" stroke-width="8" opacity=".5"/>
+          </svg>
+          <div class="lock-tag"><span data-en="Coming soon">Demnächst</span></div>
+        </div>
+        <div class="art-cap">
+          <div><h3>Ausrutscher</h3><p data-en="Upcoming work: spilled coffee on a war strategy map.">Kommendes Werk: verschütteter Kaffee auf einer Kriegsstrategiekarte.</p></div>
+          <span class="pill wip" data-en="In progress">In Arbeit</span>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="sec" id="buch" data-sec="Buch" data-sec-en="Book" aria-labelledby="book-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">05</span><span data-en="Book">Buch</span></p>
+    <div class="book-grid">
+      <div class="book-stage rv">
+        <!-- TODO: echtes Buchcover als Bild einsetzen -->
+        <div class="book" id="book">
+          <div class="book-spine"></div>
+          <div class="book-pages"></div>
+          <div class="book-face"><span class="dot"></span><small>Shaquille</small><h3>Finde<br>Deine<br>Mitte</h3></div>
+        </div>
+        <div class="book-shadow" aria-hidden="true"></div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🎨</div>
-        <div class="service-title">Grafikdesign</div>
-        <div class="service-desc">Logos, Visitenkarten, Poster, Flyer, Social Media.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📦</div>
-        <div class="service-title">3D-Modellierung</div>
-        <div class="service-desc">Produktvisualisierungen, Renderings, 3D-Assets.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📣</div>
-        <div class="service-title">Werbecontent</div>
-        <div class="service-desc">Anzeigen, Kampagnenmaterial, digitale Werbung.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🏷️</div>
-        <div class="service-title">Branding</div>
-        <div class="service-desc">Komplette Markenidentität, Style Guides.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🖨️</div>
-        <div class="service-title">Print &amp; Digital</div>
-        <div class="service-desc">Von Visitenkarten bis großformatige Drucksachen.</div>
+      <div>
+        <h2 class="h2 rv-mask" id="book-h">Finde Deine <em>Mitte.</em></h2>
+        <p class="lead rv" data-en="A self-development book written in short, aphoristic sentences. No filler, no guru talk. Five parts:">Ein Selbstentwicklungsbuch in kurzen, aphoristischen Sätzen. Kein Füllstoff, kein Guru-Gerede. Fünf Teile:</p>
+        <ol class="parts rv">
+          <li data-en="Your potential">Dein Potenzial</li>
+          <li data-en="The doubt">Der Zweifel</li>
+          <li data-en="The freedom">Die Freiheit</li>
+          <li data-en="Yourself">Du selbst</li>
+          <li data-en="The path">Der Weg</li>
+        </ol>
+        <!-- TODO: selbst gewählten Kurzauszug aus dem Buch einsetzen -->
+        <blockquote class="quote todo rv">„Kurzauszug folgt.“<span class="todo-tag">TODO</span><cite>Finde Deine Mitte</cite></blockquote>
       </div>
     </div>
-    <div class="services-cta reveal">
-      <a href="mailto:info@dulidan-studios.com" class="btn-primary">Anfrage stellen</a>
+  </div>
+</section>
+
+<!-- LAB -->
+<section class="sec" id="lab" data-sec="Lab" aria-labelledby="lab-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">06</span>Side Quests / Lab</p>
+    <h2 class="h2 rv-mask" id="lab-h" data-en="The <em>nerd corner.</em>">Die <em>Nerd-Ecke.</em></h2>
+    <p class="lead rv" data-en="Stuff I build because I can't not. Click a line to expand it.">Sachen, die ich baue, weil ich nicht anders kann. Klick auf eine Zeile.</p>
+    <div class="term rv">
+      <div class="term-bar"><i></i><i></i><i></i><span>shaq@dulidan:~/side-quests</span></div>
+      <div class="term-body">
+        <p class="term-cmd"><b>shaq@dulidan</b>:~$ ls -la side-quests/</p>
+        <details class="quest"><summary><span class="k">[01]</span><span class="t">Projekt Duisport</span><span class="ty">Mod</span></summary>
+          <p class="qd" data-en="Hearts of Iron IV alt-history mod. Starting point: the Free State of Duisburg.">Hearts of Iron IV Alt-History-Mod. Startpunkt: der Freistaat Duisburg.</p></details>
+        <details class="quest"><summary><span class="k">[02]</span><span class="t" data-en="RC jet with bidirectional EDF">RC-Jet mit bidirektionalem EDF</span><span class="ty">Hardware</span></summary>
+          <p class="qd" data-en="Self-built RC jet. The electric ducted fan runs both ways, so the model has thrust reversal.">Selbst gebauter RC-Jet. Der Impeller läuft in beide Richtungen, das Modell hat also Schubumkehr.</p></details>
+        <details class="quest"><summary><span class="k">[03]</span><span class="t" data-en="Minecraft server">Minecraft-Server</span><span class="ty">Server</span></summary>
+          <p class="qd" data-en="My own server with its own role-play state.">Eigener Server mit eigenem Rollenspiel-Staat.</p></details>
+        <details class="quest"><summary><span class="k">[04]</span><span class="t" data-en="Learning Japanese">Japanisch lernen</span><span class="ty" data-en="Language">Sprache</span></summary>
+          <p class="qd" data-en="日本語を勉強しています. Slowly, but steadily.">日本語を勉強しています. Langsam, aber stetig.</p></details>
+        <details class="quest"><summary><span class="k">[05]</span><span class="t" data-en="Aviation, trains, ships">Luftfahrt, Züge, Schiffe</span><span class="ty" data-en="Interests">Interessen</span></summary>
+          <p class="qd" data-en="Basically anything big that moves.">Im Grunde alles, was groß ist und sich bewegt.</p></details>
+        <p class="term-cmd" style="margin-top:16px"><b>shaq@dulidan</b>:~$ <span class="term-cursor" aria-hidden="true"></span> <button class="hidden-april" type="button" data-april="2" aria-label="Versteckte April"><svg aria-hidden="true"><use href="#april"/></svg></button></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="prozess" data-sec="Prozess" data-sec-en="Process" aria-labelledby="proc-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">07</span><span data-en="Process">Prozess</span></p>
+    <h2 class="h2 rv-mask" id="proc-h" data-en="From first message <em>to launch.</em>">Von der ersten Nachricht <em>bis zum Launch.</em></h2>
+    <div class="proc" id="proc">
+      <div class="proc-line" aria-hidden="true"><i id="procLine"></i></div>
+      <div class="step"><span class="step-dot">01</span><h3 data-en="Talk">Gespräch</h3><p data-en="You tell me what you have in mind. I keep asking until we both have the same picture in our heads.">Du erzählst, was du vorhast. Ich frage so lange nach, bis wir beide dasselbe Bild im Kopf haben.</p></div>
+      <div class="step"><span class="step-dot">02</span><h3 data-en="Concept">Konzept</h3><p data-en="I sketch direction, structure and look. You give feedback before a single line of code exists.">Ich skizziere Richtung, Struktur und Look. Du gibst Feedback, bevor eine Zeile Code entsteht.</p></div>
+      <div class="step"><span class="step-dot">03</span><h3 data-en="Build">Umsetzung</h3><p data-en="Design, code, 3D, content: built with attention to detail and regular check-ins.">Design, Code, 3D, Content: gebaut mit Liebe zum Detail und regelmäßigen Zwischenständen.</p></div>
+      <div class="step"><span class="step-dot">04</span><h3>Launch</h3><p data-en="Go live, test, polish. And afterwards I don't just disappear.">Online gehen, testen, feinschleifen. Und danach bin ich nicht einfach weg.</p></div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="contact-section">
-    <p class="section-label reveal">Dulidan Studios</p>
-    <h2 class="section-title reveal">Interesse?</h2>
-    <p class="section-body reveal" style="margin:0 auto 0;">Projektanfrage, Presse, oder einfach neugierig — meld dich.</p>
-    <div class="contact-card reveal">
-      <a href="mailto:info@dulidan-studios.com" class="contact-email">info@dulidan-studios.com</a>
-      <a href="tel:+4915207049499" class="contact-phone">+49 152 07049499</a>
-      <div style="margin-top:24px;">
-        <a href="mailto:info@dulidan-studios.com" class="btn-primary">Anfrage stellen</a>
+<section class="sec" id="kontakt" data-sec="Kontakt" data-sec-en="Contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">08</span><span data-en="Contact">Kontakt</span></p>
+    <h2 class="h2 rv-mask" id="contact-h" data-en="Got an idea? <em>Let's build it.</em>">Du hast eine Idee? <em>Lass sie uns bauen.</em></h2>
+    <a class="big-mail rv" href="mailto:info@dulidan-studios.com" data-cursor="Mail">info@dulidan-studios.com</a>
+    <div class="contact">
+      <!-- Formular: Endpoint in data-endpoint eintragen (z. B. Formspree). Leer = Versand über das E-Mail-Programm. -->
+      <form class="form rv" id="contactForm" data-endpoint="" novalidate>
+        <div class="field"><input id="f-name" name="name" type="text" autocomplete="name" placeholder=" " required><label for="f-name">Name</label></div>
+        <div class="field"><input id="f-mail" name="email" type="email" autocomplete="email" placeholder=" " required><label for="f-mail" data-en="Email">E-Mail</label></div>
+        <div class="field"><textarea id="f-msg" name="message" placeholder=" " required></textarea><label for="f-msg" data-en="Your message">Deine Nachricht</label></div>
+        <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <div class="form-foot">
+          <p class="form-note" data-en="Your details are only used to answer your request. More in the &lt;a href=&quot;/datenschutz/&quot;&gt;privacy policy&lt;/a&gt;.">Deine Angaben werden nur zur Beantwortung deiner Anfrage genutzt. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+          <button class="btn btn-solid mag" type="submit"><span data-en="Send">Absenden</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </div>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+      <div class="channels rv" style="--d:.1s">
+        <a class="ch" href="mailto:info@dulidan-studios.com"><div><span data-en="Email">E-Mail</span><b>info@dulidan-studios.com</b></div><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 4h16v12H2zM2 4l8 7 8-7"/></svg></a>
+        <a class="ch" href="https://github.com/short1106" target="_blank" rel="noopener"><div><span>GitHub</span><b>short1106</b></div><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4H4v12h12v-3M10 4h6v6M16 4l-8 8"/></svg></a>
+        <!-- TODO: LinkedIn- und Discord-Links in CONFIG (assets/js/main.js) eintragen, dann erscheinen sie hier automatisch -->
+        <a class="ch" id="chLinkedin" href="#" target="_blank" rel="noopener" hidden><div><span>LinkedIn</span><b>Shaquille</b></div><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4H4v12h12v-3M10 4h6v6M16 4l-8 8"/></svg></a>
+        <a class="ch" id="chDiscord" href="#" target="_blank" rel="noopener" hidden><div><span>Discord</span><b data-en="Join the server">Zum Server</b></div><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4H4v12h12v-3M10 4h6v6M16 4l-8 8"/></svg></a>
+        <div class="ch" style="cursor:default"><div><span data-en="Studio">Studio</span><b>Theodor-Fontane-Weg 11<br>74613 Öhringen</b></div></div>
       </div>
     </div>
   </div>
 </section>
+</main>
 
-<!-- IMPRESSUM -->
-<section id="impressum" style="border-top:1px solid var(--border);">
-  <div class="legal-section">
-    <p class="section-label reveal">Rechtliches</p>
-    <h2 class="section-title reveal">Impressum</h2>
-    <div style="margin-top:40px;display:flex;flex-direction:column;gap:32px;">
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Angaben gemäß §5 TMG</p>
-        <p style="font-size:15px;line-height:2;color:var(--text);">
-          <strong>Shaquille Abid El Moussaoui</strong><br>
-          Dulidan Studios<br>
-          Theodor-Fontane-Weg 11<br>
-          74613 Öhringen<br>
-          Deutschland
-        </p>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-big" aria-hidden="true">Dulidan</div>
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="/assets/img/logo-full.webp" alt="Dulidan Studios" width="458" height="115" loading="lazy">
+        <p data-en="Creative studio for web design, ad content, 3D and logos. Made in Öhringen, raised in Duisburg.">Kreativstudio für Webdesign, Werbe-Content, 3D und Logos. Gebaut in Öhringen, aufgewachsen in Duisburg.</p>
       </div>
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Kontakt</p>
-        <p style="font-size:15px;line-height:2;color:var(--text);">
-          Telefon: <a href="tel:+4915207049499" style="color:var(--text);text-decoration:none;">+49 152 07049499</a><br>
-          E-Mail: <a href="mailto:info@dulidan-studios.com" style="color:var(--text);text-decoration:none;">info@dulidan-studios.com</a>
-        </p>
-      </div>
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Kleinunternehmerregelung</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Gemäß §19 UStG wird keine Umsatzsteuer berechnet und ausgewiesen.</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);margin-top:12px;">Steuernummer: 76226/08735</p>
-      </div>
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Verantwortlich für den Inhalt gemäß §55 Abs. 2 RStV</p>
-        <p style="font-size:15px;line-height:2;color:var(--text);">
-          Shaquille Abid El Moussaoui<br>
-          Theodor-Fontane-Weg 11<br>
-          74613 Öhringen
-        </p>
-      </div>
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Haftung für Inhalte</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Als Diensteanbieter sind wir gemäß §7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
-      </div>
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">Urheberrecht</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
-      </div>
+      <div><h4 data-en="Studio">Studio</h4><p>Dulidan Studios<br>Theodor-Fontane-Weg 11<br>74613 Öhringen</p></div>
+      <div><h4 data-en="Navigate">Navigation</h4><ul><li><a href="#projekte" data-en="Work">Projekte</a></li><li><a href="/politics-ai/">Politics AI</a></li><li><a href="#kontakt" data-en="Contact">Kontakt</a></li><li><button type="button" class="js-term" style="color:inherit;font:inherit">&gt; terminal</button></li></ul></div>
+      <div><h4 data-en="Legal">Rechtliches</h4><ul><li><a href="/impressum/" data-en="Imprint">Impressum</a></li><li><a href="/datenschutz/" data-en="Privacy">Datenschutz</a></li></ul></div>
     </div>
-  </div>
-</section>
-
-<!-- DATENSCHUTZ -->
-<section id="datenschutz" style="border-top:1px solid var(--border);">
-  <div class="legal-section">
-    <p class="section-label reveal">Rechtliches</p>
-    <h2 class="section-title reveal">Datenschutzerklärung</h2>
-    <div style="margin-top:40px;display:flex;flex-direction:column;gap:32px;">
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">1. Verantwortlicher</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Verantwortlich im Sinne der DSGVO ist:<br><br>
-        <span style="color:var(--text);">Shaquille Abid El Moussaoui<br>
-        Dulidan Studios<br>
-        Theodor-Fontane-Weg 11<br>
-        74613 Öhringen<br>
-        E-Mail: info@dulidan-studios.com</span></p>
-      </div>
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">2. Erhobene Daten</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Diese Website erhebt selbst keine personenbezogenen Daten über ein Formular. Die Kontaktaufnahme erfolgt ausschließlich über die bereitgestellten E-Mail- und Telefon-Links — dabei übermittelte Daten (z. B. Name und E-Mail-Adresse) werden nur zur Bearbeitung deiner Anfrage verwendet.</p>
-      </div>
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">3. Zweck der Datenverarbeitung</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Über E-Mail oder Telefon übermittelte Daten werden ausschließlich zur Beantwortung und Bearbeitung deiner Anfrage genutzt. Eine Weitergabe an Dritte findet nicht statt.</p>
-      </div>
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">4. Rechtsgrundlage</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Die Verarbeitung erfolgt auf Grundlage deiner Kontaktaufnahme zur Bearbeitung bzw. Anbahnung eines Auftrags gemäß Art. 6 Abs. 1 lit. b, f DSGVO.</p>
-      </div>
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">5. Deine Rechte</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten. Zur Ausübung dieser Rechte wende dich an: info@dulidan-studios.com</p>
-      </div>
-      <div class="reveal legal-card">
-        <p style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--magenta);font-family:'Space Mono',monospace;margin-bottom:16px;">6. Hosting &amp; Cookies</p>
-        <p style="font-size:14px;line-height:1.75;color:var(--muted);">Diese Website wird über IONOS SE gehostet. Es werden keine Tracking-Cookies eingesetzt. Die Website erhebt keine automatischen Nutzungsdaten.</p>
-      </div>
+    <div class="footer-bottom">
+      <span>© <span class="js-year">2026</span> Dulidan Studios · <span data-en="Small business according to § 19 UStG, no VAT shown.">Kleinunternehmer gemäß § 19 UStG, keine Umsatzsteuer ausgewiesen.</span></span>
+      <span><span data-en="No trackers. No cookies. Just pixels.">Keine Tracker. Keine Cookies. Nur Pixel.</span> <button class="hidden-april" type="button" data-april="3" aria-label="Versteckte April"><svg aria-hidden="true"><use href="#april"/></svg></button></span>
     </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">
-    <img src="images/biglogo.png" alt="Dulidan Studios" style="height:28px;opacity:0.4;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-    <span style="display:none;">DULIDAN STUDIOS</span>
-  </div>
-  <div class="footer-copy">
-    © 2026 Dulidan Studios · Öhringen, Deutschland ·
-    <a href="#impressum" style="color:rgba(107,107,128,0.5);text-decoration:none;">Impressum</a> ·
-    <a href="#datenschutz" style="color:rgba(107,107,128,0.5);text-decoration:none;">Datenschutz</a>
   </div>
 </footer>
 
-<script>
-// Reveal animation
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+<!-- APRIL COMPANION -->
+<div class="april" id="april">
+  <div class="april-bubble" id="aprilBubble" role="status" aria-live="polite"><small>APRIL</small><span id="aprilText"></span></div>
+  <button class="april-av" id="aprilBtn" type="button" aria-label="April, das Dulidan-Maskottchen. Klicken für einen Tipp."><svg aria-hidden="true"><use href="#april"/></svg></button>
+</div>
 
-// Mobile menu toggle
-const navToggle = document.getElementById('navToggle');
-const mobileMenu = document.getElementById('mobileMenu');
-navToggle.addEventListener('click', () => {
-  const isOpen = mobileMenu.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-});
-mobileMenu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
-});
-</script>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie">
+  <button class="lb-x" type="button" data-lb-close aria-label="Schließen"><svg viewBox="0 0 16 16"><path d="M2 2l12 12M14 2L2 14"/></svg></button>
+  <button class="lb-prev" type="button" aria-label="Vorheriges Bild"><svg viewBox="0 0 16 16"><path d="M10 2L4 8l6 6"/></svg></button>
+  <button class="lb-next" type="button" aria-label="Nächstes Bild"><svg viewBox="0 0 16 16"><path d="M6 2l6 6-6 6"/></svg></button>
+  <figure><div class="lb-img" id="lbImg"></div><figcaption><div><h3 id="lbTitle"></h3><p id="lbText"></p></div><span class="pill" id="lbTag"></span></figcaption></figure>
+</div>
+
+<!-- COMMAND PALETTE -->
+<div class="modal" id="palette" role="dialog" aria-modal="true" aria-label="Kommandozentrale">
+  <div class="pal">
+    <div class="pal-in"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+      <input id="palIn" type="text" role="combobox" aria-expanded="true" aria-controls="palList" aria-autocomplete="list" placeholder="Wohin? Sektion, Projekt, Befehl …" data-en-ph="Where to? Section, project, command …" autocomplete="off" spellcheck="false"><kbd>ESC</kbd></div>
+    <ul class="pal-list" id="palList" role="listbox"></ul>
+    <div class="pal-foot"><span>↑↓ <span data-en="navigate">navigieren</span></span><span>↵ <span data-en="open">öffnen</span></span><span>esc <span data-en="close">schließen</span></span></div>
+  </div>
+</div>
+
+<!-- TERMINAL -->
+<div class="modal" id="terminal" role="dialog" aria-modal="true" aria-label="Terminal">
+  <div class="tbox">
+    <div class="term-bar"><i></i><i></i><i></i><span>dulidan-os // terminal</span></div>
+    <div class="tbox-out" id="tOut" aria-live="polite"></div>
+    <form class="tbox-row" id="tForm" autocomplete="off"><span>guest@dulidan:~$</span><label for="tIn" class="sr">Befehl</label><input id="tIn" spellcheck="false" autocapitalize="off"></form>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-label" id="cursorLabel"></span></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 </body>
 </html>
