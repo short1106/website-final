@@ -15,6 +15,8 @@ const CONFIG = {
 /* Weltkarte 2°-Raster (Natural Earth via world-atlas, gemeinfrei) */
 const GEO={w:180,h:90,m:"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAPgP8DAAAAAAAAAAAAAAAAAAAAAACM+/3//wcAAAAgBQACAAAAAAAAAAAAhPfw//8PAPAAAAAAwAMAAAAAAAAAwADEw////wEABAAAAADgAAAAAAAAAABQQT8A/v8PAAAAAAwA/D8AOAEAAAAAcBHvD8D/XwAAAAAgAP7/PwMAABCAAQD4w/4H8P8FAAAAAIJ7//9//xuAAP9ff2479QD/HwAA+A+EN/7//////3/g/////x88+B8AAOD/1//7////////jP////+/+AEfgAcAn9f//////////w/w/////wEs4AEAAHz+////////////gL////8HeAAcAADA5///////////9ADgAf7/f4AnAAAAEHb8////////H0AAAAhA//8f8AcAAIAB4////////38ABwAAAOj//5//AQAAHAT+////////B3AAAAAA/v//+z8AAGDz//////////8CAQAAAMD/////AwAA8P//////////LwAAAAAA4P///2MAAAD+//////////8AAAAAAAD///8/CAAA4P//ff//////JwAAAAAA8P///wYAAAD+/unz/////z8AAAAAAAD///8HAAAA/pgPPP//////MQAAAAAA8P//HwAAAMBD9v7n/////wcAAAAAAAD///8AAAAAPkD6P/7///8hEAAAAAAA4P//DwAAAIDBov/n////f8YAAAAAAAD8//8AAAAA+AdE//////8jDwAAAAAAgP//AwAAAMD/APD/////PxgAAAAAAADw/x8AAAAA/n/v//////8HAAAAAAAAAPwDAgAAAOD///v7////fwAAAAAAAACgHyAAAACA//9/f/7///8DAAAAAAAAAPQBAAAAAPj//+cP+P//HwAAAAAAAAAAHjAAAADA/////g////8EAAAAAAAAAOBhCAAAAPz//99/4B//AAAAAAAAAAAAPAMMAADA////+Qf44BcAAAAAAAAAAAA/AAAAAPz//78fgAf6QAAAAAAAAAAAAA8AAADg////ewA4gA8EAAAAAAAAAADAAAAAAPz//38BgAP4QQAAAAAAAAAAAAgOAADA////zwAwgAwQAAAAAAAAAAAA9Q8AAPj///8HAAFIAAAAAAAAAAAAAID/AQAA////fwBAAAAQAAAAAAAAAAAA+P8AAGDg//8DAAA0GAAAAAAAAAAAAID/HwAAAPj/HwAAgMIBAAAAAAAAAAAA/P8BAACA//8AAAA4XwAAAAAAAAAAAMD/fwAAAPz/BwAAAOOBAQAAAAAAAAAA/P8/AACA/z8AAABgLtQBAAAAAAAAAOD//w8AAPD/AwAAAAQAeAAAAAAAAAAA/P//AQAA/z8AAACAB4APAQAAAAAAAID//w8AAPD/AwAAAAARsEAAAAAAAAAA+P9/AAAA/j8AAAAAAAAAAAAAAAAAAAD//wcAAPD/QwAAAACAIwAAAAAAAAAA8P8/AAAA/z8EAAAAAD4GIAAAAAAAAAD8/wMAAPD/cQAAAAD4fwAAAAAAAAAAgP8/AAAA/w8HAAAAgP8HAAAAAAAAAAD4/wMAAOD/MAAAAAD//wEBAAAAAAAAgP8PAAAA/g8DAAAA+P8fAAAAAAAAAAD4PwAAAOB/MAAAAID//wMAAAAAAAAAgP8DAAAA/AMAAAAA+P9/AAAAAAAAAAD8HwAAAMA/AAAAAID//wcAAAAAAAAAwP8AAAAA+AEAAAAA8P9/AAAAAAAAAAD8DwAAAIAPAAAAAAAP/gMAAAAAAAAAwB8AAAAAAAAAAAAAEMAfAAAAAAAAAAD+AwAAAAAAAAAAAAAA8AEgAAAAAAAA4AcAAAAAAAAAAAAAAAAAAAYAAAAAAABeAAAAAAAAAAAAAAAAwAAwAAAAAAAAwAMAAAAAAAAAAAAAAAAIgAEAAAAAAAAeAAAAAAAAAAAAAAAAAAAMAAAAAAAA4AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAAABAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",c:{"DEU":"2km.3,2pl.4,2um.3","POL":"2kp.5,2pq.4","FRA":"2uh.5,2zh.4,34h.4,39h.3,5vr,60r","GBR":"25g,2af.2,2fe.3,2kg.2,2pg.3","USA":"19b.2,1e8.b,1j9.a,1o7.c,1t8.b,1y7.7,1yf.4,239.4,23l.2,28b,28m,2dn,2t6,2xs.j,2yj,32s.l,33h.3,37s.l,38e.5,3cs.p,3hs.o,3mt.n,3ru.m,3wv.j,421.c,474.2,47d,4c4,4cd","LTU":"2ft.2","LVA":"2at.3","EST":"25u.2","RUS":"n9,nc,ne,nt,su.4,xx.3,12a.2,12q.c,13f.3,13k,179,17l.l,188.2,190,1c9,1cf.3,1cj.4,1co.n,1dc.a,1dn.2,1dz,1gw.4,1h6,1hb.4,1hg.2,1hl.1i,1lx.6,1m4,1m6.c,1mj.1h,1o2.2,1qx.2,1r0,1r2.1y,1vy.22,20w.1s,22q,22s.4,25w.1l,27q,2aw.1j,2co.3,2fx.j,2gh.y,2ho.3,2ky.f,2ll.l,2m9.7,2mh,2mo,2q0.7,2q9,2qb.2,2qn.8,2qx.9,2ra.6,2rh,2v2.3,2wb.5,302.4,31d.2,31h,34z,351.5,36c.2,3a4.2,3bc","BLR":"2fv.2,2ku.4","CHN":"2m6.3,2r6.4,2vp,2w4.7,30n,30p.2,316.7,35m.7,363.9,3am.8,3b1.b,3fk.p,3kj.m,3pj.o,3ul.l,3zm.k,44m.l,49o.5,49u.d,4ev.b,4jv.a,4ow.2,4oz.5,4z0","TUR":"3ev,3ex.7,3jv.9,3ow.6"}};
 
+window.DD_GEO = GEO;
+
 /* ===== Helfer ===== */
 const $ = (s, c = document) => c.querySelector(s);
 const $$ = (s, c = document) => [...c.querySelectorAll(s)];
@@ -79,6 +81,7 @@ if (CONFIG.discord) { const a = $("#chDiscord"); a.href = CONFIG.discord; a.hidd
 /* ===== Boot-Sequenz ===== */
 const boot = (() => {
   const el = $("#boot"), lines = $("#bootLines"), bar = $("#bootBar"), pct = $("#bootPct");
+  if (!el) return { run() { location.href = "/"; }, running: false };
   let running = false, skip = false;
   const L = () => [
     ["hl", T("Initialisiere Dulidan Studios …", "Initialising Dulidan Studios …")],
@@ -86,13 +89,14 @@ const boot = (() => {
     ["", T("Kalibriere Pixel", "Calibrating pixels")],
     ["", T("Koffein-Level: kritisch, aber stabil", "Caffeine level: critical but stable")],
     ["", T("Verbinde Duisburg ⇄ Öhringen", "Linking Duisburg ⇄ Öhringen")],
+    ["", T("Rendere Weltkugel", "Rendering globe")],
     ["", T("April wird geweckt", "Waking up April")],
-    ["hl", T("System bereit.", "System ready.")]
+    ["hl", "Dream. Design. Develop. Dominate."]
   ];
   function finish() {
     if (!running) return;
     running = false;
-    store.set("dd_booted", "1");
+    store.set("dd_booted2", "1");
     el.classList.add("done");
     root.classList.remove("booting");
     document.removeEventListener("keydown", key);
@@ -166,7 +170,8 @@ function onScroll() {
   hud.bar.style.setProperty("--p", p);
   hud.pct.textContent = String(Math.round(p * 100)).padStart(3, "0") + "%";
   nav.classList.toggle("scrolled", scrollY > 20);
-  root.classList.toggle("past-hero", scrollY > innerHeight * 0.6);
+  const ep = $(".epic");
+  root.classList.toggle("past-hero", scrollY > (ep ? ep.offsetTop + ep.offsetHeight - innerHeight * 0.4 : innerHeight * 0.6));
   let i = 0;
   sections.forEach((s, k) => { if (s.getBoundingClientRect().top < innerHeight * 0.4) i = k; });
   if (i !== curSec) {
@@ -184,14 +189,19 @@ onScroll();
 
 const clockFmt = (o) => new Intl.DateTimeFormat("de-DE", Object.assign({ timeZone: "Europe/Berlin", hour: "2-digit", minute: "2-digit" }, o));
 const fmtS = clockFmt({ second: "2-digit" }), fmtM = clockFmt({});
-function tick() { $("#hudClock").textContent = fmtS.format(new Date()); $("#heroClock").textContent = fmtM.format(new Date()); }
+function tick() { const c = $("#hudClock"), h = $("#heroClock"); if (c) c.textContent = fmtS.format(new Date()); if (h) h.textContent = fmtM.format(new Date()); }
 tick(); setInterval(tick, 1000);
 
 /* ===== Reveals ===== */
 const rio = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add("in"); rio.unobserve(e.target); }
 }), { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
-$$(".rv,.rv-mask").forEach(el => rio.observe(el));
+$$(".rv").forEach(el => rio.observe(el));
+/* .rv-mask ist per clip-path fast unsichtbar; ein eigener Observer mit Schwelle 0 erkennt den Rest-Streifen */
+const mio = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("in"); mio.unobserve(e.target); }
+}), { threshold: 0 });
+$$(".rv-mask").forEach(el => mio.observe(el));
 
 /* ===== Cursor + magnetische Buttons ===== */
 const pointer = { x: innerWidth / 2, y: innerHeight / 2, nx: 0, ny: 0 };
@@ -270,92 +280,144 @@ if (!RM && para.length) {
   })();
 }
 
-/* ===== Hero: WebGL-Partikel-Logo ===== */
+/* ===== Epic Hero: Partikel-Morph D → Nebel → Fläche → Globus → D ===== */
 const hero = (() => {
-  const host = $("#heroCanvas"), fallback = $("#heroFallback");
+  const host = $("#heroCanvas"), fallback = $("#heroFallback"), epic = $(".epic");
   const api = { pink: 0 };
+  if (!host) return api;
+
+  /* --- Scroll-Story (läuft auch ohne WebGL) --- */
+  const words = $$(".epic-words .w"), steps = $$("#ehSteps li"), intro = $("#epicIntro");
+  const stageEl = $("#ehStage"), pctEl = $("#ehPct");
+  const STAGES = ["INIT", "DREAM", "DESIGN", "DEVELOP", "DOMINATE", "ONLINE"];
+  let prog = 0, stage = -1, shock = 0;
+  function story() {
+    if (!epic || RM) return;
+    const r = epic.getBoundingClientRect();
+    prog = clamp(-r.top / ((r.height - innerHeight) || 1), 0, 1);
+    pctEl.textContent = String(Math.round(prog * 100)).padStart(3, "0");
+    intro.style.setProperty("--io", clamp(1 - prog / 0.09, 0, 1));
+    intro.style.setProperty("--iy", -prog * 600 + "px");
+    intro.style.visibility = prog > 0.1 ? "hidden" : "";
+    const s = prog < 0.12 ? 0 : prog < 0.31 ? 1 : prog < 0.5 ? 2 : prog < 0.69 ? 3 : prog < 0.86 ? 4 : 5;
+    if (s !== stage) {
+      const prev = stage; stage = s;
+      stageEl.textContent = STAGES[s];
+      words.forEach((w, i) => { w.classList.toggle("on", i === s - 1); w.classList.toggle("past", i < s - 1); });
+      steps.forEach((li, i) => { li.classList.toggle("on", i === s - 1 || (s === 5 && i === 3)); li.classList.toggle("done", i < s - 1); });
+      epic.classList.toggle("done", s === 5);
+      if (s === 4 && prev < 4) { shock = 1; epic.classList.remove("flash"); void epic.offsetWidth; epic.classList.add("flash"); }
+    }
+  }
+  addEventListener("scroll", story, { passive: true }); story();
+
   if (RM) return api;
   const cv = document.createElement("canvas");
   const gl = cv.getContext("webgl", { alpha: true, antialias: false, premultipliedAlpha: false });
   if (!gl) return api;
 
   const VS = `
-    attribute vec3 aT; attribute vec3 aS; attribute vec3 aC; attribute float aR;
-    uniform float uTime, uForm, uScroll, uAspect, uScale, uPx, uRotX, uRotY, uPink, uAlpha;
+    attribute vec3 aD; attribute vec3 aN; attribute vec3 aP; attribute vec3 aG; attribute vec3 aC; attribute float aR;
+    uniform float uTime, uA, uB, uT, uScroll, uAspect, uScale, uPx, uRotX, uRotY, uPink, uAlpha, uShock, uIntro;
     uniform vec2 uOff, uMouse;
     varying vec3 vC; varying float vA;
+    vec3 rotY(vec3 p, float a){ float c = cos(a), s = sin(a); return vec3(p.x*c + p.z*s, p.y, -p.x*s + p.z*c); }
+    vec3 rotX(vec3 p, float a){ float c = cos(a), s = sin(a); return vec3(p.x, p.y*c - p.z*s, p.y*s + p.z*c); }
+    vec3 shape(float i){
+      if (i < 0.5) return aD;
+      if (i < 1.5) return rotX(rotY(aN, uTime*0.18), 1.05);
+      if (i < 2.5) { vec3 q = aP; q.y = 0.13*sin(q.x*3.2 + uTime*1.6) + 0.09*cos(q.z*4.0 + uTime*1.2); return rotX(q, 0.95) + vec3(0.0,-0.08,0.0); }
+      return rotY(aG, uTime*0.35);
+    }
+    vec3 col(float i){
+      if (i < 0.5) return aC;
+      if (i < 1.5) return mix(vec3(0.5,0.13,0.71), vec3(1.0,0.48,0.9), aR);
+      if (i < 2.5) return mix(vec3(0.75,0.13,0.72), vec3(0.62,0.4,1.0), aR);
+      return mix(vec3(0.95,0.8,1.0), vec3(1.0,0.48,0.9), aR*0.6);
+    }
     void main(){
-      float k = clamp(uForm*1.6 - aR*0.6, 0.0, 1.0);
+      float k = clamp(uT*1.5 - aR*0.5, 0.0, 1.0);
       k = k*k*(3.0-2.0*k);
-      vec3 p = mix(aS, aT, k);
-      p += vec3(sin(uTime*1.1+aR*40.0), cos(uTime*0.9+aR*31.0), sin(uTime*0.7+aR*23.0)) * (0.012 + uScroll*0.05);
-      p += normalize(aS + 0.0001) * uScroll * (0.4 + aR) * 1.4;
-      float cy = cos(uRotY), sy = sin(uRotY), cx = cos(uRotX), sx = sin(uRotX);
-      p = vec3(p.x*cy + p.z*sy, p.y, -p.x*sy + p.z*cy);
-      p = vec3(p.x, p.y*cx - p.z*sx, p.y*sx + p.z*cx);
-      float persp = 2.4 / (2.4 - p.z);
+      vec3 p = mix(shape(uA), shape(uB), k);
+      p += vec3(sin(uTime*1.1+aR*40.0), cos(uTime*0.9+aR*31.0), sin(uTime*0.7+aR*23.0)) * 0.012;
+      p *= mix(1.0, 3.2, (1.0-uIntro) * (1.0-aR*0.3));
+      p += normalize(p + 0.0001) * uShock * (0.3 + aR) * 0.9;
+      p = rotX(rotY(p, uRotY), uRotX);
+      float persp = 2.6 / (2.6 - p.z);
       vec2 s = p.xy * persp * uScale + uOff;
       vec2 d = s - uMouse;
       float f = exp(-dot(d,d) * 22.0);
       s += normalize(d + 0.0001) * f * 0.16;
       gl_Position = vec4(s.x / uAspect, s.y, 0.0, 1.0);
-      gl_PointSize = uPx * (0.7 + aR * 1.3) * persp * (1.0 + f * 1.5);
-      vC = mix(aC, vec3(1.0, 0.48, 0.9), uPink * 0.7) + f * 0.4;
-      vA = uAlpha * (0.75 + aR * 0.25) * (1.0 - clamp(uScroll * 0.7, 0.0, 0.85));
+      gl_PointSize = uPx * (0.7 + aR * 1.3) * persp * (1.0 + f * 1.5 + uShock);
+      vC = mix(mix(col(uA), col(uB), k), vec3(1.0,0.48,0.9), uPink*0.7) + f*0.4 + uShock*0.5;
+      vA = uAlpha * (0.72 + aR*0.28) * uIntro;
     }`;
-  const FS = `
-    precision mediump float; varying vec3 vC; varying float vA;
-    void main(){ float d = length(gl_PointCoord - 0.5); float a = smoothstep(0.5, 0.05, d); gl_FragColor = vec4(vC, a * vA); }`;
+  const FS = `precision mediump float; varying vec3 vC; varying float vA;
+    void main(){ float d = length(gl_PointCoord - 0.5); gl_FragColor = vec4(vC, smoothstep(0.5, 0.05, d) * vA); }`;
   function sh(t, src) { const s = gl.createShader(t); gl.shaderSource(s, src); gl.compileShader(s); return s; }
   const pr = gl.createProgram();
-  gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS));
-  gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS));
-  gl.linkProgram(pr);
+  gl.attachShader(pr, sh(gl.VERTEX_SHADER, VS)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, FS)); gl.linkProgram(pr);
   if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) return api;
   gl.useProgram(pr);
   const U = {};
-  ["uTime", "uForm", "uScroll", "uAspect", "uScale", "uPx", "uRotX", "uRotY", "uOff", "uMouse", "uPink", "uAlpha"].forEach(n => (U[n] = gl.getUniformLocation(pr, n)));
+  ["uTime", "uA", "uB", "uT", "uScroll", "uAspect", "uScale", "uPx", "uRotX", "uRotY", "uPink", "uAlpha", "uShock", "uIntro", "uOff", "uMouse"].forEach(n => (U[n] = gl.getUniformLocation(pr, n)));
 
+  let N = 0, aspect = 1, run = false, t0 = 0, mobile = innerWidth < 960;
+  const st = { rx: 0, ry: 0, mx: 9, my: 9, ox: 0, oy: 0, sc: 0.6 };
   const img = new Image();
   img.src = "/assets/img/logo-mark.webp";
-  let N = 0, W = 0, H = 0, aspect = 1, run = false, t0 = 0, mobile = false;
-  const st = { rx: 0, ry: 0, mx: 9, my: 9, scroll: 0 };
-
   img.decode().then(() => {
-    mobile = innerWidth < 760;
     const S = mobile ? 150 : 210, step = 2;
     const oc = document.createElement("canvas"); oc.width = oc.height = S;
     const ox = oc.getContext("2d"); ox.drawImage(img, 0, 0, S, S);
     const px = ox.getImageData(0, 0, S, S).data;
-    const T_ = [], S_ = [], C_ = [], R_ = [];
-    const rnd = () => Math.random() * 2 - 1;
-    function sphere(r) { const u = Math.random() * 2 - 1, th = Math.random() * 6.283, s = Math.sqrt(1 - u * u); const rr = r * Math.cbrt(Math.random()); return [rr * s * Math.cos(th), rr * u, rr * s * Math.sin(th)]; }
+    const D = [], C = [];
     for (let y = 0; y < S; y += step) for (let x = 0; x < S; x += step) {
       const i = (y * S + x) * 4;
       if (px[i + 3] < 150) continue;
-      T_.push((x / S - 0.5) * 2, -(y / S - 0.5) * 2, rnd() * 0.05);
-      S_.push(...sphere(2.6));
-      C_.push(Math.min(1, px[i] / 255 * 1.35 + 0.08), px[i + 1] / 255 * 1.2 + 0.04, Math.min(1, px[i + 2] / 255 * 1.3 + 0.08));
-      R_.push(Math.random());
+      D.push([(x / S - 0.5) * 2, -(y / S - 0.5) * 2, (Math.random() * 2 - 1) * 0.05]);
+      C.push([Math.min(1, px[i] / 255 * 1.35 + 0.08), px[i + 1] / 255 * 1.2 + 0.04, Math.min(1, px[i + 2] / 255 * 1.3 + 0.08)]);
     }
+    const n = D.length;
+    /* Nebel: Spiralgalaxie */
+    const Nb = Array.from({ length: n }, () => {
+      const arm = Math.floor(Math.random() * 3), r = Math.pow(Math.random(), 0.6) * 1.7;
+      const a = arm * 2.094 + r * 2.6 + (Math.random() - 0.5) * 0.6;
+      return [Math.cos(a) * r, (Math.random() - 0.5) * 0.12 * (1.8 - r), Math.sin(a) * r];
+    });
+    /* Design-Fläche: Raster */
+    const side = Math.ceil(Math.sqrt(n * 1.6)), rows = Math.ceil(n / side);
+    const P = Array.from({ length: n }, (_, i) => [((i % side) / side - 0.5) * 3.4, 0, (Math.floor(i / side) / rows - 0.5) * 2.1]);
+    /* Globus aus echten Landmassen */
+    const MB = Uint8Array.from(atob(GEO.m), c => c.charCodeAt(0)), land = [];
+    for (let i = 0; i < GEO.w * GEO.h; i++) if ((MB[i >> 3] >> (i & 7)) & 1) land.push(i);
+    const G = Array.from({ length: n }, (_, k) => {
+      const ocean = k % 5 === 0;
+      let la, lo;
+      if (ocean) { la = Math.asin(Math.random() * 2 - 1) * 57.3; lo = Math.random() * 360 - 180; }
+      else { const c = land[Math.floor(Math.random() * land.length)]; lo = -180 + (c % GEO.w) * 2 + Math.random() * 2; la = 90 - Math.floor(c / GEO.w) * 2 - Math.random() * 2; }
+      const R = ocean ? 0.99 : 1.0, a = la * Math.PI / 180, b = lo * Math.PI / 180;
+      return [R * Math.cos(a) * Math.sin(b), R * Math.sin(a), R * Math.cos(a) * Math.cos(b)];
+    });
+    const R_ = Array.from({ length: n }, () => Math.random());
+    /* Sterne: in allen Formen gleich */
     const stars = mobile ? 260 : 700;
     for (let k = 0; k < stars; k++) {
-      const p = sphere(3.2);
-      T_.push(...p); S_.push(...p);
-      C_.push(0.55, 0.3, 0.75); R_.push(Math.random() * 0.5);
+      const u = Math.random() * 2 - 1, th = Math.random() * 6.283, s = Math.sqrt(1 - u * u), r = 2.4 + Math.random() * 1.2;
+      const p = [r * s * Math.cos(th), r * u, r * s * Math.sin(th)];
+      D.push(p); Nb.push(p); P.push(p); G.push(p); C.push([0.55, 0.3, 0.75]); R_.push(Math.random() * 0.4);
     }
     N = R_.length;
-    function buf(name, data, size) {
+    function buf(name, arr, size) {
       const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b);
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(data), gl.STATIC_DRAW);
-      const l = gl.getAttribLocation(pr, name); gl.enableVertexAttribArray(l);
-      gl.vertexAttribPointer(l, size, gl.FLOAT, false, 0, 0);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(size === 1 ? arr : arr.flat()), gl.STATIC_DRAW);
+      const l = gl.getAttribLocation(pr, name); gl.enableVertexAttribArray(l); gl.vertexAttribPointer(l, size, gl.FLOAT, false, 0, 0);
     }
-    buf("aT", T_, 3); buf("aS", S_, 3); buf("aC", C_, 3); buf("aR", R_, 1);
+    buf("aD", D, 3); buf("aN", Nb, 3); buf("aP", P, 3); buf("aG", G, 3); buf("aC", C, 3); buf("aR", R_, 1);
     gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
     host.appendChild(cv);
-    size();
-    addEventListener("resize", size);
+    size(); addEventListener("resize", size);
     onVisible(host, v => { if (v && !run) { run = true; requestAnimationFrame(frame); } else if (!v) run = false; });
     const go = () => { t0 = performance.now(); fallback.style.transition = "opacity .8s"; fallback.style.opacity = 0; };
     if (root.classList.contains("booting")) document.addEventListener("booted", go, { once: true }); else go();
@@ -363,37 +425,203 @@ const hero = (() => {
 
   function size() {
     const r = host.getBoundingClientRect();
-    W = cv.width = Math.round(r.width * DPR); H = cv.height = Math.round(r.height * DPR);
-    gl.viewport(0, 0, W, H);
-    aspect = W / H;
-    mobile = innerWidth < 960;
+    cv.width = Math.round(r.width * DPR); cv.height = Math.round(r.height * DPR);
+    gl.viewport(0, 0, cv.width, cv.height);
+    aspect = cv.width / cv.height; mobile = innerWidth < 960;
     gl.uniform1f(U.uAspect, aspect);
-    if (mobile) { gl.uniform2f(U.uOff, 0.3 * aspect, -0.2); gl.uniform1f(U.uScale, Math.min(0.62, 0.42 * aspect + 0.2)); }
-    else { gl.uniform2f(U.uOff, aspect * 0.52, 0.02); gl.uniform1f(U.uScale, 0.6); }
-    gl.uniform1f(U.uPx, (mobile ? 2.6 : 3.4) * DPR);
-    gl.uniform1f(U.uAlpha, mobile ? 0.5 : 1);
+    gl.uniform1f(U.uPx, (mobile ? 2.4 : 3.2) * DPR);
   }
+  /* Keyframes: [Fortschritt, Form]  0=D 1=Nebel 2=Fläche 3=Globus */
+  const KF = [[0, 0], [0.1, 0], [0.18, 1], [0.27, 1], [0.37, 2], [0.46, 2], [0.56, 3], [0.65, 3], [0.73, 0], [1, 0]];
   function frame(now) {
     if (!run) return;
     const t = (now - (t0 || now)) / 1000;
-    const form = t0 ? clamp(t / 2.4, 0, 1) : 0;
-    st.scroll = lerp(st.scroll, clamp(scrollY / innerHeight, 0, 1.4), 0.12);
-    st.ry = lerp(st.ry, pointer.nx * 0.45 + Math.sin(now / 3200) * 0.18 + st.scroll * 1.4, 0.06);
+    let a = 0, b = 0, tt = 0;
+    for (let i = 0; i < KF.length - 1; i++) if (prog >= KF[i][0] && prog <= KF[i + 1][0]) { a = KF[i][1]; b = KF[i + 1][1]; tt = (prog - KF[i][0]) / (KF[i + 1][0] - KF[i][0]); break; }
+    if (a === b) tt = 0;
+    const introD = prog < 0.12;
+    /* Position + Größe je nach Phase */
+    const tx = introD ? (mobile ? 0.32 * aspect : 0.5 * aspect) : 0, ty = introD ? (mobile ? -0.22 : 0.02) : 0;
+    const big = prog > 0.66 && prog < 0.86;
+    const tsc = introD ? (mobile ? 0.55 : 0.62) : big ? (mobile ? 0.62 : 0.78) : prog > 0.86 ? (mobile ? 0.7 : 0.95) : (mobile ? 0.5 : 0.62);
+    st.ox = lerp(st.ox, tx, 0.08); st.oy = lerp(st.oy, ty, 0.08); st.sc = lerp(st.sc, tsc, 0.08);
+    shock *= 0.93;
+    st.ry = lerp(st.ry, pointer.nx * 0.45 + (introD ? Math.sin(now / 3200) * 0.18 : 0), 0.06);
     st.rx = lerp(st.rx, pointer.ny * 0.28, 0.06);
-    const mx = pointer.nx * aspect, my = -pointer.ny;
-    st.mx = lerp(st.mx, mx, 0.25); st.my = lerp(st.my, my, 0.25);
+    st.mx = lerp(st.mx, pointer.nx * aspect, 0.25); st.my = lerp(st.my, -pointer.ny, 0.25);
+    const alpha = (mobile && introD ? 0.5 : prog > 0.86 ? 0.3 : 1);
     gl.uniform1f(U.uTime, now / 1000);
-    gl.uniform1f(U.uForm, form);
-    gl.uniform1f(U.uScroll, st.scroll);
-    gl.uniform1f(U.uRotX, st.rx);
-    gl.uniform1f(U.uRotY, st.ry);
+    gl.uniform1f(U.uA, a); gl.uniform1f(U.uB, b); gl.uniform1f(U.uT, tt);
+    gl.uniform1f(U.uIntro, t0 ? clamp(t / 2.2, 0, 1) : 0);
+    gl.uniform1f(U.uShock, shock);
+    gl.uniform1f(U.uScale, st.sc);
+    gl.uniform2f(U.uOff, st.ox, st.oy);
+    gl.uniform1f(U.uRotX, st.rx); gl.uniform1f(U.uRotY, st.ry);
     gl.uniform2f(U.uMouse, FINE ? st.mx : 99, FINE ? st.my : 99);
-    gl.uniform1f(U.uPink, api.pink);
+    gl.uniform1f(U.uPink, api.pink); gl.uniform1f(U.uAlpha, alpha);
     gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawArrays(gl.POINTS, 0, N);
     requestAnimationFrame(frame);
   }
   return api;
+})();
+
+/* ===== Dot-Globus (Canvas 2D) – Weltsektion + Portal ===== */
+function dotGlobe(cv, opts = {}) {
+  const g = cv.getContext("2d");
+  const MB = Uint8Array.from(atob(GEO.m), c => c.charCodeAt(0));
+  const v3 = (la, lo) => { la *= Math.PI / 180; lo *= Math.PI / 180; return [Math.cos(la) * Math.sin(lo), Math.sin(la), Math.cos(la) * Math.cos(lo)]; };
+  const pts = [];
+  for (let i = 0; i < GEO.w * GEO.h; i++) {
+    if (!((MB[i >> 3] >> (i & 7)) & 1)) continue;
+    pts.push(v3(90 - Math.floor(i / GEO.w) * 2 - 1, -180 + (i % GEO.w) * 2 + 1));
+  }
+  const grid = [];
+  for (let la = -60; la <= 60; la += 30) for (let lo = -180; lo < 180; lo += 3) grid.push(v3(la, lo));
+  const pins = (opts.pins || []).map(p => ({ ...p, v: v3(p.lat, p.lon) }));
+  let W = 0, H = 0, R = 0, rot = opts.rot ?? -0.25, tilt = opts.tilt ?? 0.62, vel = 0.003, drag = null, run = false, active = 0;
+  function size() { const r = cv.getBoundingClientRect(); W = cv.width = Math.round(r.width * DPR); H = cv.height = Math.round(r.height * DPR); R = Math.min(W, H) * (opts.r || 0.42); }
+  size(); addEventListener("resize", size);
+  if (opts.interactive) {
+    cv.addEventListener("pointerdown", e => { drag = { x: e.clientX, y: e.clientY, r: rot, t: tilt }; cv.setPointerCapture(e.pointerId); });
+    cv.addEventListener("pointermove", e => {
+      if (!drag) return;
+      const nr = drag.r + (e.clientX - drag.x) * 0.008;
+      vel = nr - rot; rot = nr;
+      tilt = clamp(drag.t + (e.clientY - drag.y) * 0.006, -1.2, 1.2);
+    });
+    const up = () => { drag = null; };
+    cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+  }
+  const P = (p, cr, sr, ct, st) => { const x = p[0] * cr + p[2] * sr, z = -p[0] * sr + p[2] * cr; return [W / 2 + x * R, H / 2 - (p[1] * ct - z * st) * R, p[1] * st + z * ct]; };
+  function frame(t) {
+    if (!run) return;
+    if (!drag) { vel = lerp(vel, RM ? 0 : 0.0025, 0.02); rot += vel; }
+    const cr = Math.cos(rot), sr = Math.sin(rot), ct = Math.cos(tilt), st = Math.sin(tilt);
+    g.clearRect(0, 0, W, H);
+    const hg = g.createRadialGradient(W / 2, H / 2, R * 0.8, W / 2, H / 2, R * 1.25);
+    hg.addColorStop(0, "rgba(129,34,181,0)"); hg.addColorStop(0.45, "rgba(192,32,184,.16)"); hg.addColorStop(1, "rgba(129,34,181,0)");
+    g.fillStyle = hg; g.beginPath(); g.arc(W / 2, H / 2, R * 1.25, 0, 7); g.fill();
+    g.strokeStyle = "rgba(192,32,184,.45)"; g.lineWidth = DPR; g.beginPath(); g.arc(W / 2, H / 2, R, 0, 7); g.stroke();
+    g.fillStyle = "rgba(239,234,247,.13)";
+    for (const p of grid) { const q = P(p, cr, sr, ct, st); if (q[2] > 0) g.fillRect(q[0], q[1], DPR, DPR); }
+    const s = DPR * 1.6;
+    for (const p of pts) { const q = P(p, cr, sr, ct, st); if (q[2] < 0) continue; g.fillStyle = `rgba(232,200,248,${0.2 + q[2] * 0.7})`; g.fillRect(q[0] - s / 2, q[1] - s / 2, s * (0.6 + q[2] * 0.6), s * (0.6 + q[2] * 0.6)); }
+    /* Bögen von Pin 0 zu den anderen */
+    if (pins.length > 1) {
+      const a0 = P(pins[0].v, cr, sr, ct, st);
+      pins.slice(1).forEach((p, i) => {
+        const b = P(p.v, cr, sr, ct, st); if (a0[2] < 0 || b[2] < 0) return;
+        const mx = (a0[0] + b[0]) / 2, my = (a0[1] + b[1]) / 2 - Math.hypot(b[0] - a0[0], b[1] - a0[1]) * 0.6 - 20 * DPR;
+        g.strokeStyle = "rgba(255,122,230,.75)"; g.lineWidth = 1.4 * DPR; g.setLineDash([4 * DPR, 4 * DPR]); g.lineDashOffset = -t / 40;
+        g.beginPath(); g.moveTo(a0[0], a0[1]); g.quadraticCurveTo(mx, my, b[0], b[1]); g.stroke(); g.setLineDash([]);
+      });
+    }
+    pins.forEach((p, i) => {
+      const q = P(p.v, cr, sr, ct, st); if (q[2] < 0.02) return;
+      const ph = ((t / 1000 + i * 0.5) % 1.6) / 1.6;
+      g.strokeStyle = `rgba(255,122,230,${1 - ph})`; g.lineWidth = 1.5 * DPR; g.beginPath(); g.arc(q[0], q[1], (4 + ph * 20) * DPR, 0, 7); g.stroke();
+      g.shadowColor = "#ff7ae6"; g.shadowBlur = 14 * DPR; g.fillStyle = i === active ? "#fff" : "#ff7ae6";
+      g.beginPath(); g.arc(q[0], q[1], (i === active ? 4 : 3) * DPR, 0, 7); g.fill(); g.shadowBlur = 0;
+      if (opts.labels && i === active) { g.fillStyle = i === active ? "#fff" : "rgba(239,234,247,.75)"; g.font = `${(i === active ? 13 : 11) * DPR}px "JetBrains Mono",monospace`; g.fillText(p.name.toUpperCase(), q[0] + 10 * DPR, q[1] - 8 * DPR); }
+    });
+    requestAnimationFrame(frame);
+  }
+  onVisible(cv, v => { if (v && !run) { run = true; requestAnimationFrame(frame); } else if (!v) run = false; });
+  return {
+    focus(i) { active = i; const p = pins[i]; if (!p) return; const target = -p.lon * Math.PI / 180; let d = target - rot; d = Math.atan2(Math.sin(d), Math.cos(d)); const from = rot, t1 = performance.now(); vel = 0; (function an() { const k = clamp((performance.now() - t1) / 900, 0, 1); rot = from + d * (1 - Math.pow(1 - k, 3)); if (k < 1) requestAnimationFrame(an); })(); tilt = clamp(p.lat * Math.PI / 180 * 0.9, -1, 1); }
+  };
+}
+(() => {
+  const wg = $("#worldGlobe");
+  if (wg) {
+    const globe = dotGlobe(wg, { interactive: true, labels: true, rot: -0.17, tilt: 0.8, pins: [{ name: "Öhringen", lat: 49.2, lon: 9.5 }, { name: "Duisburg", lat: 51.43, lon: 6.76 }, { name: "Stuttgart", lat: 48.78, lon: 9.18 }] });
+    $$(".pins li").forEach(li => {
+      const go = () => { $$(".pins li").forEach(x => x.classList.toggle("on", x === li)); globe.focus(+li.dataset.pin); };
+      li.addEventListener("click", go); li.addEventListener("mouseenter", go);
+      li.tabIndex = 0; li.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+    });
+  }
+  const pg = $("#portalGlobe");
+  if (pg) dotGlobe(pg, { r: 0.36, rot: 0.3, tilt: 0.5, pins: [{ name: "Berlin", lat: 52.5, lon: 13.4 }, { name: "Peking", lat: 39.9, lon: 116.4 }, { name: "Washington", lat: 38.9, lon: -77 }, { name: "Moskau", lat: 55.75, lon: 37.6 }] });
+})();
+
+/* ===== Projekt-Konfigurator ===== */
+const cfg = (() => {
+  const box = $(".cfg"); if (!box) return { pick() {} };
+  const out = $("#cfgOut"), pct = $("#cfgPct"), bar = $("#cfgBar"), send = $("#cfgSend");
+  const sel = { need: new Set(), have: null, when: null, goal: null };
+  const L = {
+    need: { web: ["Website", "Website"], ads: ["Werbe-Content", "Ad content"], "3d": ["3D / Rendering", "3D / rendering"], logo: ["Logo-Erneuerung", "Logo refresh"] },
+    have: { none: ["Noch nichts", "Nothing yet"], logo: ["Ein Logo", "A logo"], site: ["Eine alte Website", "An old website"], all: ["Einiges, muss frischer werden", "Lots, needs a refresh"] },
+    when: { asap: ["So schnell wie möglich", "As soon as possible"], soon: ["In 1–3 Monaten", "In 1–3 months"], plan: ["Bin noch am Planen", "Just planning"] },
+    goal: { leads: ["Mehr Anfragen", "More enquiries"], brand: ["Besseres Image", "Better image"], launch: ["Etwas Neues starten", "Launch something new"] }
+  };
+  const tl = (q, v) => L[q][v][lang === "en" ? 1 : 0];
+  function text(plain) {
+    const rows = [
+      [T("Leistungen", "Services"), sel.need.size ? [...sel.need].map(v => tl("need", v)).join(", ") : "—"],
+      [T("Vorhanden", "Existing"), sel.have ? tl("have", sel.have) : "—"],
+      [T("Zeitrahmen", "Timeline"), sel.when ? tl("when", sel.when) : "—"],
+      [T("Ziel", "Goal"), sel.goal ? tl("goal", sel.goal) : "—"]
+    ];
+    if (plain) return T("Hallo Dulidan Studios,\n\nhier mein Projekt-Briefing:\n", "Hi Dulidan Studios,\n\nhere's my project briefing:\n") + rows.map(([k, v]) => `- ${k}: ${v}`).join("\n") + T("\n\nKurz zu mir und meinem Projekt:\n", "\n\nA bit about me and my project:\n");
+    return rows;
+  }
+  function render() {
+    const rows = text(false);
+    const done = (sel.need.size ? 1 : 0) + (sel.have ? 1 : 0) + (sel.when ? 1 : 0) + (sel.goal ? 1 : 0);
+    out.innerHTML = "";
+    const add = (h, cls) => { const s = document.createElement("span"); if (cls) s.className = cls; s.textContent = h; out.appendChild(s); };
+    add("# BRIEFING // DULIDAN STUDIOS\n", "k");
+    rows.forEach(([k, v]) => { add(`> ${k.padEnd(12, " ")}`, "k"); add(v + "\n", "v"); });
+    add("\n" + (done === 4 ? T("✓ Bereit. Klick auf „Briefing übernehmen“.", "✓ Ready. Click “Use briefing”.") : T("… wähle links aus", "… pick on the left")) + "\n");
+    pct.textContent = done * 25 + "%"; bar.style.width = done * 25 + "%";
+    send.disabled = done === 0;
+  }
+  $$(".chips", box).forEach(c => {
+    const q = c.dataset.q, multi = c.hasAttribute("data-multi");
+    c.addEventListener("click", e => {
+      const b = e.target.closest("button"); if (!b) return;
+      const v = b.dataset.v;
+      if (multi) { sel.need.has(v) ? sel.need.delete(v) : sel.need.add(v); b.setAttribute("aria-pressed", sel.need.has(v)); }
+      else { sel[q] = sel[q] === v ? null : v; $$("button", c).forEach(x => x.setAttribute("aria-pressed", x.dataset.v === sel[q])); }
+      render();
+    });
+  });
+  send.addEventListener("click", () => {
+    const msg = $("#f-msg"); msg.value = text(true);
+    scrollToId("kontakt");
+    setTimeout(() => { msg.focus({ preventScroll: true }); msg.setSelectionRange(msg.value.length, msg.value.length); }, 700);
+    toast(T("Briefing übernommen. Noch Name und E-Mail, dann ab damit.", "Briefing added. Just name and email, then send it."));
+  });
+  document.addEventListener("langchange", render);
+  render();
+  return {
+    pick(v) {
+      sel.need.add(v);
+      $$('.chips[data-q="need"] button').forEach(x => x.setAttribute("aria-pressed", sel.need.has(x.dataset.v)));
+      render(); scrollToId("projekt");
+    }
+  };
+})();
+$$(".svc-pick").forEach(b => b.addEventListener("click", () => cfg.pick(b.dataset.pick)));
+
+/* ===== Seitenwechsel mit Wipe ===== */
+(() => {
+  const w = $("#wipe"); if (!w || RM) return;
+  w.classList.add("out");
+  document.addEventListener("click", e => {
+    const a = e.target.closest("a[href]");
+    if (!a || a.target || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return;
+    const u = new URL(a.href, location.href);
+    if (u.origin !== location.origin || u.pathname === location.pathname || /^(mailto|tel):/.test(a.href)) return;
+    if (!/\/(portfolio|politics-ai|impressum|datenschutz)?\/?$/.test(u.pathname)) return;
+    e.preventDefault();
+    w.classList.remove("out"); w.classList.add("on");
+    setTimeout(() => (location.href = u.href), 480);
+  });
+  addEventListener("pageshow", () => { w.classList.remove("on"); w.classList.add("out"); });
 })();
 
 /* ===== Politics AI Demo: Mini-Globus, Feed, Kaskaden ===== */
@@ -610,9 +838,12 @@ function openModal(m, focusEl) { lastFocus = document.activeElement; m.classList
 function closeModal(m) { m.classList.remove("open"); document.body.classList.remove("no-scroll"); lastFocus && lastFocus.focus && lastFocus.focus(); }
 $$(".modal").forEach(m => m.addEventListener("click", e => { if (e.target === m) closeModal(m); }));
 
+/* Sektionen der Portfolio-Seite; alles andere liegt auf der Startseite */
+const PF_IDS = ["projekte", "p-politics", "showroom", "kunst", "buch", "lab"];
 function scrollToId(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
+  else location.href = (PF_IDS.includes(id) ? "/portfolio/#" : "/#") + id;
 }
 function copyMail() {
   (navigator.clipboard ? navigator.clipboard.writeText(CONFIG.email) : Promise.reject()).then(
@@ -625,14 +856,17 @@ const palette = (() => {
   const m = $("#palette"), inp = $("#palIn"), list = $("#palList");
   let items = [], sel = 0;
   const I = () => [
-    [T("Sektionen", "Sections"), [
-      ["Start", "top", "hero home"], [T("Über mich", "About"), "about", "shaquille gründer"], ["Services", "services", "leistungen webdesign 3d logo"],
-      [T("Projekte", "Work"), "projekte", "cases"], [T("Foto & Kunst", "Photo & Art"), "kunst", "menschlichkeit ausrutscher galerie"],
+    [T("Startseite", "Home"), [
+      ["Start", "top", "hero dream design develop dominate"], [T("Leistungen", "Services"), "leistungen", "services webdesign 3d logo content"],
+      [T("Für wen", "Who it's for"), "fuerwen", "handwerk startup creator"], [T("Warum Dulidan", "Why Dulidan"), "warum", "vorteile"],
+      [T("Weltkugel", "Globe"), "welt", "öhringen duisburg globus"], [T("Projekt-Konfigurator", "Project configurator"), "projekt", "briefing anfrage planen"],
+      [T("Über mich", "About"), "about", "shaquille gründer"], [T("Ablauf", "Process"), "prozess", "ablauf"], [T("Kontakt", "Contact"), "kontakt", "mail anfrage"]]],
+    ["Portfolio", [
+      ["Politics AI", "p-politics", "ki simulator kanzler"], [T("3D-Showroom", "3D showroom"), "showroom", "modelle three render"],
+      ["Zimmerei Weberhof", () => window.open(CONFIG.zimmerei, "_blank", "noopener"), "handwerk demo live"],
+      ["Berlingo-Wrap", "projekte", "folierung frosted"], [T("Foto & Kunst", "Photo & Art"), "kunst", "menschlichkeit ausrutscher galerie"],
       [T("Buch", "Book"), "buch", "finde deine mitte"], ["Lab / Side Quests", "lab", "duisport rc jet minecraft"],
-      [T("Prozess", "Process"), "prozess", "ablauf"], [T("Kontakt", "Contact"), "kontakt", "mail anfrage"]]],
-    [T("Projekte", "Projects"), [
-      ["Politics AI", "p-politics", "ki simulator kanzler"], ["Zimmerei Weberhof", () => window.open(CONFIG.zimmerei, "_blank", "noopener"), "handwerk demo live"],
-      ["Berlingo-Wrap", () => { scrollToId("projekte"); }, "folierung frosted"], ["April", () => april.say(T("Hi! Ich bin April. Die App ist noch in Entwicklung, aber ich bin schon da.", "Hi! I'm April. The app is still in development, but I'm already here.")), "companion app"]]],
+      ["April", () => april.say(T("Hi! Ich bin April. Die App ist noch in Entwicklung, aber ich bin schon da.", "Hi! I'm April. The app is still in development, but I'm already here.")), "companion app"]]],
     [T("Aktionen", "Actions"), [
       [T("Politics-AI-Seite öffnen", "Open Politics AI page"), () => (location.href = "/politics-ai/"), "lagezentrum"],
       [T("E-Mail-Adresse kopieren", "Copy email address"), copyMail, "mail kontakt"],
@@ -695,9 +929,9 @@ const term = (() => {
   function print(txt, cls = "") { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; out.appendChild(d); out.scrollTop = out.scrollHeight; }
   const CMDS = {
     help: () => T(
-      "Verfügbare Befehle:\n  help       diese Hilfe\n  about      wer steckt dahinter\n  services   was ich mache\n  projects   Projekte anzeigen\n  open <n>   Projekt öffnen (1-4)\n  contact    Kontaktdaten\n  april      April rufen\n  lang       Sprache wechseln\n  boot       Startsequenz erneut\n  clear      Ausgabe leeren\n  exit       Terminal schließen",
-      "Available commands:\n  help       this help\n  about      who's behind this\n  services   what I do\n  projects   list projects\n  open <n>   open project (1-4)\n  contact    contact details\n  april      summon April\n  lang       switch language\n  boot       replay boot sequence\n  clear      clear output\n  exit       close terminal"),
-    about: () => T("Shaquille, 19. Geboren in Duisburg, sitzt in Öhringen. Gründer von Dulidan Studios seit dem 11.06.2026.", "Shaquille, 19. Born in Duisburg, based in Öhringen. Founder of Dulidan Studios since 11 June 2026."),
+      "Verfügbare Befehle:\n  help       diese Hilfe\n  about      wer steckt dahinter\n  services   was wir machen\n  projects   Projekte anzeigen\n  open <n>   Projekt öffnen (1-4)\n  slogan     ???\n  contact    Kontaktdaten\n  april      April rufen\n  lang       Sprache wechseln\n  boot       Startsequenz erneut\n  clear      Ausgabe leeren\n  exit       Terminal schließen",
+      "Available commands:\n  help       this help\n  about      who's behind this\n  services   what we do\n  projects   list projects\n  open <n>   open project (1-4)\n  slogan     ???\n  contact    contact details\n  april      summon April\n  lang       switch language\n  boot       replay boot sequence\n  clear      clear output\n  exit       close terminal"),
+    about: () => T("Shaquille, 18. Geboren in Duisburg, sitzt in Öhringen. Gründer von Dulidan Studios seit dem 11.06.2026.", "Shaquille, 18. Born in Duisburg, based in Öhringen. Founder of Dulidan Studios since 11 June 2026."),
     services: () => "01 Webdesign\n02 " + T("Werbe-Content (Ads, Social, Visuals)", "Ad content (ads, social, visuals)") + "\n03 " + T("3D-Modeling & Rendering", "3D modeling & rendering") + "\n04 " + T("Logo-Erneuerung", "Logo refresh"),
     projects: () => "[1] Politics AI          Alpha 3\n[2] Zimmerei Weberhof    live\n[3] Berlingo-Wrap        Frosted\n[4] April                " + T("in Entwicklung", "in development") + "\n\n" + T("Tippe „open 1“ …", "Type “open 1” …"),
     open: a => {
@@ -713,6 +947,7 @@ const term = (() => {
     clear: () => { out.innerHTML = ""; return ""; },
     exit: () => { close(); return ""; },
     whoami: () => "guest",
+    slogan: () => { close(); setTimeout(() => { if ($(".epic")) { scrollTo({ top: $(".epic").offsetTop + $(".epic").offsetHeight * 0.74, behavior: RM ? "auto" : "smooth" }); } else location.href = "/#top"; }, 200); return "DREAM. DESIGN. DEVELOP. DOMINATE."; },
     ls: () => "about/  services/  projects/  art/  book/  lab/  contact/  secrets.txt",
     "cat": a => a === "secrets.txt" ? T("↑ ↑ ↓ ↓ ← → ← → B A", "↑ ↑ ↓ ↓ ← → ← → B A") : T("Datei nicht gefunden.", "File not found."),
     sudo: () => T("Netter Versuch. Root hat hier nur April.", "Nice try. Only April has root here."),
@@ -790,7 +1025,7 @@ const april = (() => {
   const tips = () => [
     T("Tipp: Strg+K (oder Cmd+K) öffnet die Kommandozentrale.", "Tip: Ctrl+K (or Cmd+K) opens the command center."),
     T("Drück mal die Taste ^ oder `. Da wartet ein Terminal.", "Press the ` key. There's a terminal waiting."),
-    T("Auf dieser Seite sind drei von mir versteckt. Viel Glück.", "There are three of me hidden on this page. Good luck."),
+    T("Auf dieser Website sind drei von mir versteckt. Viel Glück.", "There are three of me hidden on this website. Good luck."),
     T("Ich sag nur: ↑ ↑ ↓ ↓ … den Rest kennst du.", "Just saying: ↑ ↑ ↓ ↓ … you know the rest."),
     T("Shaq antwortet auf Mails wirklich selbst. Versprochen.", "Shaq really answers emails himself. Promise.")
   ];
@@ -798,6 +1033,9 @@ const april = (() => {
   btn.addEventListener("click", () => say(tips()[ti++ % tips().length]));
   const SEC = {
     projekte: () => T("Das große Ding? Politics AI. Probier unten die Entscheidungen aus.", "The big one? Politics AI. Try the decisions in the demo."),
+    projekt: () => T("Klick dir dein Projekt zusammen. Das Briefing schreibt sich von selbst.", "Click your project together. The briefing writes itself."),
+    welt: () => T("Dreh mal an der Weltkugel. Ja, die ist echt.", "Give the globe a spin. Yes, it's real."),
+    showroom: () => T("Zieh am Modell! Und probier mal Wireframe.", "Drag the model! And try wireframe."),
     lab: () => T("Psst: Hier in der Nerd-Ecke hat sich eine von uns versteckt.", "Psst: one of us is hiding here in the nerd corner."),
     kontakt: () => T("Schreib ruhig. Keine Bots, nur Shaq.", "Go ahead and write. No bots, just Shaq.")
   };
@@ -819,7 +1057,7 @@ const april = (() => {
 (() => {
   let found = new Set((store.get("dd_aprils") || "").split(",").filter(Boolean));
   const btns = $$("[data-april]");
-  const total = btns.length;
+  const total = 3;
   btns.forEach(b => {
     if (found.has(b.dataset.april)) b.classList.add("found");
     b.addEventListener("click", () => {

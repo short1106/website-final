@@ -3,13 +3,17 @@
 Portfolio von Dulidan Studios plus eigene Seite für **Politics AI**. Reines HTML/CSS/JS, kein Build-Schritt, keine Abhängigkeiten, keine Tracker, keine externen Requests (Fonts sind selbst gehostet).
 
 ```
-/                     Portfolio (index.html)
+/                     Startseite: Epic-Hero, Leistungen, Für wen, Warum, Weltkugel, Konfigurator, Kontakt
+/portfolio/           Portfolio: Projekte, 3D-Showroom, Foto & Kunst, Buch, Lab
 /politics-ai/         Politics AI – EINE selbstständige HTML-Datei (~75 KB, alles inline)
 /impressum/           Impressum
 /datenschutz/         Datenschutzerklärung
 /404.html             Fehlerseite
-/assets/css/main.css  Styles Portfolio + Rechtsseiten
-/assets/js/main.js    Alle Features der Portfolio-Seite (Vanilla JS)
+/assets/css/main.css  Styles für Startseite, Portfolio und Rechtsseiten
+/assets/js/main.js    Gemeinsames JS (Vanilla): Hero-Morph, Globus, Konfigurator, Palette, Terminal, April …
+/assets/js/showroom.js 3D-Showroom (lädt three.js erst beim Hinscrollen)
+/assets/vendor/three/ three.js r169 + Addons (MIT, selbst gehostet)
+/assets/models/       Hier eigene .glb-Modelle für den Showroom ablegen
 /assets/fonts/        Space Grotesk + JetBrains Mono (OFL, selbst gehostet)
 /assets/img/          Logo (WebP), Icons, Open-Graph-Bilder
 CNAME, robots.txt, sitemap.xml, site.webmanifest, favicon.ico, apple-touch-icon.png
@@ -34,21 +38,24 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 
 ## Features
 
-**Portfolio**
-- Boot-Sequenz (nur beim ersten Besuch, mit Enter/Esc/Button überspringbar, gespeichert in `localStorage`)
-- WebGL-Partikel-Logo im Hero: das Dulidan-„D“ setzt sich aus Partikeln zusammen, weicht der Maus aus, explodiert beim Scrollen. Eigener Shader, ohne Three.js. Fallback: statisches Logo
-- Custom Cursor mit Labels, magnetische Buttons, Spotlight- und Tilt-Karten, Text-Reveals, Parallax
-- HUD: Scroll-Fortschritt, Sektionsnummer, Uhrzeit Öhringen, Status
-- Kommandozentrale **Strg/Cmd + K** (Sektionen, Projekte, Aktionen, Pfeiltasten + Enter)
-- Terminal (Taste **`** bzw. **^** oder „> terminal“ im Footer): `help`, `projects`, `open 1`, `contact`, `april`, `about`, `services`, `lang`, `boot`, `clear`, `ls`, `cat secrets.txt`, `sudo` …
-- Easter Eggs: Konami-Code (↑↑↓↓←→←→BA) = April-Modus, drei versteckte Aprils (Über mich, Lab, Footer)
-- April als Begleiterin unten rechts (Tipps, reagiert auf Sektionen, nervt nicht: jede Meldung einmal)
-- Politics-AI-Mini-Demo: rotierender Mini-Globus, Live-Feed, Deutschland-Panel mit Entscheidungen und Kaskadeneffekten über drei Runden
-- Berlingo-Wrap: fünf Konzepte zum Durchklicken, „Frosted“ als gewählt markiert
-- Galerie mit Lightbox (Tastatur: ←/→/Esc), 3D-Buch, Lab als Terminal-Liste, Prozess-Linie folgt dem Scroll
-- DE/EN-Umschalter (Texte stehen als `data-en` direkt im HTML)
-- Kontaktformular mit Honeypot; ohne Endpoint öffnet es das E-Mail-Programm mit fertiger Nachricht
-- `prefers-reduced-motion` schaltet Animationen, Boot und WebGL ab; Tastaturbedienung, Fokus-Stile, Skip-Link
+**Startseite (Fokus: Kunden gewinnen)**
+- Epic-Hero „Dream. Design. Develop. Dominate.“: Beim Scrollen verwandeln sich die Partikel vom Dulidan-D in einen Nebel (Dream), eine Design-Fläche (Design), eine Weltkugel aus echten Landmassen (Develop) und zurück ins D mit Schockwelle, Flash und Glitch (Dominate). Am Ende steht der komplette Slogan
+- Leistungen mit „Das bekommst du“-Listen und „Das will ich“-Button, der direkt in den Konfigurator springt
+- Für wen (Handwerk, Gründer, Creator, Hersteller), Warum Dulidan als Bento-Grid mit rotierendem 3D-D
+- Interaktive Weltkugel (ziehen zum Drehen) mit Öhringen, Duisburg und Stuttgart
+- Projekt-Konfigurator: Kunde klickt Leistungen, Stand, Zeitrahmen und Ziel an, daraus entsteht ein Briefing, das per Klick ins Kontaktformular übernommen wird
+- Portale zu Portfolio und Politics AI (mit Live-Globus), Über mich, Ablauf, Kontakt
+- Footer mit laufendem Slogan-Band
+- Boot-Sequenz beim ersten Besuch, Custom Cursor, magnetische Buttons, HUD, Seitenübergänge mit Logo-Wipe
+
+**Portfolio** (`/portfolio/`)
+- Index aller Arbeiten, Politics-AI-Case mit Live-Demo, Zimmerei, Berlingo-Wrap, April
+- **3D-Showroom** über die volle Bildschirmhöhe: Dulidan-D als echtes 3D-Modell, Globus, Material-Test und ein freier Slot. Drehen, zoomen, Auto-Rotation, Wireframe, drei Licht-Stimmungen (Studio, Neon, Sunset), Vollbild, Live-Anzeige von Vertices und Dreiecken
+- Foto & Kunst mit Lightbox, Buch, Lab
+
+**Überall**
+- Kommandozentrale **Strg/Cmd + K**, Terminal (Taste **^** bzw. **`**, Befehle u. a. `help`, `projects`, `slogan`, `april`), Konami-Code, drei versteckte Aprils (2× Startseite, 1× Portfolio), April als Begleiterin, DE/EN
+- `prefers-reduced-motion` schaltet Animationen, Morph und Pinning ab
 
 **Politics AI** (`/politics-ai/`)
 - Holo-Weltkugel aus Punkten (echte Landmasse, Natural-Earth-Daten als 2°-Raster), reagiert auf die Maus, Hotspots pulsieren, das gerade gemeldete Land wird markiert
@@ -63,6 +70,8 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 - Impressum/Datenschutz als Overlay, Jahr per JS
 
 ## Konfiguration
+
+- **Eigene 3D-Modelle:** `.glb` nach `/assets/models/` legen und in `assets/js/showroom.js` oben in `MODELS` eintragen, z. B. `{ id: "van", name: "Berlingo", tag: "Frosted", src: "/assets/models/berlingo.glb" }`. Das Modell wird automatisch zentriert und skaliert. Tipp: Modelle vorher mit gltf.report oder Blender komprimieren (Draco/Meshopt), damit sie schnell laden.
 
 - **Spiel-Link Politics AI:** in `politics-ai/index.html` ganz oben im Script `const PLAY_URL = "";` setzen. Leer = „Spielen“ öffnet ein Overlay mit Zugangsanfrage per Mail.
 - **LinkedIn / Discord:** in `assets/js/main.js` → `CONFIG.linkedin` / `CONFIG.discord`. Sobald gesetzt, erscheinen die Kanäle im Kontaktbereich.
@@ -80,12 +89,13 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 | Ausrutscher | Teaser-Bild, sobald es eins gibt |
 | Buch | Echtes Cover, selbst gewählter Kurzauszug („Kurzauszug folgt“) |
 | Kontakt | LinkedIn-URL, Discord-Link, optional Formular-Endpoint |
+| 3D-Showroom | Eigene Modelle (z. B. Berlingo, Produkt-Renderings) als `.glb` ergänzen; der Slot „Dein Produkt?“ ist ein Platzhalter |
 | Politics AI | `PLAY_URL`; Text im „Spielen“-Overlay („Zugang anfragen:“) ist nicht Teil der Textvorgabe, bitte bestätigen |
 | Politics AI | Datenschutz-Overlay steht wie vorgegeben auf „Wird ergänzt“ |
 
 ## Bewusste Entscheidungen
 
-- **Kein Astro/Vite, kein GSAP/Lenis/Three.js.** Die Seite läuft ohne Build und ohne Abhängigkeiten, lässt sich also einfach hochladen. Der eigene WebGL-Shader ersetzt Three.js (spart ~150 KB), Scroll-Effekte laufen über IntersectionObserver und `requestAnimationFrame`. Natives Scrollen statt Lenis, weil Scroll-Hijacking auf Handys und mit Screenreadern oft Probleme macht.
+- **Kein Build, kein GSAP/Lenis.** Startseite und Hero laufen mit eigenem WebGL-Shader ohne Abhängigkeiten. three.js wird nur auf der Portfolio-Seite und erst beim Hinscrollen zum Showroom geladen (selbst gehostet, kein CDN). Scroll-Effekte laufen über IntersectionObserver und `requestAnimationFrame`. Natives Scrollen statt Lenis, weil Scroll-Hijacking auf Handys und mit Screenreadern oft Probleme macht.
 - **Gesamtgewicht der Startseite:** ca. 140 KB HTML/CSS/JS + ~70 KB Fonts + ~30 KB Bilder.
 - **Druck/Print** ist raus, die Services sind: Webdesign, Werbe-Content, 3D-Modeling & Rendering, Logo-Erneuerung.
 - **Länderzahl** überall „über 190“ (auf Politics AI so vorgegeben, im Portfolio angeglichen).
@@ -94,9 +104,11 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 
 ## Claim-Varianten für den Hero
 
-1. **Design, das hochfährt.** (aktuell eingebaut)
-2. Websites, die man nicht wegscrollt.
-3. Von Duisburg ins Display.
+0. **Dream. Design. Develop. Dominate.** (Slogan, im Hero und Footer eingebaut)
+1. Design, das hochfährt.
+2. Websites, Content & 3D, die auffallen. (aktuell Hero-Headline)
+3. Websites, die man nicht wegscrollt.
+4. Von Duisburg ins Display.
 
 ## Drei Ideen, um die Seite noch krasser zu machen
 
