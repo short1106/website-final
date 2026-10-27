@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio · Dulidan Studios</title>
+<meta name="description" content="Portfolio von Dulidan Studios: Politics AI, Webdesign, Fahrzeugfolierung, 3D-Showroom, Fotografie, Buch und Side Quests.">
+<meta name="theme-color" content="#07060b">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://dulidan-studios.com/portfolio/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dulidan Studios">
+<meta property="og:title" content="Portfolio · Dulidan Studios">
+<meta property="og:description" content="Portfolio von Dulidan Studios: Politics AI, Webdesign, Fahrzeugfolierung, 3D-Showroom, Fotografie, Buch und Side Quests.">
+<meta property="og:url" content="https://dulidan-studios.com/portfolio/">
+<meta property="og:image" content="https://dulidan-studios.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/main.css">
+<noscript><style>.rv,.rv-mask{opacity:1!important;transform:none!important;clip-path:none!important}.epic{height:auto!important}.epic-words .w{opacity:1!important;position:static!important}</style></noscript>
+<script>try{if(localStorage.getItem("dd_lang")==="en")document.documentElement.lang="en"}catch(e){}</script>
+<script type="importmap">{"imports":{"three":"/assets/vendor/three/three.module.min.js","three/addons/":"/assets/vendor/three/addons/"}}</script>
+<script type="module" src="/assets/js/showroom.js"></script>
+<script src="/assets/js/main.js" defer></script>
+</head>
+<body data-page="portfolio">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- TODO: April-Illustration durch finale Grafik ersetzen (Platzhalter-Vektor) -->
+    <symbol id="april" viewBox="0 0 100 100">
+      <path fill="#ff7ae6" d="M24 38C6 44 2 70 10 92c6-6 12-26 20-38z"/>
+      <path fill="#ff7ae6" d="M76 38c18 6 22 32 14 54-6-6-12-26-20-38z"/>
+      <circle cx="25" cy="37" r="4.5" fill="#8122b5"/><circle cx="75" cy="37" r="4.5" fill="#8122b5"/>
+      <circle cx="50" cy="46" r="27" fill="#ff7ae6"/>
+      <path fill="#2a1736" d="M22 100c2-16 13-24 28-24s26 8 28 24z"/>
+      <path fill="#8122b5" d="M24 100c2-14 12-21 26-21s24 7 26 21z"/>
+      <path fill="#c020b8" d="M42 79l8 9 8-9-8 3z"/>
+      <path fill="#fff" opacity=".9" d="M62 88h7v7h-7z"/>
+      <ellipse cx="50" cy="54" rx="21" ry="20" fill="#ffe6f2"/>
+      <path fill="#ff7ae6" d="M28 50c0-16 10-25 22-25s22 9 22 25c-6-6-10-12-12-16-4 6-14 10-22 10-4 2-8 4-10 6z"/>
+      <ellipse cx="42" cy="56" rx="3.6" ry="4.6" fill="#5b1782"/><ellipse cx="58" cy="56" rx="3.6" ry="4.6" fill="#5b1782"/>
+      <circle cx="43.2" cy="54.4" r="1.3" fill="#fff"/><circle cx="59.2" cy="54.4" r="1.3" fill="#fff"/>
+      <path d="M46 65q4 3 8 0" stroke="#c0407a" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <ellipse cx="36" cy="63" rx="3.5" ry="2" fill="#ff9fd0" opacity=".7"/><ellipse cx="64" cy="63" rx="3.5" ry="2" fill="#ff9fd0" opacity=".7"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 16 16"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main" data-en="Skip to content">Zum Inhalt springen</a>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"></div>
+<div class="fx fx-noise" aria-hidden="true"></div>
+<div class="fx fx-scan" aria-hidden="true"></div>
+<div class="wipe" id="wipe" aria-hidden="true"><img src="/assets/img/logo-mark.webp" alt="" width="64" height="64"></div>
+
+<!-- HUD -->
+<div class="hud hud-progress" aria-hidden="true"><i id="progress"></i></div>
+<div class="hud hud-r" aria-hidden="true"><span class="idx mono" id="hudIdx">00</span><span class="bar"><i id="hudBar"></i></span><span class="name" id="hudName">Start</span></div>
+<div class="hud hud-bl" aria-hidden="true"><span class="status-dot"></span>Öhringen <b class="mono" id="hudClock">--:--:--</b> · 49.20°N 9.50°E</div>
+<div class="hud hud-br" aria-hidden="true">Scroll <b class="mono" id="hudPct">000%</b> · <span data-en="Ctrl+K Command">Strg+K Kommando</span></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a class="nav-logo" href="/" aria-label="Dulidan Studios – Startseite"><img src="/assets/img/logo-full.webp" alt="Dulidan Studios" width="458" height="115"></a>
+  <nav aria-label="Hauptnavigation">
+    <ul class="nav-links">
+      <li><a href="/#leistungen" data-en="Services">Leistungen</a></li>
+      <li><a href="/#projekt" data-en="Plan a project">Projekt planen</a></li>
+      <li><a href="/portfolio/" class="active">Portfolio</a></li>
+      <li><a href="/portfolio/#showroom">3D</a></li>
+      <li><a href="/politics-ai/">Politics AI</a></li>
+      <li><a href="/#kontakt" data-en="Contact">Kontakt</a></li>
+    </ul>
+  </nav>
+  <div class="nav-tools">
+    <button class="chip-btn cmdk-btn" type="button" id="cmdkBtn" aria-label="Kommandozentrale öffnen"><kbd>Ctrl</kbd><kbd>K</kbd></button>
+    <button class="chip-btn lang-btn" type="button" id="langBtn" aria-label="Sprache wechseln / switch language"><span data-l="de">DE</span>/<span data-l="en">EN</span></button>
+    <a class="btn btn-solid btn-nav" href="/#projekt" data-en="Start project">Projekt starten</a>
+    <button class="burger" id="burger" type="button" aria-label="Menü" aria-expanded="false" aria-controls="mmenu"><span></span></button>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="/#leistungen"><span>01</span><b data-en="Services">Leistungen</b></a>
+  <a href="/#fuerwen"><span>02</span><b data-en="Who it's for">Für wen</b></a>
+  <a href="/#projekt"><span>03</span><b data-en="Plan a project">Projekt planen</b></a>
+  <a href="/portfolio/"><span>04</span><b>Portfolio</b></a>
+  <a href="/portfolio/#showroom"><span>05</span><b data-en="3D showroom">3D-Showroom</b></a>
+  <a href="/politics-ai/"><span>06</span><b>Politics AI</b></a>
+  <a href="/#about"><span>07</span><b data-en="About">Über mich</b></a>
+  <a href="/#kontakt"><span>08</span><b data-en="Contact">Kontakt</b></a>
+</div>
+
+<main id="main">
+<!-- PORTFOLIO HERO -->
+<section class="pf-hero" id="top" data-sec="Portfolio" aria-labelledby="pf-h">
+  <div class="wrap">
+    <p class="hero-kicker"><span class="status-dot"></span><span data-en="Portfolio · work, art &amp; 3D">Portfolio · Projekte, Kunst &amp; 3D</span></p>
+    <h1 class="pf-title" id="pf-h"><span class="l"><span data-en="Things">Dinge,</span></span><span class="l l2"><span class="outline" data-en="we've built.">die wir gebaut haben.</span></span></h1>
+    <ol class="pf-index" aria-label="Inhalt">
+      <li><a href="#p-politics" data-cursor="01"><span class="mono">01</span><b>Politics AI</b><em data-en="AI world simulator">KI-Weltsimulator</em></a></li>
+      <li><a href="#showroom" data-cursor="3D"><span class="mono">02</span><b data-en="3D showroom">3D-Showroom</b><em data-en="Interactive models">Interaktive Modelle</em></a></li>
+      <li><a href="#projekte" data-cursor="Web"><span class="mono">03</span><b>Zimmerei Weberhof</b><em>Webdesign</em></a></li>
+      <li><a href="#projekte" data-cursor="Wrap"><span class="mono">04</span><b>Berlingo-Wrap</b><em data-en="Vehicle wrap">Fahrzeugfolierung</em></a></li>
+      <li><a href="#projekte" data-cursor="App"><span class="mono">05</span><b>April</b><em data-en="AI companion app">KI-Companion-App</em></a></li>
+      <li><a href="#kunst" data-cursor="Art"><span class="mono">06</span><b data-en="Photo &amp; art">Foto &amp; Kunst</b><em>Menschlichkeit · Ausrutscher</em></a></li>
+      <li><a href="#buch" data-cursor="Book"><span class="mono">07</span><b>Finde Deine Mitte</b><em data-en="Book">Buch</em></a></li>
+      <li><a href="#lab" data-cursor="Lab"><span class="mono">08</span><b>Lab</b><em>Side Quests</em></a></li>
+    </ol>
+  </div>
+</section>
+<!-- PROJECTS -->
+<section class="sec pf-sec" id="projekte" data-sec="Projekte" data-sec-en="Work" aria-labelledby="proj-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">01</span><span data-en="Selected work">Projekte</span></p>
+    <h2 class="h2 rv-mask" id="proj-h" data-en="Things I've <em>built.</em>">Was ich <em>gebaut habe.</em></h2>
+
+    <div class="projects">
+      <!-- Politics AI -->
+      <article class="case flag rv" id="p-politics">
+        <span class="case-num" aria-hidden="true">01</span>
+        <div class="case-in">
+          <div>
+            <div class="case-tag"><span class="pill hot" data-en="Flagship">Flaggschiff</span><span class="pill wip">Alpha 3</span></div>
+            <h3>Politics AI</h3>
+            <p data-en="A geopolitical AI world simulator in the browser. You are the German chancellor; more than 190 countries react with their own agenda, red lines and memory. You type freely, there are no dialogue options.">Ein geopolitischer KI-Weltsimulator im Browser. Du bist Bundeskanzler, über 190 Länder reagieren mit eigener Agenda, roten Linien und Gedächtnis. Du schreibst frei, es gibt keine Dialogauswahl.</p>
+            <div class="facts">
+              <div>Status<b>Alpha 3</b></div>
+              <div><span data-en="Public launch">Öffentlicher Launch</span><b data-en="planned: Jan 2027">geplant: Januar 2027</b></div>
+              <div><span data-en="Countries">Länder</span><b data-en="more than 190">über 190</b></div>
+              <div><span data-en="Platform">Plattform</span><b>Browser</b></div>
+            </div>
+            <ul class="feat">
+              <li class="pill">Jarvis-HUD-Design</li><li class="pill">Groups-System</li><li class="pill" data-en="Stats with cascade effects">Stats mit Kaskadeneffekten</li><li class="pill" data-en="Dynamic Germany panel">Deutschland-Detailpanel</li>
+            </ul>
+            <div class="acts">
+              <a class="btn btn-solid mag" href="/politics-ai/" data-cursor="Open"><span data-en="Enter the situation room">Ins Lagezentrum</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+          <div class="case-media">
+            <div class="demo" id="paiDemo">
+              <div class="demo-h"><span><span class="flag-de" aria-hidden="true"><i style="background:#111"></i><i style="background:#d00"></i><i style="background:#fc0"></i></span><span data-en="GERMANY // DETAIL PANEL">DEUTSCHLAND // DETAILPANEL</span></span><span id="paiRound">R 01</span></div>
+              <div class="demo-globe">
+                <canvas id="miniGlobe" width="220" height="220" aria-label="Mini-Weltkugel" role="img"></canvas>
+                <div class="mini-feed" id="miniFeed" aria-hidden="true"></div>
+              </div>
+              <div class="stats" id="paiStats"></div>
+              <div class="decide" role="group" aria-label="Entscheidung treffen">
+                <button type="button" data-dec="def" data-en="Defence +10%">Verteidigung +10 %</button>
+                <button type="button" data-dec="trade" data-en="Trade deal">Handelsabkommen</button>
+                <button type="button" data-dec="sanc" data-en="Sanctions">Sanktionen</button>
+              </div>
+              <div class="cascade" id="paiLog" aria-live="polite"><div class="on" data-en="&gt; Make a decision. Watch the cascade.">&gt; Triff eine Entscheidung. Sieh die Kaskade.</div></div>
+              <p class="demo-note" data-en="Demo simulation with sample values, not the real game engine.">Demo-Simulation mit Beispielwerten, nicht die echte Spiel-Engine.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Zimmerei -->
+      <article class="case rv">
+        <span class="case-num" aria-hidden="true">02</span>
+        <div class="case-in">
+          <div>
+            <div class="case-tag"><span class="pill live">Live</span><span class="pill">Webdesign</span></div>
+            <h3>Zimmerei Weberhof</h3>
+            <p data-en="Demo website for the fictional carpentry business “Zimmerei Weberhof”: an example of what a modern web presence for local craft businesses can look like.">Demo-Website für den fiktiven Betrieb „Zimmerei Weberhof“: ein Beispiel dafür, wie ein moderner Auftritt für lokale Handwerksbetriebe aussehen kann.</p>
+            <div class="acts">
+              <a class="link-arrow" href="https://zimmerei-bsp.dulidan-studios.com" target="_blank" rel="noopener" data-cursor="Live"><span data-en="Open live site">Live ansehen</span><svg width="14" height="14" aria-hidden="true"><use href="#i-ext"/></svg></a>
+            </div>
+          </div>
+          <div class="case-media">
+            <a class="browser tilt-b" href="https://zimmerei-bsp.dulidan-studios.com" target="_blank" rel="noopener" aria-label="Vorschau Zimmerei Weberhof, öffnet die Live-Seite" data-cursor="Live">
+              <div class="browser-bar"><i></i><i></i><i></i><span>zimmerei-bsp.dulidan-studios.com</span></div>
+              <div class="browser-view">
+                <!-- TODO: echten Screenshot einsetzen: SVG unten ersetzen durch
+                     <img src="/assets/img/zimmerei.webp" alt="Screenshot der Demo-Website Zimmerei Weberhof" loading="lazy" width="1600" height="1000"> -->
+                <svg viewBox="0 0 800 500" aria-hidden="true">
+                  <rect width="800" height="500" fill="#f3ede4"/>
+                  <rect width="800" height="56" fill="#2b2118"/>
+                  <text x="32" y="35" font-family="Space Grotesk,sans-serif" font-size="18" font-weight="700" fill="#f3ede4" letter-spacing="2">ZIMMEREI WEBERHOF</text>
+                  <g fill="#d9c7ad"><rect x="520" y="24" width="50" height="8" rx="2"/><rect x="590" y="24" width="50" height="8" rx="2"/><rect x="660" y="24" width="50" height="8" rx="2"/></g>
+                  <rect x="0" y="56" width="800" height="230" fill="#6b4a2f"/>
+                  <g stroke="#7e5838" stroke-width="10"><path d="M-20 286l300-230M120 286l300-230M260 286l300-230M400 286l300-230M540 286l300-230"/></g>
+                  <rect x="40" y="110" width="360" height="130" fill="rgba(43,33,24,.85)"/>
+                  <text x="64" y="160" font-family="Space Grotesk,sans-serif" font-size="30" font-weight="700" fill="#f3ede4">Holz. Handwerk.</text>
+                  <text x="64" y="196" font-family="Space Grotesk,sans-serif" font-size="30" font-weight="700" fill="#e0a868">Heimat.</text>
+                  <rect x="64" y="212" width="110" height="16" rx="2" fill="#e0a868"/>
+                  <g fill="#fff" stroke="#e2d6c4"><rect x="40" y="316" width="230" height="150" rx="4"/><rect x="285" y="316" width="230" height="150" rx="4"/><rect x="530" y="316" width="230" height="150" rx="4"/></g>
+                  <g fill="#c9a679"><rect x="60" y="340" width="60" height="60" rx="30"/><rect x="305" y="340" width="60" height="60" rx="30"/><rect x="550" y="340" width="60" height="60" rx="30"/></g>
+                  <g fill="#cdbfaa"><rect x="60" y="420" width="160" height="8"/><rect x="305" y="420" width="160" height="8"/><rect x="550" y="420" width="160" height="8"/></g>
+                </svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Folierung -->
+      <article class="case rev rv">
+        <span class="case-num" aria-hidden="true">03</span>
+        <div class="case-in">
+          <div>
+            <div class="case-tag"><span class="pill" data-en="Vehicle wrap">Fahrzeugfolierung</span><span class="pill">5 <span data-en="concepts">Konzepte</span></span></div>
+            <h3>Berlingo-Wrap</h3>
+            <p data-en="A vehicle wrap for a Berlingo: five design concepts, one winner. The client chose “Frosted”. Click through the concepts.">Fahrzeugfolierung für einen Berlingo: fünf Designkonzepte, ein Gewinner. Gewählt wurde „Frosted“. Klick dich durch die Konzepte.</p>
+          </div>
+          <div class="case-media">
+            <div class="van-box">
+              <svg viewBox="0 0 620 270" role="img" aria-label="Stilisierte Seitenansicht eines Berlingo mit wechselndem Folierungskonzept">
+                <defs>
+                  <pattern id="pc1" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)"><rect width="28" height="28" fill="#1b1028"/><rect width="10" height="28" fill="#8122b5"/></pattern>
+                  <pattern id="pc2" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#0e0b16"/><path d="M24 0H0v24" fill="none" stroke="#c020b8" stroke-width="1"/></pattern>
+                  <linearGradient id="pc3" x1="0" x2="1"><stop offset="0" stop-color="#ece7f2"/><stop offset=".55" stop-color="#ece7f2"/><stop offset=".55" stop-color="#8122b5"/><stop offset="1" stop-color="#8122b5"/></linearGradient>
+                  <pattern id="pc4" width="80" height="40" patternUnits="userSpaceOnUse"><rect width="80" height="40" fill="#160d22"/><path d="M0 30q20-20 40 0t40 0" fill="none" stroke="#ff7ae6" stroke-width="3"/></pattern>
+                  <linearGradient id="pfr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8122b5"/><stop offset=".6" stop-color="#c020b8"/><stop offset="1" stop-color="#ff9cec"/></linearGradient>
+                  <linearGradient id="frost" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+                  <clipPath id="vanClip"><path id="vanPath" d="M30 200V128q0-18 18-22l92-12 52-56q8-10 22-10h338q22 0 24 22l6 150z"/></clipPath>
+                </defs>
+                <ellipse cx="310" cy="236" rx="290" ry="10" fill="rgba(0,0,0,.5)"/>
+                <path class="van-body" id="vanBody" d="M30 200V128q0-18 18-22l92-12 52-56q8-10 22-10h338q22 0 24 22l6 150z" fill="url(#pfr)"/>
+                <g clip-path="url(#vanClip)" id="vanFx">
+                  <rect id="frostLayer" x="0" y="0" width="620" height="210" fill="url(#frost)"/>
+                  <g id="frostDots" fill="#fff" opacity=".22"></g>
+                </g>
+                <path d="M30 200V128q0-18 18-22l92-12 52-56q8-10 22-10h338q22 0 24 22l6 150z" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+                <path d="M152 92l46-48q6-6 14-6h66v58z" fill="#0b0912" stroke="rgba(255,255,255,.3)"/>
+                <path d="M290 38h96v58h-96z" fill="#0b0912" stroke="rgba(255,255,255,.3)"/>
+                <path d="M286 104v92M396 40v156" stroke="rgba(0,0,0,.35)" stroke-width="2"/>
+                <rect x="30" y="160" width="20" height="10" rx="2" fill="#ffd27a"/>
+                <rect x="556" y="150" width="10" height="22" rx="2" fill="#ff4d6a"/>
+                <text id="vanBrand" x="430" y="150" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="22" font-weight="700" fill="#fff" letter-spacing="3">DULIDAN</text>
+                <g><circle cx="140" cy="206" r="36" fill="#0a0910"/><circle cx="140" cy="206" r="20" fill="#2b2638" stroke="#6f6882"/><circle cx="480" cy="206" r="36" fill="#0a0910"/><circle cx="480" cy="206" r="20" fill="#2b2638" stroke="#6f6882"/></g>
+              </svg>
+              <div class="concepts" id="concepts" role="group" aria-label="Designkonzepte">
+                <button type="button" data-c="pc1" aria-pressed="false">K01</button>
+                <button type="button" data-c="pc2" aria-pressed="false">K02</button>
+                <button type="button" data-c="pc3" aria-pressed="false">K03</button>
+                <button type="button" data-c="pc4" aria-pressed="false">K04</button>
+                <button type="button" data-c="pfr" aria-pressed="true">Frosted<span class="w" data-en="✓ chosen">✓ gewählt</span></button>
+              </div>
+              <!-- TODO: echte Konzeptnamen + Renderings der 5 Entwürfe einsetzen -->
+              <p class="van-cap" data-en="Schematic placeholder visualisation. Real renderings coming.">Schematische Platzhalter-Visualisierung. Echte Renderings folgen.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- April -->
+      <article class="case rv">
+        <span class="case-num" aria-hidden="true">04</span>
+        <div class="case-in">
+          <div>
+            <div class="case-tag"><span class="pill wip" data-en="In development">In Entwicklung</span><span class="pill">App</span></div>
+            <h3>April</h3>
+            <p data-en="A personal AI companion as its own app. The vision: make everyday life more alive, not just prettier. April is also the studio's mascot: pink twintails, purple, Dulidan polo. You might bump into her on this page.">Ein persönlicher KI-Companion als eigene App. Die Vision: den Alltag lebendiger machen, nicht nur schöner. April ist auch das Maskottchen des Studios: pinke Twintails, lila, Dulidan-Polo. Vielleicht begegnet sie dir hier auf der Seite.</p>
+            <div class="acts"><button class="link-arrow" type="button" id="meetApril"><span data-en="Say hi to April">April Hallo sagen</span><svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+          </div>
+          <div class="case-media">
+            <div class="phone" aria-label="Konzept-Skizze der April-App" role="img">
+              <div class="phone-in" id="phone">
+                <svg class="av" aria-hidden="true"><use href="#april"/></svg>
+                <div class="nm">APRIL</div>
+                <div class="bub a" data-en="Morning! Shall we make today a bit more exciting?">Morgen! Wollen wir den Tag heute ein bisschen spannender machen?</div>
+                <div class="bub u" data-en="Sure, what have you got?">Klar, was hast du?</div>
+                <div class="bub a" data-en="Concept sketch. The rest is still being built. ✦">Konzept-Skizze. Der Rest wird gerade gebaut. ✦</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- 3D SHOWROOM -->
+<section class="showroom" id="showroom" data-sec="3D-Showroom" data-sec-en="3D showroom" aria-labelledby="sr-h">
+  <div class="sr-stage" id="srStage">
+    <canvas id="srCanvas" aria-label="Interaktiver 3D-Showroom. Ziehen zum Drehen, Mausrad oder zwei Finger zum Zoomen." role="img"></canvas>
+    <div class="sr-loading mono" id="srLoading"><span data-en="Loading 3D engine">Lade 3D-Engine</span> <i></i></div>
+    <div class="sr-ui">
+      <div class="sr-head">
+        <p class="sec-label"><span class="n">02</span><span data-en="3D showroom">3D-Showroom</span></p>
+        <h2 class="sr-title" id="sr-h"><span data-en="Space for">Raum für</span> <em data-en="big ideas.">große Ideen.</em></h2>
+        <p class="sr-sub" data-en="Drag to rotate, scroll or pinch to zoom. This is where our 3D models live.">Ziehen zum Drehen, scrollen oder zwei Finger zum Zoomen. Hier wohnen unsere 3D-Modelle.</p>
+      </div>
+      <ol class="sr-list" id="srList" aria-label="Modelle"></ol>
+      <div class="sr-info mono" id="srInfo" aria-live="polite"></div>
+      <div class="sr-ctrl" role="group" aria-label="Ansicht">
+        <button type="button" id="srAuto" aria-pressed="true" data-en="Auto-rotate">Auto-Rotation</button>
+        <button type="button" id="srWire" aria-pressed="false">Wireframe</button>
+        <button type="button" id="srLight" data-en="Light: Studio">Licht: Studio</button>
+        <button type="button" id="srReset" data-en="Reset">Zurücksetzen</button>
+        <button type="button" id="srFull" data-en="Fullscreen">Vollbild</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ART -->
+<section class="sec" id="kunst" data-sec="Foto & Kunst" data-sec-en="Photo & Art" aria-labelledby="art-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">03</span><span data-en="Photo &amp; Art">Foto &amp; Kunst</span></p>
+    <h2 class="h2 rv-mask" id="art-h" data-en="Concepts that <em>stick.</em>">Konzepte, die <em>hängen bleiben.</em></h2>
+    <div class="gallery">
+      <button class="art rv" type="button" data-lb="0" data-cursor="Zoom">
+        <div class="art-img">
+          <!-- TODO: Foto „Menschlichkeit“ als /assets/img/menschlichkeit.webp einsetzen -->
+          <svg viewBox="0 0 800 600" role="img" aria-label="Platzhalter: Toilettenpapierrolle, auf dem abgerollten Blatt steht das Wort Menschlichkeit">
+            <rect width="800" height="600" fill="#e9e4dc"/>
+            <rect y="420" width="800" height="180" fill="#d8d1c6"/>
+            <ellipse cx="400" cy="300" rx="120" ry="40" fill="#f7f5f1" stroke="#cfc7ba"/>
+            <rect x="280" y="180" width="240" height="120" fill="#f7f5f1"/>
+            <ellipse cx="400" cy="180" rx="120" ry="40" fill="#fbfaf8" stroke="#d7d0c4"/>
+            <ellipse cx="400" cy="180" rx="34" ry="12" fill="#c8b9a3"/>
+            <path d="M280 300v-120M520 300v-120" stroke="#ddd5c8"/>
+            <path d="M300 320l-10 240h220l-10-240z" fill="#fbfaf8" stroke="#e1dace"/>
+            <path d="M296 400h208M293 480h214" stroke="#e8e2d8" stroke-dasharray="3 5"/>
+            <text x="400" y="445" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="30" fill="#2a2430">Menschlichkeit</text>
+            <text x="24" y="580" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="3" fill="#8f877a">PLATZHALTER · FOTO FOLGT</text>
+          </svg>
+        </div>
+        <div class="art-cap">
+          <div><h3>Menschlichkeit</h3><p data-en="Concept photography. Exhibited at the SPC Photo Awards Stuttgart, Rotebühlplatz, June 2026.">Konzeptfotografie. Ausgestellt bei den SPC Photo Awards Stuttgart, Rotebühlplatz, Juni 2026.</p></div>
+          <span class="pill hot" data-en="Exhibited">Ausgestellt</span>
+        </div>
+      </button>
+      <button class="art locked rv" type="button" data-lb="1" style="--d:.1s" data-cursor="Soon">
+        <div class="art-img">
+          <svg viewBox="0 0 800 600" role="img" aria-label="Teaser: verschütteter Kaffee auf einer Kriegsstrategiekarte">
+            <rect width="800" height="600" fill="#c9b98f"/>
+            <g stroke="#a8956a" stroke-width="1" opacity=".7"><path d="M0 100h800M0 200h800M0 300h800M0 400h800M0 500h800M100 0v600M200 0v600M300 0v600M400 0v600M500 0v600M600 0v600M700 0v600"/></g>
+            <path d="M80 420c60-80 160-60 220-140s200-100 260-60 120 40 180 10" fill="none" stroke="#7a6a48" stroke-width="3"/>
+            <g fill="#3a5bd9"><path d="M180 300l40-20v40z"/><path d="M240 260l40-20v40z"/></g>
+            <g fill="#c2263a"><path d="M560 220l-40-20v40z"/><path d="M600 300l-40-20v40z"/></g>
+            <path d="M220 290q120-60 280-80" stroke="#3a5bd9" stroke-width="5" fill="none" marker-end="none"/>
+            <path d="M330 260c40-60 140-70 190-20 40 40 60 110 10 150-50 40-150 30-190-10-30-30-40-80-10-120z" fill="#5a3418" opacity=".85"/>
+            <path d="M480 380c50 20 120 60 170 140" stroke="#5a3418" stroke-width="18" stroke-linecap="round" opacity=".7" fill="none"/>
+            <ellipse cx="660" cy="130" rx="70" ry="70" fill="none" stroke="#5a3418" stroke-width="8" opacity=".5"/>
+          </svg>
+          <div class="lock-tag"><span data-en="Coming soon">Demnächst</span></div>
+        </div>
+        <div class="art-cap">
+          <div><h3>Ausrutscher</h3><p data-en="Upcoming work: spilled coffee on a war strategy map.">Kommendes Werk: verschütteter Kaffee auf einer Kriegsstrategiekarte.</p></div>
+          <span class="pill wip" data-en="In progress">In Arbeit</span>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="sec" id="buch" data-sec="Buch" data-sec-en="Book" aria-labelledby="book-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">04</span><span data-en="Book">Buch</span></p>
+    <div class="book-grid">
+      <div class="book-stage rv">
+        <!-- TODO: echtes Buchcover als Bild einsetzen -->
+        <div class="book" id="book">
+          <div class="book-spine"></div>
+          <div class="book-pages"></div>
+          <div class="book-face"><span class="dot"></span><small>Shaquille</small><h3>Finde<br>Deine<br>Mitte</h3></div>
+        </div>
+        <div class="book-shadow" aria-hidden="true"></div>
+      </div>
+      <div>
+        <h2 class="h2 rv-mask" id="book-h">Finde Deine <em>Mitte.</em></h2>
+        <p class="lead rv" data-en="A self-development book written in short, aphoristic sentences. No filler, no guru talk. Five parts:">Ein Selbstentwicklungsbuch in kurzen, aphoristischen Sätzen. Kein Füllstoff, kein Guru-Gerede. Fünf Teile:</p>
+        <ol class="parts rv">
+          <li data-en="Your potential">Dein Potenzial</li>
+          <li data-en="The doubt">Der Zweifel</li>
+          <li data-en="The freedom">Die Freiheit</li>
+          <li data-en="Yourself">Du selbst</li>
+          <li data-en="The path">Der Weg</li>
+        </ol>
+        <!-- TODO: selbst gewählten Kurzauszug aus dem Buch einsetzen -->
+        <blockquote class="quote todo rv">„Kurzauszug folgt.“<span class="todo-tag">TODO</span><cite>Finde Deine Mitte</cite></blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAB -->
+<section class="sec" id="lab" data-sec="Lab" aria-labelledby="lab-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">05</span>Side Quests / Lab</p>
+    <h2 class="h2 rv-mask" id="lab-h" data-en="The <em>nerd corner.</em>">Die <em>Nerd-Ecke.</em></h2>
+    <p class="lead rv" data-en="Stuff I build because I can't not. Click a line to expand it.">Sachen, die ich baue, weil ich nicht anders kann. Klick auf eine Zeile.</p>
+    <div class="term rv">
+      <div class="term-bar"><i></i><i></i><i></i><span>shaq@dulidan:~/side-quests</span></div>
+      <div class="term-body">
+        <p class="term-cmd"><b>shaq@dulidan</b>:~$ ls -la side-quests/</p>
+        <details class="quest"><summary><span class="k">[01]</span><span class="t">Projekt Duisport</span><span class="ty">Mod</span></summary>
+          <p class="qd" data-en="Hearts of Iron IV alt-history mod. Starting point: the Free State of Duisburg.">Hearts of Iron IV Alt-History-Mod. Startpunkt: der Freistaat Duisburg.</p></details>
+        <details class="quest"><summary><span class="k">[02]</span><span class="t" data-en="RC jet with bidirectional EDF">RC-Jet mit bidirektionalem EDF</span><span class="ty">Hardware</span></summary>
+          <p class="qd" data-en="Self-built RC jet. The electric ducted fan runs both ways, so the model has thrust reversal.">Selbst gebauter RC-Jet. Der Impeller läuft in beide Richtungen, das Modell hat also Schubumkehr.</p></details>
+        <details class="quest"><summary><span class="k">[03]</span><span class="t" data-en="Minecraft server">Minecraft-Server</span><span class="ty">Server</span></summary>
+          <p class="qd" data-en="My own server with its own role-play state.">Eigener Server mit eigenem Rollenspiel-Staat.</p></details>
+        <details class="quest"><summary><span class="k">[04]</span><span class="t" data-en="Learning Japanese">Japanisch lernen</span><span class="ty" data-en="Language">Sprache</span></summary>
+          <p class="qd" data-en="日本語を勉強しています. Slowly, but steadily.">日本語を勉強しています. Langsam, aber stetig.</p></details>
+        <details class="quest"><summary><span class="k">[05]</span><span class="t" data-en="Aviation, trains, ships">Luftfahrt, Züge, Schiffe</span><span class="ty" data-en="Interests">Interessen</span></summary>
+          <p class="qd" data-en="Basically anything big that moves.">Im Grunde alles, was groß ist und sich bewegt.</p></details>
+        <p class="term-cmd" style="margin-top:16px"><b>shaq@dulidan</b>:~$ <span class="term-cursor" aria-hidden="true"></span> <button class="hidden-april" type="button" data-april="2" aria-label="Versteckte April"><svg aria-hidden="true"><use href="#april"/></svg></button></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec pf-cta" data-sec="Los geht's" data-sec-en="Let's go" aria-labelledby="pfcta-h">
+  <div class="wrap">
+    <p class="lockup lockup-sm" aria-hidden="true"><span>Dream.</span> <span>Design.</span> <span>Develop.</span> <span class="dom">Dominate.</span></p>
+    <h2 class="h2 rv-mask" id="pfcta-h" data-en="Like what you see? <em>You're next.</em>">Gefällt dir, was du siehst? <em>Du bist der Nächste.</em></h2>
+    <div class="hero-cta"><a class="btn btn-solid mag" href="/#projekt" data-cursor="Go"><span data-en="Start your project">Projekt starten</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="btn mag" href="/#leistungen"><span data-en="What we offer">Was wir anbieten</span></a></div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="slogan-run" aria-hidden="true">
+    <div class="slogan-track"><span>Dream.</span><span>Design.</span><span>Develop.</span><span>Dominate.</span><span>Dream.</span><span>Design.</span><span>Develop.</span><span>Dominate.</span></div>
+  </div>
+  <div class="wrap">
+    <div class="footer-cta">
+      <p class="footer-cta-t" data-en="Your turn.">Du bist dran.</p>
+      <a class="btn btn-solid mag" href="/#projekt" data-cursor="Go"><span data-en="Start your project">Projekt starten</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="/assets/img/logo-full.webp" alt="Dulidan Studios" width="458" height="115" loading="lazy">
+        <p data-en="Creative studio for web design, ad content, 3D and logos. Made in Öhringen, raised in Duisburg.">Kreativstudio für Webdesign, Werbe-Content, 3D und Logos. Gebaut in Öhringen, aufgewachsen in Duisburg.</p>
+      </div>
+      <div><h4>Studio</h4><p>Dulidan Studios<br>Theodor-Fontane-Weg 11<br>74613 Öhringen<br><a href="mailto:info@dulidan-studios.com">info@dulidan-studios.com</a></p></div>
+      <div><h4 data-en="Navigate">Navigation</h4><ul><li><a href="/#leistungen" data-en="Services">Leistungen</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/portfolio/#showroom" data-en="3D showroom">3D-Showroom</a></li><li><a href="/politics-ai/">Politics AI</a></li><li><button type="button" class="js-term" style="color:inherit;font:inherit">&gt; terminal</button></li></ul></div>
+      <div><h4 data-en="Legal">Rechtliches</h4><ul><li><a href="/impressum/" data-en="Imprint">Impressum</a></li><li><a href="/datenschutz/" data-en="Privacy">Datenschutz</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="js-year">2026</span> Dulidan Studios · <span data-en="Small business according to § 19 UStG, no VAT shown.">Kleinunternehmer gemäß § 19 UStG, keine Umsatzsteuer ausgewiesen.</span></span>
+      <span><span data-en="No trackers. No cookies. Just pixels.">Keine Tracker. Keine Cookies. Nur Pixel.</span> </span>
+    </div>
+  </div>
+</footer>
+
+<!-- APRIL COMPANION -->
+<div class="april" id="april">
+  <div class="april-bubble" id="aprilBubble" role="status" aria-live="polite"><small>APRIL</small><span id="aprilText"></span></div>
+  <button class="april-av" id="aprilBtn" type="button" aria-label="April, das Dulidan-Maskottchen. Klicken für einen Tipp."><svg aria-hidden="true"><use href="#april"/></svg></button>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie">
+  <button class="lb-x" type="button" data-lb-close aria-label="Schließen"><svg viewBox="0 0 16 16"><path d="M2 2l12 12M14 2L2 14"/></svg></button>
+  <button class="lb-prev" type="button" aria-label="Vorheriges Bild"><svg viewBox="0 0 16 16"><path d="M10 2L4 8l6 6"/></svg></button>
+  <button class="lb-next" type="button" aria-label="Nächstes Bild"><svg viewBox="0 0 16 16"><path d="M6 2l6 6-6 6"/></svg></button>
+  <figure><div class="lb-img" id="lbImg"></div><figcaption><div><h3 id="lbTitle"></h3><p id="lbText"></p></div><span class="pill" id="lbTag"></span></figcaption></figure>
+</div>
+
+<!-- COMMAND PALETTE -->
+<div class="modal" id="palette" role="dialog" aria-modal="true" aria-label="Kommandozentrale">
+  <div class="pal">
+    <div class="pal-in"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+      <input id="palIn" type="text" role="combobox" aria-expanded="true" aria-controls="palList" aria-autocomplete="list" placeholder="Wohin? Sektion, Projekt, Befehl …" data-en-ph="Where to? Section, project, command …" autocomplete="off" spellcheck="false"><kbd>ESC</kbd></div>
+    <ul class="pal-list" id="palList" role="listbox"></ul>
+    <div class="pal-foot"><span>↑↓ <span data-en="navigate">navigieren</span></span><span>↵ <span data-en="open">öffnen</span></span><span>esc <span data-en="close">schließen</span></span></div>
+  </div>
+</div>
+
+<!-- TERMINAL -->
+<div class="modal" id="terminal" role="dialog" aria-modal="true" aria-label="Terminal">
+  <div class="tbox">
+    <div class="term-bar"><i></i><i></i><i></i><span>dulidan-os // terminal</span></div>
+    <div class="tbox-out" id="tOut" aria-live="polite"></div>
+    <form class="tbox-row" id="tForm" autocomplete="off"><span>guest@dulidan:~$</span><label for="tIn" class="sr">Befehl</label><input id="tIn" spellcheck="false" autocapitalize="off"></form>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-label" id="cursorLabel"></span></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+</body>
+</html>

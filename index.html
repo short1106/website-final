@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dulidan Studios · Webdesign, 3D & Content aus Öhringen</title>
-<meta name="description" content="Dulidan Studios ist das Kreativstudio von Shaquille aus Öhringen: Webdesign, Werbe-Content, 3D-Modeling und Logo-Erneuerung. Mit Herz aus Duisburg.">
+<title>Dulidan Studios · Webdesign, Content & 3D aus Öhringen</title>
+<meta name="description" content="Dulidan Studios aus Öhringen: Webdesign, Werbe-Content, 3D-Modeling und Logo-Erneuerung. Dream. Design. Develop. Dominate.">
 <meta name="theme-color" content="#07060b">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://dulidan-studios.com/">
-<link rel="alternate" hreflang="de" href="https://dulidan-studios.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dulidan Studios">
-<meta property="og:title" content="Dulidan Studios · Design, das hochfährt.">
-<meta property="og:description" content="Webdesign, Werbe-Content, 3D und Logos. Kreativstudio aus Öhringen, mit Herz aus Duisburg.">
+<meta property="og:title" content="Dulidan Studios · Dream. Design. Develop. Dominate.">
+<meta property="og:description" content="Dulidan Studios aus Öhringen: Webdesign, Werbe-Content, 3D-Modeling und Logo-Erneuerung. Dream. Design. Develop. Dominate.">
 <meta property="og:url" content="https://dulidan-studios.com/">
 <meta property="og:image" content="https://dulidan-studios.com/assets/img/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -25,14 +24,14 @@
 <link rel="preload" href="/assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/jetbrains-mono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/main.css">
-<noscript><style>.rv,.rv-mask{opacity:1!important;transform:none!important;clip-path:none!important}.hero-title .l span{transform:none!important}</style></noscript>
+<noscript><style>.rv,.rv-mask{opacity:1!important;transform:none!important;clip-path:none!important}.epic{height:auto!important}.epic-words .w{opacity:1!important;position:static!important}</style></noscript>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Dulidan Studios","url":"https://dulidan-studios.com/","logo":"https://dulidan-studios.com/assets/img/icon-192.png","email":"info@dulidan-studios.com","foundingDate":"2026-06-11","founder":{"@type":"Person","name":"Shaquille Abid El Moussaoui"},"address":{"@type":"PostalAddress","streetAddress":"Theodor-Fontane-Weg 11","postalCode":"74613","addressLocality":"Öhringen","addressRegion":"Baden-Württemberg","addressCountry":"DE"},"sameAs":["https://github.com/short1106"]}
+{"@context":"https://schema.org","@type":"Organization","name":"Dulidan Studios","slogan":"Dream. Design. Develop. Dominate.","url":"https://dulidan-studios.com/","logo":"https://dulidan-studios.com/assets/img/icon-192.png","email":"info@dulidan-studios.com","foundingDate":"2026-06-11","founder":{"@type":"Person","name":"Shaquille Abid El Moussaoui"},"address":{"@type":"PostalAddress","streetAddress":"Theodor-Fontane-Weg 11","postalCode":"74613","addressLocality":"Öhringen","addressRegion":"Baden-Württemberg","addressCountry":"DE"},"sameAs":["https://github.com/short1106"]}
 </script>
-<script>try{if(localStorage.getItem("dd_lang")==="en")document.documentElement.lang="en";if(!localStorage.getItem("dd_booted")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("booting")}catch(e){}</script>
+<script>try{if(localStorage.getItem("dd_lang")==="en")document.documentElement.lang="en";if(!localStorage.getItem("dd_booted2")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("booting")}catch(e){}</script>
 <script src="/assets/js/main.js" defer></script>
 </head>
-<body>
+<body data-page="home">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <!-- TODO: April-Illustration durch finale Grafik ersetzen (Platzhalter-Vektor) -->
@@ -54,6 +53,7 @@
     </symbol>
     <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
     <symbol id="i-ext" viewBox="0 0 16 16"><path d="M6 3H3v10h10v-3M9 3h4v4M13 3L7 9" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
   </defs>
 </svg>
 
@@ -62,6 +62,7 @@
 <div class="bg-glow" aria-hidden="true"></div>
 <div class="fx fx-noise" aria-hidden="true"></div>
 <div class="fx fx-scan" aria-hidden="true"></div>
+<div class="wipe" id="wipe" aria-hidden="true"><img src="/assets/img/logo-mark.webp" alt="" width="64" height="64"></div>
 
 <!-- BOOT -->
 <div class="boot" id="boot" role="dialog" aria-modal="true" aria-label="Startsequenz" hidden>
@@ -69,7 +70,7 @@
     <img class="boot-logo" src="/assets/img/logo-mark.webp" alt="" width="56" height="56">
     <div class="boot-lines" id="bootLines" aria-live="polite"></div>
     <div class="boot-bar"><i id="bootBar"></i></div>
-    <div class="boot-foot"><span>DULIDAN_OS v1.0</span><span id="bootPct">0%</span></div>
+    <div class="boot-foot"><span>DULIDAN_OS v2.0</span><span id="bootPct">0%</span></div>
   </div>
   <button class="boot-skip" id="bootSkip" type="button" data-en="Skip [Enter]">Überspringen [Enter]</button>
 </div>
@@ -82,72 +83,266 @@
 
 <!-- NAV -->
 <header class="nav" id="nav">
-  <a class="nav-logo" href="#top" aria-label="Dulidan Studios – zum Start"><img src="/assets/img/logo-full.webp" alt="Dulidan Studios" width="458" height="115"></a>
+  <a class="nav-logo" href="/" aria-label="Dulidan Studios – Startseite"><img src="/assets/img/logo-full.webp" alt="Dulidan Studios" width="458" height="115"></a>
   <nav aria-label="Hauptnavigation">
     <ul class="nav-links">
-      <li><a href="#about" data-en="About">Über mich</a></li>
-      <li><a href="#services" data-en="Services">Services</a></li>
-      <li><a href="#projekte" data-en="Work">Projekte</a></li>
-      <li><a href="#kunst" data-en="Art">Kunst</a></li>
-      <li><a href="#lab">Lab</a></li>
+      <li><a href="#leistungen" data-en="Services">Leistungen</a></li>
+      <li><a href="#projekt" data-en="Plan a project">Projekt planen</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li><a href="/portfolio/#showroom">3D</a></li>
+      <li><a href="/politics-ai/">Politics AI</a></li>
       <li><a href="#kontakt" data-en="Contact">Kontakt</a></li>
     </ul>
   </nav>
   <div class="nav-tools">
     <button class="chip-btn cmdk-btn" type="button" id="cmdkBtn" aria-label="Kommandozentrale öffnen"><kbd>Ctrl</kbd><kbd>K</kbd></button>
     <button class="chip-btn lang-btn" type="button" id="langBtn" aria-label="Sprache wechseln / switch language"><span data-l="de">DE</span>/<span data-l="en">EN</span></button>
+    <a class="btn btn-solid btn-nav" href="#projekt" data-en="Start project">Projekt starten</a>
     <button class="burger" id="burger" type="button" aria-label="Menü" aria-expanded="false" aria-controls="mmenu"><span></span></button>
   </div>
 </header>
 <div class="mmenu" id="mmenu">
-  <a href="#about"><span>01</span><b data-en="About">Über mich</b></a>
-  <a href="#services"><span>02</span><b>Services</b></a>
-  <a href="#projekte"><span>03</span><b data-en="Work">Projekte</b></a>
-  <a href="#kunst"><span>04</span><b data-en="Photo &amp; Art">Foto &amp; Kunst</b></a>
-  <a href="#buch"><span>05</span><b data-en="Book">Buch</b></a>
-  <a href="#lab"><span>06</span><b>Lab</b></a>
-  <a href="#prozess"><span>07</span><b data-en="Process">Prozess</b></a>
+  <a href="#leistungen"><span>01</span><b data-en="Services">Leistungen</b></a>
+  <a href="#fuerwen"><span>02</span><b data-en="Who it's for">Für wen</b></a>
+  <a href="#projekt"><span>03</span><b data-en="Plan a project">Projekt planen</b></a>
+  <a href="/portfolio/"><span>04</span><b>Portfolio</b></a>
+  <a href="/portfolio/#showroom"><span>05</span><b data-en="3D showroom">3D-Showroom</b></a>
+  <a href="/politics-ai/"><span>06</span><b>Politics AI</b></a>
+  <a href="#about"><span>07</span><b data-en="About">Über mich</b></a>
   <a href="#kontakt"><span>08</span><b data-en="Contact">Kontakt</b></a>
 </div>
 
 <main id="main">
 
-<!-- HERO -->
-<section class="hero" id="top" data-sec="Start" aria-labelledby="hero-h">
-  <div class="hero-canvas" id="heroCanvas" aria-hidden="true">
-    <img class="hero-fallback" id="heroFallback" src="/assets/img/logo-mark.webp" alt="" width="512" height="512">
-  </div>
-  <div class="wrap">
-    <p class="hero-kicker"><span class="status-dot"></span><span data-en="System online · Öhringen, BW · taking projects">System online · Öhringen, BW · nimmt Projekte an</span></p>
-    <h1 class="hero-title" id="hero-h"><span class="l"><span>Dulidan</span></span><span class="l l2"><span class="outline">Studios</span></span></h1>
-    <p class="hero-claim" data-en="Design that boots up.">Design, das hochfährt.</p>
-    <p class="hero-sub" data-en="The creative studio of Shaquille from Öhringen: web design, ad content, 3D and logos. Heart from Duisburg, slight tendency to overengineer.">Das Kreativstudio von Shaquille aus Öhringen: Webdesign, Werbe-Content, 3D und Logos. Herz aus Duisburg, leichter Hang zum Overengineering.</p>
-    <div class="hero-cta">
-      <a class="btn btn-solid mag" href="#kontakt" data-cursor="Los"><span data-en="Start a project">Projekt starten</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a class="btn mag" href="#projekte" data-cursor="Work"><span data-en="See the work">Arbeiten ansehen</span></a>
+<!-- EPIC HERO: Dream. Design. Develop. Dominate. -->
+<section class="epic" id="top" data-sec="Start" aria-labelledby="hero-h">
+  <div class="epic-stick">
+    <div class="hero-canvas" id="heroCanvas" aria-hidden="true">
+      <img class="hero-fallback" id="heroFallback" src="/assets/img/logo-mark.webp" alt="" width="512" height="512">
     </div>
-  </div>
-  <div class="scroll-hint" aria-hidden="true"><span>SCROLL</span><i></i></div>
-  <div class="hero-meta wrap" style="padding:0">
-    <div><span data-en="Founded">Gegründet</span><b class="mono">11.06.2026</b></div>
-    <div>Base<b>Öhringen, BW</b></div>
-    <div><span data-en="Origin">Herkunft</span><b>Duisburg</b></div>
-    <div><span data-en="Local time">Ortszeit</span><b class="mono" id="heroClock">--:--</b></div>
+    <div class="epic-flash" aria-hidden="true"></div>
+
+    <div class="epic-intro wrap" id="epicIntro">
+      <p class="hero-kicker"><span class="status-dot"></span><span data-en="Creative studio · Öhringen · taking new projects">Kreativstudio · Öhringen · nimmt neue Projekte an</span></p>
+      <h1 class="hero-title" id="hero-h"><span class="l"><span data-en="Websites,">Websites,</span></span><span class="l l2"><span data-en="content &amp; 3D">Content &amp; 3D,</span></span><span class="l l3"><span class="outline" data-en="that stand out.">die auffallen.</span></span></h1>
+      <p class="hero-sub" data-en="Dulidan Studios designs and builds your presence: web design, ad content, 3D visualisation and logo refreshes. Everything from one hand, directly with the founder.">Dulidan Studios gestaltet und baut deinen Auftritt: Webdesign, Werbe-Content, 3D-Visualisierung und Logo-Erneuerung. Alles aus einer Hand, direkt mit dem Gründer.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid mag" href="#projekt" data-cursor="Los"><span data-en="Start your project">Projekt starten</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn mag" href="#leistungen" data-cursor="Services"><span data-en="What we offer">Was wir anbieten</span></a>
+      </div>
+    </div>
+
+    <div class="epic-words" id="epicWords" aria-label="Dream. Design. Develop. Dominate.">
+      <div class="w" data-i="0"><span class="wn mono">01</span><b class="glitch" data-t="DREAM.">DREAM.</b><span class="ws" data-en="You have an idea.">Du hast eine Idee.</span></div>
+      <div class="w" data-i="1"><span class="wn mono">02</span><b class="glitch" data-t="DESIGN.">DESIGN.</b><span class="ws" data-en="We give it shape.">Wir geben ihr eine Form.</span></div>
+      <div class="w" data-i="2"><span class="wn mono">03</span><b class="glitch" data-t="DEVELOP.">DEVELOP.</b><span class="ws" data-en="We build it. Visible to the whole world.">Wir bauen sie. Sichtbar für die ganze Welt.</span></div>
+      <div class="w" data-i="3"><span class="wn mono">04</span><b class="glitch" data-t="DOMINATE.">DOMINATE.</b><span class="ws" data-en="And you stand out.">Und du hebst dich ab.</span></div>
+      <div class="w w-final" data-i="4">
+        <p class="lockup"><span>Dream.</span> <span>Design.</span> <span>Develop.</span> <span class="dom">Dominate.</span></p>
+        <a class="btn btn-solid mag" href="#leistungen" data-cursor="Go"><span data-en="Let's go">Lass uns loslegen</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+
+    <div class="epic-hud" aria-hidden="true">
+      <div class="eh-tl mono">DULIDAN_OS // <span id="ehStage">INIT</span></div>
+      <div class="eh-tr mono"><span id="ehPct">000</span>%</div>
+      <ol class="eh-steps mono" id="ehSteps"><li>Dream</li><li>Design</li><li>Develop</li><li>Dominate</li></ol>
+      <div class="eh-scroll mono"><span data-en="Scroll to dominate">Scroll to dominate</span><i></i></div>
+    </div>
   </div>
 </section>
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Webdesign</span><span>Werbe-Content</span><span>3D-Modeling</span><span>Rendering</span><span>Logo-Erneuerung</span><span>Politics AI</span>
-    <span>Webdesign</span><span>Werbe-Content</span><span>3D-Modeling</span><span>Rendering</span><span>Logo-Erneuerung</span><span>Politics AI</span>
+    <span>Webdesign</span><span>Werbe-Content</span><span>3D-Modeling</span><span>Rendering</span><span>Logo-Erneuerung</span><span>Social Ads</span>
+    <span>Webdesign</span><span>Werbe-Content</span><span>3D-Modeling</span><span>Rendering</span><span>Logo-Erneuerung</span><span>Social Ads</span>
   </div>
 </div>
+
+<!-- LEISTUNGEN -->
+<section class="sec" id="leistungen" data-sec="Leistungen" data-sec-en="Services" aria-labelledby="svc-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">01</span><span data-en="What we offer">Was wir anbieten</span></p>
+    <h2 class="h2 rv-mask" id="svc-h" data-en="Four things. <em>Done properly.</em>">Vier Dinge. <em>Richtig gemacht.</em></h2>
+    <p class="lead rv" data-en="No off-the-shelf packages. You tell us what you need, we tell you honestly what makes sense, and then we build it.">Keine Pakete von der Stange. Du sagst, was du brauchst, wir sagen dir ehrlich, was Sinn ergibt, und dann bauen wir es.</p>
+    <div class="svc-grid">
+      <article class="svc rv tilt" style="--d:0.0s">
+        <div class="svc-top"><span class="svc-n">S/01</span>
+          <svg class="svc-ico ico-web" viewBox="0 0 120 96" aria-hidden="true" fill="none" stroke="#c020b8" stroke-width="1.2"><rect x="4" y="8" width="112" height="80" rx="4"/><path d="M4 22h112"/><circle cx="12" cy="15" r="2" fill="#c020b8"/><circle cx="19" cy="15" r="2"/><rect class="blk" x="14" y="32" width="60" height="8" fill="rgba(192,32,184,.35)" stroke="none"/><rect class="blk" x="14" y="46" width="88" height="4" fill="rgba(239,234,247,.25)" stroke="none"/><rect class="blk" x="14" y="55" width="72" height="4" fill="rgba(239,234,247,.25)" stroke="none"/><rect x="14" y="68" width="30" height="10" rx="2"/><rect class="cur-b" x="78" y="31" width="2" height="10" fill="#ff7ae6" stroke="none"/></svg>
+        </div>
+        <h3 data-en="Web design">Webdesign</h3>
+        <p data-en="A website that looks like you and makes enquiries easy.">Eine Website, die nach dir aussieht und Anfragen leicht macht.</p>
+        <ul class="svc-list"><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Design and development from one hand">Design und Entwicklung aus einer Hand</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Built for phones, fast to load">Fürs Handy gebaut, schnell geladen</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Clear structure all the way to the contact button">Klare Struktur bis zum Kontakt-Button</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="SEO basics so people can find you">SEO-Grundlagen, damit man dich findet</span></li></ul>
+        <button class="link-arrow svc-pick" type="button" data-pick="web"><span data-en="Request this">Das will ich</span><svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </article>
+      <article class="svc rv tilt" style="--d:0.08s">
+        <div class="svc-top"><span class="svc-n">S/02</span>
+          <svg class="svc-ico ico-ads" viewBox="0 0 120 96" aria-hidden="true" fill="none" stroke-width="1.2"><g class="fr"><rect x="34" y="10" width="52" height="76" rx="4" stroke="#8122b5" fill="rgba(129,34,181,.12)"/></g><g class="fr"><rect x="34" y="10" width="52" height="76" rx="4" stroke="#c020b8" fill="rgba(192,32,184,.12)"/><path d="M44 66h32M44 74h20" stroke="#ff7ae6"/></g><g class="fr"><rect x="34" y="10" width="52" height="76" rx="4" stroke="#ff7ae6" fill="rgba(255,122,230,.08)"/><circle cx="60" cy="40" r="12" stroke="#ff7ae6"/></g></svg>
+        </div>
+        <h3 data-en="Ad content">Werbe-Content</h3>
+        <p data-en="Ads, social posts and visuals that don't drown in the feed.">Ads, Social-Posts und Visuals, die im Feed nicht untergehen.</p>
+        <ul class="svc-list"><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Concept and design from one hand">Konzept und Gestaltung aus einer Hand</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Formats for feed, story and ads">Formate für Feed, Story und Ads</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="One consistent look across channels">Einheitlicher Look über alle Kanäle</span></li></ul>
+        <button class="link-arrow svc-pick" type="button" data-pick="ads"><span data-en="Request this">Das will ich</span><svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </article>
+      <article class="svc rv tilt" style="--d:0.0s">
+        <div class="svc-top"><span class="svc-n">S/03</span>
+          <div class="svc-ico cube-wrap" aria-hidden="true"><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div>
+        <h3 data-en="3D modeling &amp; rendering">3D-Modeling &amp; Rendering</h3>
+        <p data-en="Products, objects and scenes in 3D before they even exist.">Produkte, Objekte und Szenen in 3D, bevor es sie überhaupt gibt.</p>
+        <ul class="svc-list"><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Models for products and objects">Modelle für Produkte und Objekte</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Photorealistic renderings">Fotorealistische Renderings</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Interactive 3D views for the web">Interaktive 3D-Ansichten fürs Web</span></li></ul>
+        <button class="link-arrow svc-pick" type="button" data-pick="3d"><span data-en="Request this">Das will ich</span><svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </article>
+      <article class="svc rv tilt" style="--d:0.08s">
+        <div class="svc-top"><span class="svc-n">S/04</span>
+          <svg class="svc-ico ico-logo" viewBox="0 0 120 96" aria-hidden="true" fill="none" stroke-width="1.4"><g class="old" stroke="#6f6882"><circle cx="60" cy="48" r="26"/><path d="M48 36v24h10a12 12 0 000-24z"/></g><g class="new"><path d="M44 30h10v36H44z" fill="#8122b5"/><path d="M58 30h6a18 18 0 010 36h-6v-10h6a8 8 0 000-16h-6z" fill="#c020b8"/></g><rect class="sweep" x="0" y="14" width="2" height="68" fill="#ff7ae6"/></svg>
+        </div>
+        <h3 data-en="Logo refresh">Logo-Erneuerung</h3>
+        <p data-en="Your logo gets clearer and more modern without losing what makes it recognisable.">Dein Logo wird klarer und moderner, ohne seinen Wiedererkennungswert zu verlieren.</p>
+        <ul class="svc-list"><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Modern rework instead of starting over">Moderne Überarbeitung statt Neustart</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="All formats for web, social and your printer">Alle Formate für Web, Social und Druckerei</span></li><li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-en="Colours and typefaces defined">Farben und Schrift festgelegt</span></li></ul>
+        <button class="link-arrow svc-pick" type="button" data-pick="logo"><span data-en="Request this">Das will ich</span><svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FÜR WEN -->
+<section class="sec sec-tight" id="fuerwen" data-sec="Für wen" data-sec-en="Who it's for" aria-labelledby="who-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">02</span><span data-en="Who it's for">Für wen</span></p>
+    <h2 class="h2 rv-mask" id="who-h" data-en="Built for people <em>who want to be seen.</em>">Für alle, die <em>gesehen werden wollen.</em></h2>
+    <div class="who">
+      <article class="who-c rv"><span class="who-i mono">01</span><h3 data-en="Craft &amp; local businesses">Handwerk &amp; lokale Betriebe</h3><p data-en="Show online what you're great at offline. Example: our demo for the carpentry Zimmerei Weberhof.">Zeig online, was du offline draufhast. Beispiel: unsere Demo für die Zimmerei Weberhof.</p><a class="link-arrow" href="https://zimmerei-bsp.dulidan-studios.com" target="_blank" rel="noopener"><span data-en="See demo">Demo ansehen</span><svg width="14" height="14" aria-hidden="true"><use href="#i-ext"/></svg></a></article>
+      <article class="who-c rv" style="--d:.06s"><span class="who-i mono">02</span><h3 data-en="Founders &amp; start-ups">Gründer &amp; Startups</h3><p data-en="From logo to landing page, so your start looks like something from day one.">Vom Logo bis zur Landingpage, damit dein Start vom ersten Tag an nach etwas aussieht.</p></article>
+      <article class="who-c rv" style="--d:.12s"><span class="who-i mono">03</span><h3 data-en="Creators &amp; brands">Creator &amp; Marken</h3><p data-en="Content and visuals that stick in the feed and fit together.">Content und Visuals, die im Feed hängen bleiben und zusammenpassen.</p></article>
+      <article class="who-c rv" style="--d:.18s"><span class="who-i mono">04</span><h3 data-en="Products &amp; makers">Produkte &amp; Hersteller</h3><p data-en="3D renderings for shop, pitch or social media, even before the prototype exists.">3D-Renderings für Shop, Pitch oder Social Media, auch bevor es den Prototyp gibt.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- WARUM -->
+<section class="sec" id="warum" data-sec="Warum Dulidan" data-sec-en="Why Dulidan" aria-labelledby="why-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">03</span><span data-en="Why Dulidan">Warum Dulidan</span></p>
+    <h2 class="h2 rv-mask" id="why-h" data-en="No agency speak. <em>Just results.</em>">Kein Agentursprech. <em>Nur Ergebnis.</em></h2>
+    <div class="bento">
+      <article class="bt bt-a rv"><span class="bt-k mono">// 01</span><h3 data-en="Direct line">Direkter Draht</h3><p data-en="You talk to the person who builds it. No project manager in between, no ticket system.">Du sprichst mit dem, der es baut. Kein Projektmanager dazwischen, kein Ticketsystem.</p></article>
+      <article class="bt bt-b rv" style="--d:.06s"><span class="bt-k mono">// 02</span><h3 data-en="No site builder">Kein Baukasten</h3><p data-en="Every page is designed and coded for you. No templates with your logo slapped on.">Jede Seite wird für dich gestaltet und programmiert. Keine Templates mit deinem Logo drauf.</p></article>
+      <article class="bt bt-c rv" style="--d:.12s">
+        <div class="bt-d" aria-hidden="true"><div class="d3" id="d3"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <span class="bt-k mono">// 03</span><h3 data-en="This site is the proof">Diese Seite ist der Beweis</h3><p data-en="Hand-built, no site builder, own 3D and particle code. That's how we build for you too.">Handgebaut, ohne Baukasten, mit eigenem 3D- und Partikel-Code. So bauen wir auch für dich.</p></article>
+      <article class="bt bt-d2 rv"><span class="bt-k mono">// 04</span><h3 data-en="Fast &amp; modern">Schnell &amp; modern</h3><p data-en="Clean tech, short loading times, designed for phones first.">Saubere Technik, kurze Ladezeiten, zuerst fürs Handy gedacht.</p></article>
+      <article class="bt bt-e rv" style="--d:.06s"><span class="bt-k mono">// 05</span><h3 data-en="Honest">Ehrlich</h3><p data-en="If something doesn't make sense, we'll tell you. Even if it means a smaller job.">Wenn etwas keinen Sinn ergibt, sagen wir es dir. Auch wenn der Auftrag dann kleiner wird.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- WELT -->
+<section class="sec world" id="welt" data-sec="Weltweit" data-sec-en="Worldwide" aria-labelledby="world-h">
+  <div class="wrap world-grid">
+    <div>
+      <p class="sec-label rv"><span class="n">04</span><span data-en="From Öhringen to the world">Von Öhringen in die Welt</span></p>
+      <h2 class="h2 rv-mask" id="world-h" data-en="Based in Öhringen. <em>Working everywhere.</em>">Sitz in Öhringen. <em>Arbeiten überall.</em></h2>
+      <p class="lead rv" data-en="Our base is in Baden-Württemberg, our roots in Duisburg. Collaboration runs remotely by email, call and chat, no matter where you are.">Unsere Basis ist in Baden-Württemberg, die Wurzeln in Duisburg. Zusammenarbeit läuft remote per Mail, Call und Chat, egal wo du sitzt.</p>
+      <ul class="pins rv">
+        <li data-pin="0"><span class="pin-d"></span><b>Öhringen</b><span data-en="Studio base">Basis des Studios</span></li>
+        <li data-pin="1"><span class="pin-d"></span><b>Duisburg</b><span data-en="Where it all began">Wo alles anfing</span></li>
+        <li data-pin="2"><span class="pin-d"></span><b>Stuttgart</b><span data-en="SPC Photo Awards 2026">SPC Photo Awards 2026</span></li>
+      </ul>
+    </div>
+    <div class="globe-wrap rv">
+      <canvas id="worldGlobe" role="img" aria-label="Interaktive Weltkugel mit Markierungen für Öhringen, Duisburg und Stuttgart. Mit der Maus oder dem Finger drehbar."></canvas>
+      <span class="globe-tip mono" data-en="Drag to rotate">Ziehen zum Drehen</span>
+    </div>
+  </div>
+</section>
+
+<!-- KONFIGURATOR -->
+<section class="sec" id="projekt" data-sec="Projekt planen" data-sec-en="Plan a project" aria-labelledby="cfg-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">05</span><span data-en="Project configurator">Projekt-Konfigurator</span></p>
+    <h2 class="h2 rv-mask" id="cfg-h" data-en="Plan your project <em>in 30 seconds.</em>">Plane dein Projekt <em>in 30 Sekunden.</em></h2>
+    <p class="lead rv" data-en="Click together what you need. We turn it into a briefing you can send straight away. No obligation.">Klick zusammen, was du brauchst. Daraus wird ein Briefing, das du direkt abschicken kannst. Unverbindlich.</p>
+    <div class="cfg rv">
+      <div class="cfg-steps">
+        <fieldset class="cfg-q">
+          <legend><span class="mono">01</span> <span data-en="What do you need?">Was brauchst du?</span></legend>
+          <div class="chips" data-q="need" data-multi>
+            <button type="button" data-v="web" aria-pressed="false">Website</button>
+            <button type="button" data-v="ads" aria-pressed="false" data-en="Ad content">Werbe-Content</button>
+            <button type="button" data-v="3d" aria-pressed="false" data-en="3D / rendering">3D / Rendering</button>
+            <button type="button" data-v="logo" aria-pressed="false" data-en="Logo refresh">Logo-Erneuerung</button>
+          </div>
+        </fieldset>
+        <fieldset class="cfg-q">
+          <legend><span class="mono">02</span> <span data-en="What do you already have?">Was hast du schon?</span></legend>
+          <div class="chips" data-q="have">
+            <button type="button" data-v="none" aria-pressed="false" data-en="Nothing yet">Noch nichts</button>
+            <button type="button" data-v="logo" aria-pressed="false" data-en="A logo">Ein Logo</button>
+            <button type="button" data-v="site" aria-pressed="false" data-en="An old website">Eine alte Website</button>
+            <button type="button" data-v="all" aria-pressed="false" data-en="Lots, it needs a refresh">Einiges, muss frischer werden</button>
+          </div>
+        </fieldset>
+        <fieldset class="cfg-q">
+          <legend><span class="mono">03</span> <span data-en="When?">Wann?</span></legend>
+          <div class="chips" data-q="when">
+            <button type="button" data-v="asap" aria-pressed="false" data-en="As soon as possible">So schnell wie möglich</button>
+            <button type="button" data-v="soon" aria-pressed="false" data-en="In 1–3 months">In 1–3 Monaten</button>
+            <button type="button" data-v="plan" aria-pressed="false" data-en="Just planning">Bin noch am Planen</button>
+          </div>
+        </fieldset>
+        <fieldset class="cfg-q">
+          <legend><span class="mono">04</span> <span data-en="What's the goal?">Was ist das Ziel?</span></legend>
+          <div class="chips" data-q="goal">
+            <button type="button" data-v="leads" aria-pressed="false" data-en="More enquiries">Mehr Anfragen</button>
+            <button type="button" data-v="brand" aria-pressed="false" data-en="Better image">Besseres Image</button>
+            <button type="button" data-v="launch" aria-pressed="false" data-en="Launch something new">Etwas Neues starten</button>
+          </div>
+        </fieldset>
+      </div>
+      <div class="cfg-out">
+        <div class="term-bar"><i></i><i></i><i></i><span>briefing.txt</span></div>
+        <pre class="cfg-pre mono" id="cfgOut" aria-live="polite"></pre>
+        <div class="cfg-meter"><span class="mono" data-en="Briefing complete">Briefing vollständig</span><b class="mono" id="cfgPct">0%</b><i id="cfgBar"></i></div>
+        <button class="btn btn-solid mag" type="button" id="cfgSend" disabled><span data-en="Use briefing">Briefing übernehmen</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARBEITEN -->
+<section class="sec" id="arbeiten" data-sec="Arbeiten" data-sec-en="Work" aria-labelledby="work-h">
+  <div class="wrap">
+    <p class="sec-label rv"><span class="n">06</span><span data-en="Work">Arbeiten</span></p>
+    <h2 class="h2 rv-mask" id="work-h" data-en="Curious what we've <em>already built?</em>">Neugierig, was wir <em>schon gebaut haben?</em></h2>
+    <div class="portals">
+      <a class="portal rv" href="/portfolio/" data-cursor="Open">
+        <div class="portal-bg portal-bg-a" aria-hidden="true"><span>01</span><span>02</span><span>03</span><span>04</span></div>
+        <div class="portal-c">
+          <span class="pill hot">Portfolio</span>
+          <h3 data-en="Work, art &amp; 3D showroom">Projekte, Kunst &amp; 3D-Showroom</h3>
+          <p data-en="Politics AI, Zimmerei Weberhof, Berlingo wrap, April, photography, a book and an interactive 3D showroom.">Politics AI, Zimmerei Weberhof, Berlingo-Wrap, April, Fotografie, ein Buch und ein interaktiver 3D-Showroom.</p>
+          <span class="link-arrow"><span data-en="Open portfolio">Portfolio öffnen</span><svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </div>
+      </a>
+      <a class="portal portal-pai rv" href="/politics-ai/" style="--d:.08s" data-cursor="Enter">
+        <canvas class="portal-globe" id="portalGlobe" aria-hidden="true"></canvas>
+        <div class="portal-c">
+          <span class="pill wip" data-en="Flagship · Alpha 3">Flaggschiff · Alpha 3</span>
+          <h3>Politics AI</h3>
+          <p data-en="Our AI world simulator: you're the chancellor, more than 190 countries respond.">Unser KI-Weltsimulator: Du bist Bundeskanzler, über 190 Länder antworten.</p>
+          <span class="link-arrow"><span data-en="Enter the situation room">Ins Lagezentrum</span><svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- ABOUT -->
 <section class="sec" id="about" data-sec="Über mich" data-sec-en="About" aria-labelledby="about-h">
   <div class="wrap">
-    <p class="sec-label rv"><span class="n">01</span><span data-en="About">Über mich</span></p>
-    <h2 class="h2 rv-mask" id="about-h" data-en="19, from Duisburg, <em>building things.</em>">19, aus Duisburg, <em>baut Dinge.</em></h2>
+    <p class="sec-label rv"><span class="n">07</span><span data-en="Who's behind it">Wer dahinter steckt</span></p>
+    <h2 class="h2 rv-mask" id="about-h" data-en="18, from Duisburg, <em>building things.</em>">18, aus Duisburg, <em>baut Dinge.</em></h2>
     <div class="about-grid">
       <div class="rv" data-speed="-0.04">
         <div class="photo">
@@ -166,13 +361,13 @@
         </div>
       </div>
       <div class="about-text">
-        <p class="rv" data-en="Hi, I'm <strong>Shaquille</strong>. 19, born and raised in Duisburg, now living in Öhringen, Baden-Württemberg. On <strong>11 June 2026</strong> I founded Dulidan Studios.">Hi, ich bin <strong>Shaquille</strong>. 19, geboren und aufgewachsen in Duisburg, inzwischen zu Hause in Öhringen, Baden-Württemberg. Am <strong>11. Juni 2026</strong> habe ich Dulidan Studios gegründet.</p>
-        <p class="rv" data-en="I've been building stuff for as long as I can remember: websites, 3D models, game mods, an RC jet with thrust reversal and, right now, an AI world simulator. Dulidan is where all of that comes together, and where I build it for other people too.">Ich baue Dinge, seit ich denken kann: Websites, 3D-Modelle, Mods, einen RC-Jet mit Schubumkehr und gerade einen KI-Weltsimulator. Dulidan ist der Ort, an dem das alles zusammenkommt, und an dem ich das auch für andere baue.</p>
-        <p class="rv" data-en="What you get: a direct line to me, honest opinions instead of agency speak, and work I actually care about. What you don't get: a template with your logo slapped on it.">Was du bekommst: einen direkten Draht zu mir, ehrliche Einschätzungen statt Agentursprech und Arbeit, auf die ich selbst Bock habe. Was du nicht bekommst: ein Template mit deinem Logo drauf.</p>
+        <p class="rv" data-en="Hi, I'm <strong>Shaquille</strong>. 18, born and raised in Duisburg, now living in Öhringen, Baden-Württemberg. On <strong>11 June 2026</strong> I founded Dulidan Studios.">Hi, ich bin <strong>Shaquille</strong>. 18, geboren und aufgewachsen in Duisburg, inzwischen zu Hause in Öhringen, Baden-Württemberg. Am <strong>11. Juni 2026</strong> habe ich Dulidan Studios gegründet.</p>
+        <p class="rv" data-en="I've been building stuff for as long as I can remember: websites, 3D models, game mods, an RC jet with thrust reversal and, right now, an AI world simulator. Dulidan is where all of that comes together, and where I build it for you.">Ich baue Dinge, seit ich denken kann: Websites, 3D-Modelle, Mods, einen RC-Jet mit Schubumkehr und gerade einen KI-Weltsimulator. Dulidan ist der Ort, an dem das alles zusammenkommt, und an dem ich das für dich baue.</p>
+        <p class="rv" data-en="What you get: a direct line to me, honest opinions instead of agency speak, and work I actually care about.">Was du bekommst: einen direkten Draht zu mir, ehrliche Einschätzungen statt Agentursprech und Arbeit, auf die ich selbst Bock habe.</p>
         <div class="readout rv">
           <div>Name<b>Shaquille</b></div>
           <div><span data-en="Role">Rolle</span><b data-en="Founder">Gründer</b></div>
-          <div><span data-en="Age">Alter</span><b class="mono">19</b></div>
+          <div><span data-en="Age">Alter</span><b class="mono">18</b></div>
           <div><span data-en="Origin">Herkunft</span><b>Duisburg</b></div>
           <div>Base<b>Öhringen</b></div>
           <div><span data-en="Founded">Gegründet</span><b class="mono">11.06.2026</b></div>
@@ -183,333 +378,17 @@
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="sec" id="services" data-sec="Services" aria-labelledby="svc-h">
-  <div class="wrap">
-    <p class="sec-label rv"><span class="n">02</span>Services</p>
-    <h2 class="h2 rv-mask" id="svc-h" data-en="Four things. <em>Done properly.</em>">Vier Dinge. <em>Richtig gemacht.</em></h2>
-    <p class="lead rv" data-en="No packages, no price lists on the internet. You tell me what you need, I tell you honestly what makes sense.">Keine Pakete von der Stange. Du sagst, was du brauchst, ich sag dir ehrlich, was Sinn ergibt.</p>
-    <div class="svc-grid">
-      <article class="svc rv tilt">
-        <div class="svc-top"><span class="svc-n">S/01</span>
-          <svg class="svc-ico ico-web" viewBox="0 0 120 96" aria-hidden="true" fill="none" stroke="#c020b8" stroke-width="1.2"><rect x="4" y="8" width="112" height="80" rx="4"/><path d="M4 22h112"/><circle cx="12" cy="15" r="2" fill="#c020b8"/><circle cx="19" cy="15" r="2"/><rect class="blk" x="14" y="32" width="60" height="8" fill="rgba(192,32,184,.35)" stroke="none"/><rect class="blk" x="14" y="46" width="88" height="4" fill="rgba(239,234,247,.25)" stroke="none"/><rect class="blk" x="14" y="55" width="72" height="4" fill="rgba(239,234,247,.25)" stroke="none"/><rect x="14" y="68" width="30" height="10" rx="2"/><rect class="cur-b" x="78" y="31" width="2" height="10" fill="#ff7ae6" stroke="none"/></svg>
-        </div>
-        <h3>Webdesign</h3>
-        <p data-en="Websites that load fast, work on phones and still look like something. From landing pages to a full presence for your business.">Websites, die schnell laden, auf dem Handy funktionieren und trotzdem nach etwas aussehen. Von der Landingpage bis zum kompletten Auftritt für deinen Betrieb.</p>
-        <ul><li>Design</li><li>Code</li><li>Mobile first</li><li>SEO-Basics</li></ul>
-      </article>
-      <article class="svc rv tilt" style="--d:.08s">
-        <div class="svc-top"><span class="svc-n">S/02</span>
-          <svg class="svc-ico ico-ads" viewBox="0 0 120 96" aria-hidden="true" fill="none" stroke-width="1.2"><g class="fr"><rect x="34" y="10" width="52" height="76" rx="4" stroke="#8122b5" fill="rgba(129,34,181,.12)"/></g><g class="fr"><rect x="34" y="10" width="52" height="76" rx="4" stroke="#c020b8" fill="rgba(192,32,184,.12)"/><path d="M44 66h32M44 74h20" stroke="#ff7ae6"/></g><g class="fr"><rect x="34" y="10" width="52" height="76" rx="4" stroke="#ff7ae6" fill="rgba(255,122,230,.08)"/><circle cx="60" cy="40" r="12" stroke="#ff7ae6"/></g></svg>
-        </div>
-        <h3 data-en="Ad content">Werbe-Content</h3>
-        <p data-en="Ads, social posts and visuals that don't drown in the feed. Concept and design from one hand.">Ads, Social-Media-Posts und Visuals, die im Feed nicht untergehen. Konzept und Gestaltung aus einer Hand.</p>
-        <ul><li>Ads</li><li>Social</li><li>Visuals</li></ul>
-      </article>
-      <article class="svc rv tilt">
-        <div class="svc-top"><span class="svc-n">S/03</span>
-          <div class="svc-ico cube-wrap" aria-hidden="true"><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
-        </div>
-        <h3 data-en="3D modeling &amp; rendering">3D-Modeling &amp; Rendering</h3>
-        <p data-en="Products, objects and scenes in 3D: modeled, lit and rendered before they even exist.">Produkte, Objekte und Szenen in 3D: modelliert, beleuchtet und gerendert, bevor es sie überhaupt gibt.</p>
-        <ul><li>Modeling</li><li>Rendering</li><li>Visualisierung</li></ul>
-      </article>
-      <article class="svc rv tilt" style="--d:.08s">
-        <div class="svc-top"><span class="svc-n">S/04</span>
-          <svg class="svc-ico ico-logo" viewBox="0 0 120 96" aria-hidden="true" fill="none" stroke-width="1.4"><g class="old" stroke="#6f6882"><circle cx="60" cy="48" r="26"/><path d="M48 36v24h10a12 12 0 000-24z"/></g><g class="new"><path d="M44 30h10v36H44z" fill="#8122b5"/><path d="M58 30h6a18 18 0 010 36h-6v-10h6a8 8 0 000-16h-6z" fill="#c020b8"/></g><rect class="sweep" x="0" y="14" width="2" height="68" fill="#ff7ae6"/></svg>
-        </div>
-        <h3 data-en="Logo refresh">Logo-Erneuerung</h3>
-        <p data-en="Your logo has seen better days? I make it clearer, more modern and fit for every format, without losing what makes it recognisable.">Dein Logo ist in die Jahre gekommen? Ich mache es klarer, moderner und fit für alle Formate, ohne dass man es nicht mehr wiedererkennt.</p>
-        <ul><li>Redesign</li><li>Formate</li><li>Mini-Styleguide</li></ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="sec" id="projekte" data-sec="Projekte" data-sec-en="Work" aria-labelledby="proj-h">
-  <div class="wrap">
-    <p class="sec-label rv"><span class="n">03</span><span data-en="Selected work">Projekte</span></p>
-    <h2 class="h2 rv-mask" id="proj-h" data-en="Things I've <em>built.</em>">Was ich <em>gebaut habe.</em></h2>
-
-    <div class="projects">
-      <!-- Politics AI -->
-      <article class="case flag rv" id="p-politics">
-        <span class="case-num" aria-hidden="true">01</span>
-        <div class="case-in">
-          <div>
-            <div class="case-tag"><span class="pill hot" data-en="Flagship">Flaggschiff</span><span class="pill wip">Alpha 3</span></div>
-            <h3>Politics AI</h3>
-            <p data-en="A geopolitical AI world simulator in the browser. You are the German chancellor; more than 190 countries react with their own agenda, red lines and memory. You type freely, there are no dialogue options.">Ein geopolitischer KI-Weltsimulator im Browser. Du bist Bundeskanzler, über 190 Länder reagieren mit eigener Agenda, roten Linien und Gedächtnis. Du schreibst frei, es gibt keine Dialogauswahl.</p>
-            <div class="facts">
-              <div>Status<b>Alpha 3</b></div>
-              <div><span data-en="Public launch">Öffentlicher Launch</span><b data-en="planned: Jan 2027">geplant: Januar 2027</b></div>
-              <div><span data-en="Countries">Länder</span><b data-en="more than 190">über 190</b></div>
-              <div><span data-en="Platform">Plattform</span><b>Browser</b></div>
-            </div>
-            <ul class="feat">
-              <li class="pill">Jarvis-HUD-Design</li><li class="pill">Groups-System</li><li class="pill" data-en="Stats with cascade effects">Stats mit Kaskadeneffekten</li><li class="pill" data-en="Dynamic Germany panel">Deutschland-Detailpanel</li>
-            </ul>
-            <div class="acts">
-              <a class="btn btn-solid mag" href="/politics-ai/" data-cursor="Open"><span data-en="Enter the situation room">Ins Lagezentrum</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            </div>
-          </div>
-          <div class="case-media">
-            <div class="demo" id="paiDemo">
-              <div class="demo-h"><span><span class="flag-de" aria-hidden="true"><i style="background:#111"></i><i style="background:#d00"></i><i style="background:#fc0"></i></span><span data-en="GERMANY // DETAIL PANEL">DEUTSCHLAND // DETAILPANEL</span></span><span id="paiRound">R 01</span></div>
-              <div class="demo-globe">
-                <canvas id="miniGlobe" width="220" height="220" aria-label="Mini-Weltkugel" role="img"></canvas>
-                <div class="mini-feed" id="miniFeed" aria-hidden="true"></div>
-              </div>
-              <div class="stats" id="paiStats"></div>
-              <div class="decide" role="group" aria-label="Entscheidung treffen">
-                <button type="button" data-dec="def" data-en="Defence +10%">Verteidigung +10 %</button>
-                <button type="button" data-dec="trade" data-en="Trade deal">Handelsabkommen</button>
-                <button type="button" data-dec="sanc" data-en="Sanctions">Sanktionen</button>
-              </div>
-              <div class="cascade" id="paiLog" aria-live="polite"><div class="on" data-en="&gt; Make a decision. Watch the cascade.">&gt; Triff eine Entscheidung. Sieh die Kaskade.</div></div>
-              <p class="demo-note" data-en="Demo simulation with sample values, not the real game engine.">Demo-Simulation mit Beispielwerten, nicht die echte Spiel-Engine.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Zimmerei -->
-      <article class="case rv">
-        <span class="case-num" aria-hidden="true">02</span>
-        <div class="case-in">
-          <div>
-            <div class="case-tag"><span class="pill live">Live</span><span class="pill">Webdesign</span></div>
-            <h3>Zimmerei Weberhof</h3>
-            <p data-en="Demo website for the fictional carpentry business “Zimmerei Weberhof”: an example of what a modern web presence for local craft businesses can look like.">Demo-Website für den fiktiven Betrieb „Zimmerei Weberhof“: ein Beispiel dafür, wie ein moderner Auftritt für lokale Handwerksbetriebe aussehen kann.</p>
-            <div class="acts">
-              <a class="link-arrow" href="https://zimmerei-bsp.dulidan-studios.com" target="_blank" rel="noopener" data-cursor="Live"><span data-en="Open live site">Live ansehen</span><svg width="14" height="14" aria-hidden="true"><use href="#i-ext"/></svg></a>
-            </div>
-          </div>
-          <div class="case-media">
-            <a class="browser tilt-b" href="https://zimmerei-bsp.dulidan-studios.com" target="_blank" rel="noopener" aria-label="Vorschau Zimmerei Weberhof, öffnet die Live-Seite" data-cursor="Live">
-              <div class="browser-bar"><i></i><i></i><i></i><span>zimmerei-bsp.dulidan-studios.com</span></div>
-              <div class="browser-view">
-                <!-- TODO: echten Screenshot einsetzen: SVG unten ersetzen durch
-                     <img src="/assets/img/zimmerei.webp" alt="Screenshot der Demo-Website Zimmerei Weberhof" loading="lazy" width="1600" height="1000"> -->
-                <svg viewBox="0 0 800 500" aria-hidden="true">
-                  <rect width="800" height="500" fill="#f3ede4"/>
-                  <rect width="800" height="56" fill="#2b2118"/>
-                  <text x="32" y="35" font-family="Space Grotesk,sans-serif" font-size="18" font-weight="700" fill="#f3ede4" letter-spacing="2">ZIMMEREI WEBERHOF</text>
-                  <g fill="#d9c7ad"><rect x="520" y="24" width="50" height="8" rx="2"/><rect x="590" y="24" width="50" height="8" rx="2"/><rect x="660" y="24" width="50" height="8" rx="2"/></g>
-                  <rect x="0" y="56" width="800" height="230" fill="#6b4a2f"/>
-                  <g stroke="#7e5838" stroke-width="10"><path d="M-20 286l300-230M120 286l300-230M260 286l300-230M400 286l300-230M540 286l300-230"/></g>
-                  <rect x="40" y="110" width="360" height="130" fill="rgba(43,33,24,.85)"/>
-                  <text x="64" y="160" font-family="Space Grotesk,sans-serif" font-size="30" font-weight="700" fill="#f3ede4">Holz. Handwerk.</text>
-                  <text x="64" y="196" font-family="Space Grotesk,sans-serif" font-size="30" font-weight="700" fill="#e0a868">Heimat.</text>
-                  <rect x="64" y="212" width="110" height="16" rx="2" fill="#e0a868"/>
-                  <g fill="#fff" stroke="#e2d6c4"><rect x="40" y="316" width="230" height="150" rx="4"/><rect x="285" y="316" width="230" height="150" rx="4"/><rect x="530" y="316" width="230" height="150" rx="4"/></g>
-                  <g fill="#c9a679"><rect x="60" y="340" width="60" height="60" rx="30"/><rect x="305" y="340" width="60" height="60" rx="30"/><rect x="550" y="340" width="60" height="60" rx="30"/></g>
-                  <g fill="#cdbfaa"><rect x="60" y="420" width="160" height="8"/><rect x="305" y="420" width="160" height="8"/><rect x="550" y="420" width="160" height="8"/></g>
-                </svg>
-              </div>
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Folierung -->
-      <article class="case rev rv">
-        <span class="case-num" aria-hidden="true">03</span>
-        <div class="case-in">
-          <div>
-            <div class="case-tag"><span class="pill" data-en="Vehicle wrap">Fahrzeugfolierung</span><span class="pill">5 <span data-en="concepts">Konzepte</span></span></div>
-            <h3>Berlingo-Wrap</h3>
-            <p data-en="A vehicle wrap for a Berlingo: five design concepts, one winner. The client chose “Frosted”. Click through the concepts.">Fahrzeugfolierung für einen Berlingo: fünf Designkonzepte, ein Gewinner. Gewählt wurde „Frosted“. Klick dich durch die Konzepte.</p>
-          </div>
-          <div class="case-media">
-            <div class="van-box">
-              <svg viewBox="0 0 620 270" role="img" aria-label="Stilisierte Seitenansicht eines Berlingo mit wechselndem Folierungskonzept">
-                <defs>
-                  <pattern id="pc1" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)"><rect width="28" height="28" fill="#1b1028"/><rect width="10" height="28" fill="#8122b5"/></pattern>
-                  <pattern id="pc2" width="24" height="24" patternUnits="userSpaceOnUse"><rect width="24" height="24" fill="#0e0b16"/><path d="M24 0H0v24" fill="none" stroke="#c020b8" stroke-width="1"/></pattern>
-                  <linearGradient id="pc3" x1="0" x2="1"><stop offset="0" stop-color="#ece7f2"/><stop offset=".55" stop-color="#ece7f2"/><stop offset=".55" stop-color="#8122b5"/><stop offset="1" stop-color="#8122b5"/></linearGradient>
-                  <pattern id="pc4" width="80" height="40" patternUnits="userSpaceOnUse"><rect width="80" height="40" fill="#160d22"/><path d="M0 30q20-20 40 0t40 0" fill="none" stroke="#ff7ae6" stroke-width="3"/></pattern>
-                  <linearGradient id="pfr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8122b5"/><stop offset=".6" stop-color="#c020b8"/><stop offset="1" stop-color="#ff9cec"/></linearGradient>
-                  <linearGradient id="frost" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-                  <clipPath id="vanClip"><path id="vanPath" d="M30 200V128q0-18 18-22l92-12 52-56q8-10 22-10h338q22 0 24 22l6 150z"/></clipPath>
-                </defs>
-                <ellipse cx="310" cy="236" rx="290" ry="10" fill="rgba(0,0,0,.5)"/>
-                <path class="van-body" id="vanBody" d="M30 200V128q0-18 18-22l92-12 52-56q8-10 22-10h338q22 0 24 22l6 150z" fill="url(#pfr)"/>
-                <g clip-path="url(#vanClip)" id="vanFx">
-                  <rect id="frostLayer" x="0" y="0" width="620" height="210" fill="url(#frost)"/>
-                  <g id="frostDots" fill="#fff" opacity=".22"></g>
-                </g>
-                <path d="M30 200V128q0-18 18-22l92-12 52-56q8-10 22-10h338q22 0 24 22l6 150z" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
-                <path d="M152 92l46-48q6-6 14-6h66v58z" fill="#0b0912" stroke="rgba(255,255,255,.3)"/>
-                <path d="M290 38h96v58h-96z" fill="#0b0912" stroke="rgba(255,255,255,.3)"/>
-                <path d="M286 104v92M396 40v156" stroke="rgba(0,0,0,.35)" stroke-width="2"/>
-                <rect x="30" y="160" width="20" height="10" rx="2" fill="#ffd27a"/>
-                <rect x="556" y="150" width="10" height="22" rx="2" fill="#ff4d6a"/>
-                <text id="vanBrand" x="430" y="150" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="22" font-weight="700" fill="#fff" letter-spacing="3">DULIDAN</text>
-                <g><circle cx="140" cy="206" r="36" fill="#0a0910"/><circle cx="140" cy="206" r="20" fill="#2b2638" stroke="#6f6882"/><circle cx="480" cy="206" r="36" fill="#0a0910"/><circle cx="480" cy="206" r="20" fill="#2b2638" stroke="#6f6882"/></g>
-              </svg>
-              <div class="concepts" id="concepts" role="group" aria-label="Designkonzepte">
-                <button type="button" data-c="pc1" aria-pressed="false">K01</button>
-                <button type="button" data-c="pc2" aria-pressed="false">K02</button>
-                <button type="button" data-c="pc3" aria-pressed="false">K03</button>
-                <button type="button" data-c="pc4" aria-pressed="false">K04</button>
-                <button type="button" data-c="pfr" aria-pressed="true">Frosted<span class="w" data-en="✓ chosen">✓ gewählt</span></button>
-              </div>
-              <!-- TODO: echte Konzeptnamen + Renderings der 5 Entwürfe einsetzen -->
-              <p class="van-cap" data-en="Schematic placeholder visualisation. Real renderings coming.">Schematische Platzhalter-Visualisierung. Echte Renderings folgen.</p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- April -->
-      <article class="case rv">
-        <span class="case-num" aria-hidden="true">04</span>
-        <div class="case-in">
-          <div>
-            <div class="case-tag"><span class="pill wip" data-en="In development">In Entwicklung</span><span class="pill">App</span></div>
-            <h3>April</h3>
-            <p data-en="A personal AI companion as its own app. The vision: make everyday life more alive, not just prettier. April is also the studio's mascot: pink twintails, purple, Dulidan polo. You might bump into her on this page.">Ein persönlicher KI-Companion als eigene App. Die Vision: den Alltag lebendiger machen, nicht nur schöner. April ist auch das Maskottchen des Studios: pinke Twintails, lila, Dulidan-Polo. Vielleicht begegnet sie dir hier auf der Seite.</p>
-            <div class="acts"><button class="link-arrow" type="button" id="meetApril"><span data-en="Say hi to April">April Hallo sagen</span><svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
-          </div>
-          <div class="case-media">
-            <div class="phone" aria-label="Konzept-Skizze der April-App" role="img">
-              <div class="phone-in" id="phone">
-                <svg class="av" aria-hidden="true"><use href="#april"/></svg>
-                <div class="nm">APRIL</div>
-                <div class="bub a" data-en="Morning! Shall we make today a bit more exciting?">Morgen! Wollen wir den Tag heute ein bisschen spannender machen?</div>
-                <div class="bub u" data-en="Sure, what have you got?">Klar, was hast du?</div>
-                <div class="bub a" data-en="Concept sketch. The rest is still being built. ✦">Konzept-Skizze. Der Rest wird gerade gebaut. ✦</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ART -->
-<section class="sec" id="kunst" data-sec="Foto & Kunst" data-sec-en="Photo & Art" aria-labelledby="art-h">
-  <div class="wrap">
-    <p class="sec-label rv"><span class="n">04</span><span data-en="Photo &amp; Art">Foto &amp; Kunst</span></p>
-    <h2 class="h2 rv-mask" id="art-h" data-en="Concepts that <em>stick.</em>">Konzepte, die <em>hängen bleiben.</em></h2>
-    <div class="gallery">
-      <button class="art rv" type="button" data-lb="0" data-cursor="Zoom">
-        <div class="art-img">
-          <!-- TODO: Foto „Menschlichkeit“ als /assets/img/menschlichkeit.webp einsetzen -->
-          <svg viewBox="0 0 800 600" role="img" aria-label="Platzhalter: Toilettenpapierrolle, auf dem abgerollten Blatt steht das Wort Menschlichkeit">
-            <rect width="800" height="600" fill="#e9e4dc"/>
-            <rect y="420" width="800" height="180" fill="#d8d1c6"/>
-            <ellipse cx="400" cy="300" rx="120" ry="40" fill="#f7f5f1" stroke="#cfc7ba"/>
-            <rect x="280" y="180" width="240" height="120" fill="#f7f5f1"/>
-            <ellipse cx="400" cy="180" rx="120" ry="40" fill="#fbfaf8" stroke="#d7d0c4"/>
-            <ellipse cx="400" cy="180" rx="34" ry="12" fill="#c8b9a3"/>
-            <path d="M280 300v-120M520 300v-120" stroke="#ddd5c8"/>
-            <path d="M300 320l-10 240h220l-10-240z" fill="#fbfaf8" stroke="#e1dace"/>
-            <path d="M296 400h208M293 480h214" stroke="#e8e2d8" stroke-dasharray="3 5"/>
-            <text x="400" y="445" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="30" fill="#2a2430">Menschlichkeit</text>
-            <text x="24" y="580" font-family="JetBrains Mono,monospace" font-size="12" letter-spacing="3" fill="#8f877a">PLATZHALTER · FOTO FOLGT</text>
-          </svg>
-        </div>
-        <div class="art-cap">
-          <div><h3>Menschlichkeit</h3><p data-en="Concept photography. Exhibited at the SPC Photo Awards Stuttgart, Rotebühlplatz, June 2026.">Konzeptfotografie. Ausgestellt bei den SPC Photo Awards Stuttgart, Rotebühlplatz, Juni 2026.</p></div>
-          <span class="pill hot" data-en="Exhibited">Ausgestellt</span>
-        </div>
-      </button>
-      <button class="art locked rv" type="button" data-lb="1" style="--d:.1s" data-cursor="Soon">
-        <div class="art-img">
-          <svg viewBox="0 0 800 600" role="img" aria-label="Teaser: verschütteter Kaffee auf einer Kriegsstrategiekarte">
-            <rect width="800" height="600" fill="#c9b98f"/>
-            <g stroke="#a8956a" stroke-width="1" opacity=".7"><path d="M0 100h800M0 200h800M0 300h800M0 400h800M0 500h800M100 0v600M200 0v600M300 0v600M400 0v600M500 0v600M600 0v600M700 0v600"/></g>
-            <path d="M80 420c60-80 160-60 220-140s200-100 260-60 120 40 180 10" fill="none" stroke="#7a6a48" stroke-width="3"/>
-            <g fill="#3a5bd9"><path d="M180 300l40-20v40z"/><path d="M240 260l40-20v40z"/></g>
-            <g fill="#c2263a"><path d="M560 220l-40-20v40z"/><path d="M600 300l-40-20v40z"/></g>
-            <path d="M220 290q120-60 280-80" stroke="#3a5bd9" stroke-width="5" fill="none" marker-end="none"/>
-            <path d="M330 260c40-60 140-70 190-20 40 40 60 110 10 150-50 40-150 30-190-10-30-30-40-80-10-120z" fill="#5a3418" opacity=".85"/>
-            <path d="M480 380c50 20 120 60 170 140" stroke="#5a3418" stroke-width="18" stroke-linecap="round" opacity=".7" fill="none"/>
-            <ellipse cx="660" cy="130" rx="70" ry="70" fill="none" stroke="#5a3418" stroke-width="8" opacity=".5"/>
-          </svg>
-          <div class="lock-tag"><span data-en="Coming soon">Demnächst</span></div>
-        </div>
-        <div class="art-cap">
-          <div><h3>Ausrutscher</h3><p data-en="Upcoming work: spilled coffee on a war strategy map.">Kommendes Werk: verschütteter Kaffee auf einer Kriegsstrategiekarte.</p></div>
-          <span class="pill wip" data-en="In progress">In Arbeit</span>
-        </div>
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- BOOK -->
-<section class="sec" id="buch" data-sec="Buch" data-sec-en="Book" aria-labelledby="book-h">
-  <div class="wrap">
-    <p class="sec-label rv"><span class="n">05</span><span data-en="Book">Buch</span></p>
-    <div class="book-grid">
-      <div class="book-stage rv">
-        <!-- TODO: echtes Buchcover als Bild einsetzen -->
-        <div class="book" id="book">
-          <div class="book-spine"></div>
-          <div class="book-pages"></div>
-          <div class="book-face"><span class="dot"></span><small>Shaquille</small><h3>Finde<br>Deine<br>Mitte</h3></div>
-        </div>
-        <div class="book-shadow" aria-hidden="true"></div>
-      </div>
-      <div>
-        <h2 class="h2 rv-mask" id="book-h">Finde Deine <em>Mitte.</em></h2>
-        <p class="lead rv" data-en="A self-development book written in short, aphoristic sentences. No filler, no guru talk. Five parts:">Ein Selbstentwicklungsbuch in kurzen, aphoristischen Sätzen. Kein Füllstoff, kein Guru-Gerede. Fünf Teile:</p>
-        <ol class="parts rv">
-          <li data-en="Your potential">Dein Potenzial</li>
-          <li data-en="The doubt">Der Zweifel</li>
-          <li data-en="The freedom">Die Freiheit</li>
-          <li data-en="Yourself">Du selbst</li>
-          <li data-en="The path">Der Weg</li>
-        </ol>
-        <!-- TODO: selbst gewählten Kurzauszug aus dem Buch einsetzen -->
-        <blockquote class="quote todo rv">„Kurzauszug folgt.“<span class="todo-tag">TODO</span><cite>Finde Deine Mitte</cite></blockquote>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LAB -->
-<section class="sec" id="lab" data-sec="Lab" aria-labelledby="lab-h">
-  <div class="wrap">
-    <p class="sec-label rv"><span class="n">06</span>Side Quests / Lab</p>
-    <h2 class="h2 rv-mask" id="lab-h" data-en="The <em>nerd corner.</em>">Die <em>Nerd-Ecke.</em></h2>
-    <p class="lead rv" data-en="Stuff I build because I can't not. Click a line to expand it.">Sachen, die ich baue, weil ich nicht anders kann. Klick auf eine Zeile.</p>
-    <div class="term rv">
-      <div class="term-bar"><i></i><i></i><i></i><span>shaq@dulidan:~/side-quests</span></div>
-      <div class="term-body">
-        <p class="term-cmd"><b>shaq@dulidan</b>:~$ ls -la side-quests/</p>
-        <details class="quest"><summary><span class="k">[01]</span><span class="t">Projekt Duisport</span><span class="ty">Mod</span></summary>
-          <p class="qd" data-en="Hearts of Iron IV alt-history mod. Starting point: the Free State of Duisburg.">Hearts of Iron IV Alt-History-Mod. Startpunkt: der Freistaat Duisburg.</p></details>
-        <details class="quest"><summary><span class="k">[02]</span><span class="t" data-en="RC jet with bidirectional EDF">RC-Jet mit bidirektionalem EDF</span><span class="ty">Hardware</span></summary>
-          <p class="qd" data-en="Self-built RC jet. The electric ducted fan runs both ways, so the model has thrust reversal.">Selbst gebauter RC-Jet. Der Impeller läuft in beide Richtungen, das Modell hat also Schubumkehr.</p></details>
-        <details class="quest"><summary><span class="k">[03]</span><span class="t" data-en="Minecraft server">Minecraft-Server</span><span class="ty">Server</span></summary>
-          <p class="qd" data-en="My own server with its own role-play state.">Eigener Server mit eigenem Rollenspiel-Staat.</p></details>
-        <details class="quest"><summary><span class="k">[04]</span><span class="t" data-en="Learning Japanese">Japanisch lernen</span><span class="ty" data-en="Language">Sprache</span></summary>
-          <p class="qd" data-en="日本語を勉強しています. Slowly, but steadily.">日本語を勉強しています. Langsam, aber stetig.</p></details>
-        <details class="quest"><summary><span class="k">[05]</span><span class="t" data-en="Aviation, trains, ships">Luftfahrt, Züge, Schiffe</span><span class="ty" data-en="Interests">Interessen</span></summary>
-          <p class="qd" data-en="Basically anything big that moves.">Im Grunde alles, was groß ist und sich bewegt.</p></details>
-        <p class="term-cmd" style="margin-top:16px"><b>shaq@dulidan</b>:~$ <span class="term-cursor" aria-hidden="true"></span> <button class="hidden-april" type="button" data-april="2" aria-label="Versteckte April"><svg aria-hidden="true"><use href="#april"/></svg></button></p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PROCESS -->
 <section class="sec" id="prozess" data-sec="Prozess" data-sec-en="Process" aria-labelledby="proc-h">
   <div class="wrap">
-    <p class="sec-label rv"><span class="n">07</span><span data-en="Process">Prozess</span></p>
+    <p class="sec-label rv"><span class="n">08</span><span data-en="Process">Ablauf</span></p>
     <h2 class="h2 rv-mask" id="proc-h" data-en="From first message <em>to launch.</em>">Von der ersten Nachricht <em>bis zum Launch.</em></h2>
     <div class="proc" id="proc">
       <div class="proc-line" aria-hidden="true"><i id="procLine"></i></div>
-      <div class="step"><span class="step-dot">01</span><h3 data-en="Talk">Gespräch</h3><p data-en="You tell me what you have in mind. I keep asking until we both have the same picture in our heads.">Du erzählst, was du vorhast. Ich frage so lange nach, bis wir beide dasselbe Bild im Kopf haben.</p></div>
-      <div class="step"><span class="step-dot">02</span><h3 data-en="Concept">Konzept</h3><p data-en="I sketch direction, structure and look. You give feedback before a single line of code exists.">Ich skizziere Richtung, Struktur und Look. Du gibst Feedback, bevor eine Zeile Code entsteht.</p></div>
+      <div class="step"><span class="step-dot">01</span><h3 data-en="Talk">Gespräch</h3><p data-en="You tell us what you have in mind. We keep asking until we both have the same picture in our heads.">Du erzählst, was du vorhast. Wir fragen so lange nach, bis wir dasselbe Bild im Kopf haben.</p></div>
+      <div class="step"><span class="step-dot">02</span><h3 data-en="Concept">Konzept</h3><p data-en="We sketch direction, structure and look. You give feedback before a single line of code exists.">Wir skizzieren Richtung, Struktur und Look. Du gibst Feedback, bevor eine Zeile Code entsteht.</p></div>
       <div class="step"><span class="step-dot">03</span><h3 data-en="Build">Umsetzung</h3><p data-en="Design, code, 3D, content: built with attention to detail and regular check-ins.">Design, Code, 3D, Content: gebaut mit Liebe zum Detail und regelmäßigen Zwischenständen.</p></div>
-      <div class="step"><span class="step-dot">04</span><h3>Launch</h3><p data-en="Go live, test, polish. And afterwards I don't just disappear.">Online gehen, testen, feinschleifen. Und danach bin ich nicht einfach weg.</p></div>
+      <div class="step"><span class="step-dot">04</span><h3>Launch</h3><p data-en="Go live, test, polish. And afterwards we don't just disappear.">Online gehen, testen, feinschleifen. Und danach sind wir nicht einfach weg.</p></div>
     </div>
   </div>
 </section>
@@ -517,7 +396,7 @@
 <!-- CONTACT -->
 <section class="sec" id="kontakt" data-sec="Kontakt" data-sec-en="Contact" aria-labelledby="contact-h">
   <div class="wrap">
-    <p class="sec-label rv"><span class="n">08</span><span data-en="Contact">Kontakt</span></p>
+    <p class="sec-label rv"><span class="n">09</span><span data-en="Contact">Kontakt</span></p>
     <h2 class="h2 rv-mask" id="contact-h" data-en="Got an idea? <em>Let's build it.</em>">Du hast eine Idee? <em>Lass sie uns bauen.</em></h2>
     <a class="big-mail rv" href="mailto:info@dulidan-studios.com" data-cursor="Mail">info@dulidan-studios.com</a>
     <div class="contact">
@@ -539,7 +418,7 @@
         <!-- TODO: LinkedIn- und Discord-Links in CONFIG (assets/js/main.js) eintragen, dann erscheinen sie hier automatisch -->
         <a class="ch" id="chLinkedin" href="#" target="_blank" rel="noopener" hidden><div><span>LinkedIn</span><b>Shaquille</b></div><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4H4v12h12v-3M10 4h6v6M16 4l-8 8"/></svg></a>
         <a class="ch" id="chDiscord" href="#" target="_blank" rel="noopener" hidden><div><span>Discord</span><b data-en="Join the server">Zum Server</b></div><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4H4v12h12v-3M10 4h6v6M16 4l-8 8"/></svg></a>
-        <div class="ch" style="cursor:default"><div><span data-en="Studio">Studio</span><b>Theodor-Fontane-Weg 11<br>74613 Öhringen</b></div></div>
+        <div class="ch" style="cursor:default"><div><span>Studio</span><b>Theodor-Fontane-Weg 11<br>74613 Öhringen</b></div></div>
       </div>
     </div>
   </div>
@@ -547,15 +426,21 @@
 </main>
 
 <footer class="footer">
+  <div class="slogan-run" aria-hidden="true">
+    <div class="slogan-track"><span>Dream.</span><span>Design.</span><span>Develop.</span><span>Dominate.</span><span>Dream.</span><span>Design.</span><span>Develop.</span><span>Dominate.</span></div>
+  </div>
   <div class="wrap">
-    <div class="footer-big" aria-hidden="true">Dulidan</div>
+    <div class="footer-cta">
+      <p class="footer-cta-t" data-en="Your turn.">Du bist dran.</p>
+      <a class="btn btn-solid mag" href="#projekt" data-cursor="Go"><span data-en="Start your project">Projekt starten</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
     <div class="footer-grid">
       <div>
         <img class="footer-logo" src="/assets/img/logo-full.webp" alt="Dulidan Studios" width="458" height="115" loading="lazy">
         <p data-en="Creative studio for web design, ad content, 3D and logos. Made in Öhringen, raised in Duisburg.">Kreativstudio für Webdesign, Werbe-Content, 3D und Logos. Gebaut in Öhringen, aufgewachsen in Duisburg.</p>
       </div>
-      <div><h4 data-en="Studio">Studio</h4><p>Dulidan Studios<br>Theodor-Fontane-Weg 11<br>74613 Öhringen</p></div>
-      <div><h4 data-en="Navigate">Navigation</h4><ul><li><a href="#projekte" data-en="Work">Projekte</a></li><li><a href="/politics-ai/">Politics AI</a></li><li><a href="#kontakt" data-en="Contact">Kontakt</a></li><li><button type="button" class="js-term" style="color:inherit;font:inherit">&gt; terminal</button></li></ul></div>
+      <div><h4>Studio</h4><p>Dulidan Studios<br>Theodor-Fontane-Weg 11<br>74613 Öhringen<br><a href="mailto:info@dulidan-studios.com">info@dulidan-studios.com</a></p></div>
+      <div><h4 data-en="Navigate">Navigation</h4><ul><li><a href="#leistungen" data-en="Services">Leistungen</a></li><li><a href="/portfolio/">Portfolio</a></li><li><a href="/portfolio/#showroom" data-en="3D showroom">3D-Showroom</a></li><li><a href="/politics-ai/">Politics AI</a></li><li><button type="button" class="js-term" style="color:inherit;font:inherit">&gt; terminal</button></li></ul></div>
       <div><h4 data-en="Legal">Rechtliches</h4><ul><li><a href="/impressum/" data-en="Imprint">Impressum</a></li><li><a href="/datenschutz/" data-en="Privacy">Datenschutz</a></li></ul></div>
     </div>
     <div class="footer-bottom">
