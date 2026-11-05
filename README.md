@@ -9,6 +9,7 @@ Portfolio von Dulidan Studios plus eigene Seite für **Politics AI**. Reines HTM
 /politics-ai/         Politics AI , EINE selbstständige HTML-Datei (~75 KB, alles inline)
 /impressum/           Impressum
 /datenschutz/         Datenschutzerklärung
+/demos/restaurant/    Demo-Website Restaurant „Herzhaft“ (eigene Datei, eigene Fonts)
 /404.html             Fehlerseite
 /assets/css/main.css  Styles für Startseite, Portfolio und Rechtsseiten
 /assets/js/main.js    Gemeinsames JS (Vanilla): Hero-Morph, Globus, Konfigurator, Palette, Terminal, April …
@@ -42,7 +43,7 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 **Startseite (Fokus: Kunden gewinnen)**
 - Epic-Hero „Dream. Design. Develop. Dominate.“: Beim Scrollen verwandeln sich die Partikel vom Dulidan-D in einen Nebel, eine Design-Fläche, eine Weltkugel und zurück ins D
 - Fünf Leistungen: Webdesign, Werbe-Content, 3D-Modeling & Rendering, Logo-Erneuerung, Software & Apps (mit Machbarkeits-Check)
-- Für wen, Demos für lokale Betriebe (Zimmerei Weberhof live, Restaurant-Demo in Planung), Warum Dulidan
+- Für wen, Demos für lokale Betriebe (Zimmerei Weberhof, Restaurant Herzhaft), Warum Dulidan
 - Weltkugel mit Öhringen als Basis und Bögen für den weltweiten Service
 - Projekt-Konfigurator inklusive „Individuelle Software / App“, Briefing wird ins Kontaktformular übernommen
 - Über mich mit Profilfoto, Ablauf, Kontakt, Slogan-Band im Footer
@@ -76,7 +77,7 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 | Eigener Webbrowser | Name und echte Screenshots statt Konzeptdarstellung |
 | Dulidan Works | Echte Screenshots, Beschreibung bei Bedarf schärfen |
 | Zimmerei Weberhof | Echten Screenshot statt Skizze |
-| Restaurant-Demo | In Planung, Karte „Bald“ auf Start- und Portfolio-Seite |
+| Restaurant-Demo „Herzhaft“ | Live unter `/demos/restaurant/` (fiktiver Betrieb, noindex). Für echte Kunden: Food-Fotos statt Illustrationen, echte Bestell-/Reservierungsanbindung |
 | 3D-Showroom | Aktivieren, sobald `.glb`-Modelle da sind (siehe `partials/showroom.html`) |
 | Kontakt | LinkedIn-URL, Discord-Link, optional Formular-Endpoint |
 | Politics AI | `PLAY_URL`; Text im „Spielen“-Overlay bestätigen |
