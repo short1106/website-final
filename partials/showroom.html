@@ -1,0 +1,32 @@
+<!-- 3D-SHOWROOM (geparkt, aktuell NICHT auf der Seite eingebunden)
+Aktivieren, sobald echte 3D-Modelle da sind:
+1. Diesen <section>-Block in portfolio/index.html zwischen den Demos und dem CTA einfügen.
+2. In den <head> von portfolio/index.html vor main.js einfügen:
+   <script type="importmap">{"imports":{"three":"/assets/vendor/three/three.module.min.js","three/addons/":"/assets/vendor/three/addons/"}}</script>
+   <script type="module" src="/assets/js/showroom.js"></script>
+3. Modelle als .glb nach /assets/models/ legen und in assets/js/showroom.js in MODELS eintragen.
+Styles stehen schon in assets/css/main.css (Abschnitt 3D-Showroom). -->
+
+<!-- 3D SHOWROOM -->
+<section class="showroom" id="showroom" data-sec="3D-Showroom" data-sec-en="3D showroom" aria-labelledby="sr-h">
+  <div class="sr-stage" id="srStage">
+    <canvas id="srCanvas" aria-label="Interaktiver 3D-Showroom. Ziehen zum Drehen, Mausrad oder zwei Finger zum Zoomen." role="img"></canvas>
+    <div class="sr-loading mono" id="srLoading"><span data-en="Loading 3D engine">Lade 3D-Engine</span> <i></i></div>
+    <div class="sr-ui">
+      <div class="sr-head">
+        <p class="sec-label"><span class="n">03</span><span data-en="3D showroom">3D-Showroom</span></p>
+        <h2 class="sr-title" id="sr-h"><span data-en="Space for">Raum für</span> <em data-en="big ideas.">große Ideen.</em></h2>
+        <p class="sr-sub" data-en="Drag to rotate, scroll or pinch to zoom. This is where our 3D models live.">Ziehen zum Drehen, scrollen oder zwei Finger zum Zoomen. Hier wohnen unsere 3D-Modelle.</p>
+      </div>
+      <ol class="sr-list" id="srList" aria-label="Modelle"></ol>
+      <div class="sr-info mono" id="srInfo" aria-live="polite"></div>
+      <div class="sr-ctrl" role="group" aria-label="Ansicht">
+        <button type="button" id="srAuto" aria-pressed="true" data-en="Auto-rotate">Auto-Rotation</button>
+        <button type="button" id="srWire" aria-pressed="false">Wireframe</button>
+        <button type="button" id="srLight" data-en="Light: Studio">Licht: Studio</button>
+        <button type="button" id="srReset" data-en="Reset">Zurücksetzen</button>
+        <button type="button" id="srFull" data-en="Fullscreen">Vollbild</button>
+      </div>
+    </div>
+  </div>
+</section>

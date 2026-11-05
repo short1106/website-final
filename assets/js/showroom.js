@@ -1,18 +1,18 @@
 /* Dulidan Studios · 3D-Showroom (Portfolio)
+   STATUS: geparkt. Wird aktuell auf keiner Seite geladen. Aktivierung: siehe partials/showroom.html
    three.js wird erst geladen, wenn der Showroom in Sichtweite kommt.
 
    EIGENE MODELLE HINZUFÜGEN:
-   1. .glb-Datei nach /assets/models/ legen (z. B. berlingo.glb)
+   1. .glb-Datei nach /assets/models/ legen (z. B. produkt.glb)
    2. Unten in MODELS einen Eintrag ergänzen:
-      { id: "van", name: "Berlingo", tag: "Frosted", src: "/assets/models/berlingo.glb" }
+      { id: "produkt", name: "Produkt", tag: "Rendering", src: "/assets/models/produkt.glb" }
    Das Modell wird automatisch zentriert und auf die Bühne skaliert. */
 
 const MODELS = [
   { id: "d", name: "Dulidan D", tag: "Logo 3D", build: "logo" },
-  { id: "globe", name: "Globus", nameEn: "Globe", tag: "Politics AI", build: "globe" },
-  { id: "knot", name: "Material-Test", nameEn: "Material test", tag: "Shader", build: "knot" },
-  { id: "slot", name: "Dein Produkt?", nameEn: "Your product?", tag: "Platz frei", tagEn: "Slot open", build: "slot" }
-  // { id: "van", name: "Berlingo", tag: "Frosted", src: "/assets/models/berlingo.glb" },
+  { id: "globe", name: "Globus", nameEn: "Globe", tag: "Politics AI", build: "globe" }
+  // Material-Test und Platzhalter-Slot sind entfernt; die Builder ("knot", "slot") bleiben unten verfügbar.
+  // { id: "produkt", name: "Produkt", tag: "Rendering", src: "/assets/models/produkt.glb" },
 ];
 
 const stage = document.getElementById("srStage");

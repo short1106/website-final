@@ -88,7 +88,7 @@ const boot = (() => {
     ["", T("Lade Kreativ-Kern", "Loading creative core")],
     ["", T("Kalibriere Pixel", "Calibrating pixels")],
     ["", T("Koffein-Level: kritisch, aber stabil", "Caffeine level: critical but stable")],
-    ["", T("Verbinde Duisburg ⇄ Öhringen", "Linking Duisburg ⇄ Öhringen")],
+    ["", T("Verbinde Öhringen mit der Welt", "Linking Öhringen to the world")],
     ["", T("Rendere Weltkugel", "Rendering globe")],
     ["", T("April wird geweckt", "Waking up April")],
     ["hl", "Dream. Design. Develop. Dominate."]
@@ -466,7 +466,7 @@ const hero = (() => {
   return api;
 })();
 
-/* ===== Dot-Globus (Canvas 2D) – Weltsektion + Portal ===== */
+/* ===== Dot-Globus (Canvas 2D): Weltsektion + Portal ===== */
 function dotGlobe(cv, opts = {}) {
   const g = cv.getContext("2d");
   const MB = Uint8Array.from(atob(GEO.m), c => c.charCodeAt(0));
@@ -479,6 +479,7 @@ function dotGlobe(cv, opts = {}) {
   const grid = [];
   for (let la = -60; la <= 60; la += 30) for (let lo = -180; lo < 180; lo += 3) grid.push(v3(la, lo));
   const pins = (opts.pins || []).map(p => ({ ...p, v: v3(p.lat, p.lon) }));
+  const rays = (opts.rays || []).map(([la, lo]) => ({ v: v3(la, lo) }));
   let W = 0, H = 0, R = 0, rot = opts.rot ?? -0.25, tilt = opts.tilt ?? 0.62, vel = 0.003, drag = null, run = false, active = 0;
   function size() { const r = cv.getBoundingClientRect(); W = cv.width = Math.round(r.width * DPR); H = cv.height = Math.round(r.height * DPR); R = Math.min(W, H) * (opts.r || 0.42); }
   size(); addEventListener("resize", size);
@@ -508,9 +509,10 @@ function dotGlobe(cv, opts = {}) {
     const s = DPR * 1.6;
     for (const p of pts) { const q = P(p, cr, sr, ct, st); if (q[2] < 0) continue; g.fillStyle = `rgba(232,200,248,${0.2 + q[2] * 0.7})`; g.fillRect(q[0] - s / 2, q[1] - s / 2, s * (0.6 + q[2] * 0.6), s * (0.6 + q[2] * 0.6)); }
     /* Bögen von Pin 0 zu den anderen */
-    if (pins.length > 1) {
+    const targets = pins.slice(1).concat(rays);
+    if (pins.length && targets.length) {
       const a0 = P(pins[0].v, cr, sr, ct, st);
-      pins.slice(1).forEach((p, i) => {
+      targets.forEach((p, i) => {
         const b = P(p.v, cr, sr, ct, st); if (a0[2] < 0 || b[2] < 0) return;
         const mx = (a0[0] + b[0]) / 2, my = (a0[1] + b[1]) / 2 - Math.hypot(b[0] - a0[0], b[1] - a0[1]) * 0.6 - 20 * DPR;
         g.strokeStyle = "rgba(255,122,230,.75)"; g.lineWidth = 1.4 * DPR; g.setLineDash([4 * DPR, 4 * DPR]); g.lineDashOffset = -t / 40;
@@ -535,7 +537,8 @@ function dotGlobe(cv, opts = {}) {
 (() => {
   const wg = $("#worldGlobe");
   if (wg) {
-    const globe = dotGlobe(wg, { interactive: true, labels: true, rot: -0.17, tilt: 0.8, pins: [{ name: "Öhringen", lat: 49.2, lon: 9.5 }, { name: "Duisburg", lat: 51.43, lon: 6.76 }, { name: "Stuttgart", lat: 48.78, lon: 9.18 }] });
+    /* Öhringen als Basis, Bögen symbolisieren den weltweiten Service */
+    const globe = dotGlobe(wg, { interactive: true, labels: true, rot: -0.17, tilt: 0.8, pins: [{ name: "Öhringen", lat: 49.2, lon: 9.5 }], rays: [[40.7, -74], [-23.5, -46.6], [25.2, 55.3], [35.7, 139.7], [-33.9, 151.2], [1.35, 103.8], [6.5, 3.4], [51.5, -0.1], [59.3, 18.1], [41.9, 12.5]] });
     $$(".pins li").forEach(li => {
       const go = () => { $$(".pins li").forEach(x => x.classList.toggle("on", x === li)); globe.focus(+li.dataset.pin); };
       li.addEventListener("click", go); li.addEventListener("mouseenter", go);
@@ -552,18 +555,18 @@ const cfg = (() => {
   const out = $("#cfgOut"), pct = $("#cfgPct"), bar = $("#cfgBar"), send = $("#cfgSend");
   const sel = { need: new Set(), have: null, when: null, goal: null };
   const L = {
-    need: { web: ["Website", "Website"], ads: ["Werbe-Content", "Ad content"], "3d": ["3D / Rendering", "3D / rendering"], logo: ["Logo-Erneuerung", "Logo refresh"] },
+    need: { web: ["Website", "Website"], ads: ["Werbe-Content", "Ad content"], "3d": ["3D / Rendering", "3D / rendering"], logo: ["Logo-Erneuerung", "Logo refresh"], sw: ["Individuelle Software / App", "Custom software / app"] },
     have: { none: ["Noch nichts", "Nothing yet"], logo: ["Ein Logo", "A logo"], site: ["Eine alte Website", "An old website"], all: ["Einiges, muss frischer werden", "Lots, needs a refresh"] },
-    when: { asap: ["So schnell wie möglich", "As soon as possible"], soon: ["In 1–3 Monaten", "In 1–3 months"], plan: ["Bin noch am Planen", "Just planning"] },
+    when: { asap: ["So schnell wie möglich", "As soon as possible"], soon: ["In 1 bis 3 Monaten", "In 1 to 3 months"], plan: ["Bin noch am Planen", "Just planning"] },
     goal: { leads: ["Mehr Anfragen", "More enquiries"], brand: ["Besseres Image", "Better image"], launch: ["Etwas Neues starten", "Launch something new"] }
   };
   const tl = (q, v) => L[q][v][lang === "en" ? 1 : 0];
   function text(plain) {
     const rows = [
-      [T("Leistungen", "Services"), sel.need.size ? [...sel.need].map(v => tl("need", v)).join(", ") : "—"],
-      [T("Vorhanden", "Existing"), sel.have ? tl("have", sel.have) : "—"],
-      [T("Zeitrahmen", "Timeline"), sel.when ? tl("when", sel.when) : "—"],
-      [T("Ziel", "Goal"), sel.goal ? tl("goal", sel.goal) : "—"]
+      [T("Leistungen", "Services"), sel.need.size ? [...sel.need].map(v => tl("need", v)).join(", ") : T("offen", "open")],
+      [T("Vorhanden", "Existing"), sel.have ? tl("have", sel.have) : T("offen", "open")],
+      [T("Zeitrahmen", "Timeline"), sel.when ? tl("when", sel.when) : T("offen", "open")],
+      [T("Ziel", "Goal"), sel.goal ? tl("goal", sel.goal) : T("offen", "open")]
     ];
     if (plain) return T("Hallo Dulidan Studios,\n\nhier mein Projekt-Briefing:\n", "Hi Dulidan Studios,\n\nhere's my project briefing:\n") + rows.map(([k, v]) => `- ${k}: ${v}`).join("\n") + T("\n\nKurz zu mir und meinem Projekt:\n", "\n\nA bit about me and my project:\n");
     return rows;
@@ -717,75 +720,6 @@ $$(".svc-pick").forEach(b => b.addEventListener("click", () => cfg.pick(b.datase
   }));
 })();
 
-/* ===== Fahrzeugfolierung: Konzepte ===== */
-(() => {
-  const body = $("#vanBody"); if (!body) return;
-  const dots = $("#frostDots"), frost = $("#frostLayer");
-  let s = "";
-  for (let i = 0; i < 120; i++) s += `<circle cx="${(Math.random() * 600).toFixed(1)}" cy="${(Math.random() * 200).toFixed(1)}" r="${(Math.random() * 2.2 + 0.4).toFixed(1)}"/>`;
-  dots.innerHTML = s;
-  $$("#concepts button").forEach(b => b.addEventListener("click", () => {
-    $$("#concepts button").forEach(x => x.setAttribute("aria-pressed", x === b));
-    body.setAttribute("fill", `url(#${b.dataset.c})`);
-    const fr = b.dataset.c === "pfr";
-    frost.style.opacity = dots.style.opacity = fr ? "" : 0;
-  }));
-})();
-
-/* ===== April-App: Chat-Blasen ===== */
-(() => {
-  const ph = $("#phone"); if (!ph) return;
-  let done = false;
-  onVisible(ph, async v => {
-    if (!v || done) return;
-    done = true;
-    for (const b of $$(".bub", ph)) { await sleep(700); b.classList.add("on"); }
-  }, { threshold: 0.5 });
-})();
-
-/* ===== Galerie-Lightbox ===== */
-(() => {
-  const lb = $("#lightbox"), arts = $$(".art[data-lb]");
-  if (!arts.length) return;
-  let idx = 0, last = null;
-  function show(i) {
-    idx = (i + arts.length) % arts.length;
-    const a = arts[idx];
-    const media = a.querySelector(".art-img img") || a.querySelector(".art-img svg");
-    const box = $("#lbImg"); box.innerHTML = "";
-    const clone = media.cloneNode(true);
-    if (a.classList.contains("locked")) clone.style.filter = "blur(10px)";
-    box.appendChild(clone);
-    $("#lbTitle").textContent = a.querySelector("h3").textContent;
-    $("#lbText").textContent = a.querySelector(".art-cap p").textContent;
-    $("#lbTag").textContent = a.querySelector(".art-cap .pill").textContent;
-  }
-  function open(i) { last = document.activeElement; show(i); lb.classList.add("open"); document.body.classList.add("no-scroll"); $(".lb-x", lb).focus(); }
-  function close() { lb.classList.remove("open"); document.body.classList.remove("no-scroll"); last && last.focus(); }
-  arts.forEach((a, i) => a.addEventListener("click", () => open(i)));
-  $(".lb-prev", lb).addEventListener("click", () => show(idx - 1));
-  $(".lb-next", lb).addEventListener("click", () => show(idx + 1));
-  lb.addEventListener("click", e => { if (e.target === lb || e.target.closest("[data-lb-close]")) close(); });
-  document.addEventListener("keydown", e => {
-    if (!lb.classList.contains("open")) return;
-    if (e.key === "Escape") close();
-    if (e.key === "ArrowLeft") show(idx - 1);
-    if (e.key === "ArrowRight") show(idx + 1);
-  });
-})();
-
-/* ===== Buch: 3D-Neigung ===== */
-(() => {
-  const book = $("#book"); if (!book || RM) return;
-  const stage = book.parentElement;
-  stage.addEventListener("pointermove", e => {
-    const r = stage.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
-    book.style.transform = `rotateY(${-28 + x * 40}deg) rotateX(${6 - y * 16}deg)`;
-  });
-  stage.addEventListener("pointerleave", () => (book.style.transform = ""));
-})();
-
 /* ===== Prozess: Linie folgt dem Scroll ===== */
 (() => {
   const proc = $("#proc"); if (!proc) return;
@@ -825,7 +759,7 @@ $$(".svc-pick").forEach(b => b.addEventListener("click", () => cfg.pick(b.datase
       }
     } else {
       const sub = encodeURIComponent(T("Projektanfrage von ", "Project request from ") + d.name);
-      const body = encodeURIComponent(`${d.message}\n\n— ${d.name} (${d.email})`);
+      const body = encodeURIComponent(`${d.message}\n\n${d.name} (${d.email})`);
       location.href = `mailto:${CONFIG.email}?subject=${sub}&body=${body}`;
       st.textContent = T("Dein E-Mail-Programm öffnet sich mit der fertigen Nachricht.", "Your email app opens with the message ready to send.");
     }
@@ -839,7 +773,7 @@ function closeModal(m) { m.classList.remove("open"); document.body.classList.rem
 $$(".modal").forEach(m => m.addEventListener("click", e => { if (e.target === m) closeModal(m); }));
 
 /* Sektionen der Portfolio-Seite; alles andere liegt auf der Startseite */
-const PF_IDS = ["projekte", "p-politics", "showroom", "kunst", "buch", "lab"];
+const PF_IDS = ["projekte", "p-politics", "p-browser", "p-works"];
 function scrollToId(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
@@ -859,14 +793,12 @@ const palette = (() => {
     [T("Startseite", "Home"), [
       ["Start", "top", "hero dream design develop dominate"], [T("Leistungen", "Services"), "leistungen", "services webdesign 3d logo content"],
       [T("Für wen", "Who it's for"), "fuerwen", "handwerk startup creator"], [T("Warum Dulidan", "Why Dulidan"), "warum", "vorteile"],
-      [T("Weltkugel", "Globe"), "welt", "öhringen duisburg globus"], [T("Projekt-Konfigurator", "Project configurator"), "projekt", "briefing anfrage planen"],
+      [T("Weltkugel", "Globe"), "welt", "öhringen weltweit globus"], [T("Projekt-Konfigurator", "Project configurator"), "projekt", "briefing anfrage planen"],
       [T("Über mich", "About"), "about", "shaquille gründer"], [T("Ablauf", "Process"), "prozess", "ablauf"], [T("Kontakt", "Contact"), "kontakt", "mail anfrage"]]],
     ["Portfolio", [
-      ["Politics AI", "p-politics", "ki simulator kanzler"], [T("3D-Showroom", "3D showroom"), "showroom", "modelle three render"],
-      ["Zimmerei Weberhof", () => window.open(CONFIG.zimmerei, "_blank", "noopener"), "handwerk demo live"],
-      ["Berlingo-Wrap", "projekte", "folierung frosted"], [T("Foto & Kunst", "Photo & Art"), "kunst", "menschlichkeit ausrutscher galerie"],
-      [T("Buch", "Book"), "buch", "finde deine mitte"], ["Lab / Side Quests", "lab", "duisport rc jet minecraft"],
-      ["April", () => april.say(T("Hi! Ich bin April. Die App ist noch in Entwicklung, aber ich bin schon da.", "Hi! I'm April. The app is still in development, but I'm already here.")), "companion app"]]],
+      ["Politics AI", "p-politics", "ki simulator land spielen"], [T("Eigener Webbrowser", "Our own web browser"), "p-browser", "browser software"],
+      ["Dulidan Works", "p-works", "software arbeitsumgebung"], [T("Demos für lokale Betriebe", "Demos for local businesses"), "demos", "handwerk zimmerei restaurant"],
+      ["Zimmerei Weberhof", () => window.open(CONFIG.zimmerei, "_blank", "noopener"), "handwerk demo live"]]],
     [T("Aktionen", "Actions"), [
       [T("Politics-AI-Seite öffnen", "Open Politics AI page"), () => (location.href = "/politics-ai/"), "lagezentrum"],
       [T("E-Mail-Adresse kopieren", "Copy email address"), copyMail, "mail kontakt"],
@@ -929,15 +861,15 @@ const term = (() => {
   function print(txt, cls = "") { const d = document.createElement("div"); if (cls) d.className = cls; d.textContent = txt; out.appendChild(d); out.scrollTop = out.scrollHeight; }
   const CMDS = {
     help: () => T(
-      "Verfügbare Befehle:\n  help       diese Hilfe\n  about      wer steckt dahinter\n  services   was wir machen\n  projects   Projekte anzeigen\n  open <n>   Projekt öffnen (1-4)\n  slogan     ???\n  contact    Kontaktdaten\n  april      April rufen\n  lang       Sprache wechseln\n  boot       Startsequenz erneut\n  clear      Ausgabe leeren\n  exit       Terminal schließen",
-      "Available commands:\n  help       this help\n  about      who's behind this\n  services   what we do\n  projects   list projects\n  open <n>   open project (1-4)\n  slogan     ???\n  contact    contact details\n  april      summon April\n  lang       switch language\n  boot       replay boot sequence\n  clear      clear output\n  exit       close terminal"),
-    about: () => T("Shaquille, 18. Geboren in Duisburg, sitzt in Öhringen. Gründer von Dulidan Studios seit dem 11.06.2026.", "Shaquille, 18. Born in Duisburg, based in Öhringen. Founder of Dulidan Studios since 11 June 2026."),
-    services: () => "01 Webdesign\n02 " + T("Werbe-Content (Ads, Social, Visuals)", "Ad content (ads, social, visuals)") + "\n03 " + T("3D-Modeling & Rendering", "3D modeling & rendering") + "\n04 " + T("Logo-Erneuerung", "Logo refresh"),
-    projects: () => "[1] Politics AI          Alpha 3\n[2] Zimmerei Weberhof    live\n[3] Berlingo-Wrap        Frosted\n[4] April                " + T("in Entwicklung", "in development") + "\n\n" + T("Tippe „open 1“ …", "Type “open 1” …"),
+      "Verfügbare Befehle:\n  help       diese Hilfe\n  about      wer steckt dahinter\n  services   was wir machen\n  projects   Projekte anzeigen\n  open <n>   Projekt öffnen (1 bis 4)\n  slogan     ???\n  contact    Kontaktdaten\n  april      April rufen\n  lang       Sprache wechseln\n  boot       Startsequenz erneut\n  clear      Ausgabe leeren\n  exit       Terminal schließen",
+      "Available commands:\n  help       this help\n  about      who's behind this\n  services   what we do\n  projects   list projects\n  open <n>   open project (1 to 4)\n  slogan     ???\n  contact    contact details\n  april      summon April\n  lang       switch language\n  boot       replay boot sequence\n  clear      clear output\n  exit       close terminal"),
+    about: () => T("Shaquille, 18. Sitzt in Öhringen, arbeitet weltweit. Gründer von Dulidan Studios seit dem 11.06.2026.", "Shaquille, 18. Based in Öhringen, working worldwide. Founder of Dulidan Studios since 11 June 2026."),
+    services: () => "01 Webdesign\n02 " + T("Werbe-Content (Ads, Social, Visuals)", "Ad content (ads, social, visuals)") + "\n03 " + T("3D-Modeling & Rendering", "3D modeling & rendering") + "\n04 " + T("Logo-Erneuerung", "Logo refresh") + "\n05 " + T("Software & Apps", "Software & apps"),
+    projects: () => "[1] Politics AI          Alpha 3\n[2] " + T("Eigener Webbrowser   ", "Own web browser      ") + "Software\n[3] Dulidan Works        Software\n[4] Zimmerei Weberhof    Demo\n\n" + T("Tippe „open 1“ …", "Type “open 1” …"),
     open: a => {
       const n = parseInt(a, 10);
-      const act = { 1: () => (location.href = "/politics-ai/"), 2: () => window.open(CONFIG.zimmerei, "_blank", "noopener"), 3: () => { close(); scrollToId("projekte"); }, 4: () => { close(); scrollToId("projekte"); april.say(T("Das bin ich! Bzw. werde ich.", "That's me! Or will be.")); } }[n];
-      if (!act) return T("Nutzung: open 1-4", "Usage: open 1-4");
+      const act = { 1: () => (location.href = "/politics-ai/"), 2: () => { close(); scrollToId("p-browser"); }, 3: () => { close(); scrollToId("p-works"); }, 4: () => window.open(CONFIG.zimmerei, "_blank", "noopener") }[n];
+      if (!act) return T("Nutzung: open 1 bis 4", "Usage: open 1 to 4");
       setTimeout(act, 200); return T("Öffne …", "Opening …");
     },
     contact: () => `E-Mail:  ${CONFIG.email}\nGitHub:  github.com/short1106\n${T("Adresse", "Address")}: Theodor-Fontane-Weg 11, 74613 Öhringen`,
@@ -948,7 +880,7 @@ const term = (() => {
     exit: () => { close(); return ""; },
     whoami: () => "guest",
     slogan: () => { close(); setTimeout(() => { if ($(".epic")) { scrollTo({ top: $(".epic").offsetTop + $(".epic").offsetHeight * 0.74, behavior: RM ? "auto" : "smooth" }); } else location.href = "/#top"; }, 200); return "DREAM. DESIGN. DEVELOP. DOMINATE."; },
-    ls: () => "about/  services/  projects/  art/  book/  lab/  contact/  secrets.txt",
+    ls: () => "about/  services/  projects/  demos/  contact/  secrets.txt",
     "cat": a => a === "secrets.txt" ? T("↑ ↑ ↓ ↓ ← → ← → B A", "↑ ↑ ↓ ↓ ← → ← → B A") : T("Datei nicht gefunden.", "File not found."),
     sudo: () => T("Netter Versuch. Root hat hier nur April.", "Nice try. Only April has root here."),
     date: () => new Date().toLocaleString(lang === "en" ? "en-GB" : "de-DE", { timeZone: "Europe/Berlin" }),
@@ -1025,7 +957,7 @@ const april = (() => {
   const tips = () => [
     T("Tipp: Strg+K (oder Cmd+K) öffnet die Kommandozentrale.", "Tip: Ctrl+K (or Cmd+K) opens the command center."),
     T("Drück mal die Taste ^ oder `. Da wartet ein Terminal.", "Press the ` key. There's a terminal waiting."),
-    T("Auf dieser Website sind drei von mir versteckt. Viel Glück.", "There are three of me hidden on this website. Good luck."),
+    T("Plan dein Projekt im Konfigurator. Das Briefing schreibt sich selbst.", "Plan your project in the configurator. The briefing writes itself."),
     T("Ich sag nur: ↑ ↑ ↓ ↓ … den Rest kennst du.", "Just saying: ↑ ↑ ↓ ↓ … you know the rest."),
     T("Shaq antwortet auf Mails wirklich selbst. Versprochen.", "Shaq really answers emails himself. Promise.")
   ];
@@ -1036,7 +968,7 @@ const april = (() => {
     projekt: () => T("Klick dir dein Projekt zusammen. Das Briefing schreibt sich von selbst.", "Click your project together. The briefing writes itself."),
     welt: () => T("Dreh mal an der Weltkugel. Ja, die ist echt.", "Give the globe a spin. Yes, it's real."),
     showroom: () => T("Zieh am Modell! Und probier mal Wireframe.", "Drag the model! And try wireframe."),
-    lab: () => T("Psst: Hier in der Nerd-Ecke hat sich eine von uns versteckt.", "Psst: one of us is hiding here in the nerd corner."),
+    demos: () => T("Das sind echte, klickbare Demo-Seiten. Probier sie aus!", "These are real, clickable demo sites. Try them!"),
     kontakt: () => T("Schreib ruhig. Keine Bots, nur Shaq.", "Go ahead and write. No bots, just Shaq.")
   };
   document.addEventListener("section", e => {
@@ -1051,26 +983,6 @@ const april = (() => {
   const meet = $("#meetApril");
   if (meet) meet.addEventListener("click", () => say(T("Hallo zurück! Die App kommt, ich übe schon mal hier.", "Hi back! The app is coming, I'm practising here.")));
   return { say };
-})();
-
-/* ===== Versteckte Aprils ===== */
-(() => {
-  let found = new Set((store.get("dd_aprils") || "").split(",").filter(Boolean));
-  const btns = $$("[data-april]");
-  const total = 3;
-  btns.forEach(b => {
-    if (found.has(b.dataset.april)) b.classList.add("found");
-    b.addEventListener("click", () => {
-      if (found.has(b.dataset.april)) { toast(T(`Die hast du schon. ${found.size}/${total}`, `Already found that one. ${found.size}/${total}`)); return; }
-      found.add(b.dataset.april);
-      b.classList.add("found");
-      store.set("dd_aprils", [...found].join(","));
-      if (found.size === total) {
-        toast(T(`Alle ${total} Aprils gefunden!`, `All ${total} Aprils found!`));
-        april.say(T("Alle gefunden! Du bist jetzt offiziell Ehrenmitglied der Dulidan-Crew. ✦", "Found them all! You're now an honorary member of the Dulidan crew. ✦"), 9000);
-      } else toast(T(`April gefunden: ${found.size}/${total}`, `April found: ${found.size}/${total}`));
-    });
-  });
 })();
 
 })();
