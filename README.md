@@ -3,17 +3,18 @@
 Portfolio von Dulidan Studios plus eigene Seite für **Politics AI**. Reines HTML/CSS/JS, kein Build-Schritt, keine Abhängigkeiten, keine Tracker, keine externen Requests (Fonts sind selbst gehostet).
 
 ```
-/                     Startseite: Epic-Hero, Leistungen, Für wen, Warum, Weltkugel, Konfigurator, Kontakt
-/portfolio/           Portfolio: Projekte, 3D-Showroom, Foto & Kunst, Buch, Lab
-/politics-ai/         Politics AI – EINE selbstständige HTML-Datei (~75 KB, alles inline)
+/                     Startseite: Epic-Hero, Leistungen, Für wen, Demos, Warum, Weltkugel, Konfigurator, Kontakt
+/portfolio/           Portfolio: Politics AI, Webbrowser, Dulidan Works, Demos
+/partials/showroom.html  Geparkter 3D-Showroom (nicht eingebunden)
+/politics-ai/         Politics AI , EINE selbstständige HTML-Datei (~75 KB, alles inline)
 /impressum/           Impressum
 /datenschutz/         Datenschutzerklärung
 /404.html             Fehlerseite
 /assets/css/main.css  Styles für Startseite, Portfolio und Rechtsseiten
 /assets/js/main.js    Gemeinsames JS (Vanilla): Hero-Morph, Globus, Konfigurator, Palette, Terminal, April …
-/assets/js/showroom.js 3D-Showroom (lädt three.js erst beim Hinscrollen)
+/assets/js/showroom.js 3D-Showroom, geparkt
 /assets/vendor/three/ three.js r169 + Addons (MIT, selbst gehostet)
-/assets/models/       Hier eigene .glb-Modelle für den Showroom ablegen
+/assets/models/       Platz für .glb-Modelle (Showroom geparkt)
 /assets/fonts/        Space Grotesk + JetBrains Mono (OFL, selbst gehostet)
 /assets/img/          Logo (WebP), Icons, Open-Graph-Bilder
 CNAME, robots.txt, sitemap.xml, site.webmanifest, favicon.ico, apple-touch-icon.png
@@ -39,39 +40,29 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 ## Features
 
 **Startseite (Fokus: Kunden gewinnen)**
-- Epic-Hero „Dream. Design. Develop. Dominate.“: Beim Scrollen verwandeln sich die Partikel vom Dulidan-D in einen Nebel (Dream), eine Design-Fläche (Design), eine Weltkugel aus echten Landmassen (Develop) und zurück ins D mit Schockwelle, Flash und Glitch (Dominate). Am Ende steht der komplette Slogan
-- Leistungen mit „Das bekommst du“-Listen und „Das will ich“-Button, der direkt in den Konfigurator springt
-- Für wen (Handwerk, Gründer, Creator, Hersteller), Warum Dulidan als Bento-Grid mit rotierendem 3D-D
-- Interaktive Weltkugel (ziehen zum Drehen) mit Öhringen, Duisburg und Stuttgart
-- Projekt-Konfigurator: Kunde klickt Leistungen, Stand, Zeitrahmen und Ziel an, daraus entsteht ein Briefing, das per Klick ins Kontaktformular übernommen wird
-- Portale zu Portfolio und Politics AI (mit Live-Globus), Über mich, Ablauf, Kontakt
-- Footer mit laufendem Slogan-Band
-- Boot-Sequenz beim ersten Besuch, Custom Cursor, magnetische Buttons, HUD, Seitenübergänge mit Logo-Wipe
+- Epic-Hero „Dream. Design. Develop. Dominate.“: Beim Scrollen verwandeln sich die Partikel vom Dulidan-D in einen Nebel, eine Design-Fläche, eine Weltkugel und zurück ins D
+- Fünf Leistungen: Webdesign, Werbe-Content, 3D-Modeling & Rendering, Logo-Erneuerung, Software & Apps (mit Machbarkeits-Check)
+- Für wen, Demos für lokale Betriebe (Zimmerei Weberhof live, Restaurant-Demo in Planung), Warum Dulidan
+- Weltkugel mit Öhringen als Basis und Bögen für den weltweiten Service
+- Projekt-Konfigurator inklusive „Individuelle Software / App“, Briefing wird ins Kontaktformular übernommen
+- Über mich mit Profilfoto, Ablauf, Kontakt, Slogan-Band im Footer
 
 **Portfolio** (`/portfolio/`)
-- Index aller Arbeiten, Politics-AI-Case mit Live-Demo, Zimmerei, Berlingo-Wrap, April
-- **3D-Showroom** über die volle Bildschirmhöhe: Dulidan-D als echtes 3D-Modell, Globus, Material-Test und ein freier Slot. Drehen, zoomen, Auto-Rotation, Wireframe, drei Licht-Stimmungen (Studio, Neon, Sunset), Vollbild, Live-Anzeige von Vertices und Dreiecken
-- Foto & Kunst mit Lightbox, Buch, Lab
-
-**Überall**
-- Kommandozentrale **Strg/Cmd + K**, Terminal (Taste **^** bzw. **`**, Befehle u. a. `help`, `projects`, `slogan`, `april`), Konami-Code, drei versteckte Aprils (2× Startseite, 1× Portfolio), April als Begleiterin, DE/EN
-- `prefers-reduced-motion` schaltet Animationen, Morph und Pinning ab
+- Politics AI (mit Live-Demo), eigener Webbrowser, Dulidan Works, Demos für lokale Betriebe
 
 **Politics AI** (`/politics-ai/`)
-- Holo-Weltkugel aus Punkten (echte Landmasse, Natural-Earth-Daten als 2°-Raster), reagiert auf die Maus, Hotspots pulsieren, das gerade gemeldete Land wird markiert
-- Headline entschlüsselt sich beim Laden, Live-Meldungen tippen sich im Loop
-- Chat mit Warschau tippt sich beim Scrollen, Werte Polen 61→68 / Weltspannung 42→47 laufen mit
-- Weltkarte: „Aktion ausführen“ färbt Länder in drei Phasen (Reaktion, Folge, Eskalation) und zeichnet Pfeile
-- Bündnis-Kreis mit Abstimmung (Dafür/Dagegen/Enthaltung), Russland wird rot und verlässt den Kreis
-- Vier Rundinstrumente + Kreisdiagramm, klar als „Beispielansicht“ markiert
-- Fadenkreuz-Cursor rastet auf Buttons und Globus-Hotspots ein
-- Konsole mit Taste **K**: `status`, `lage`, `hilfe` (+ `leeren`, `exit`)
-- Weltspannungs-Balken oben rechts läuft beim Scrollen mit
-- Impressum/Datenschutz als Overlay, Jahr per JS
+- Weltsimulator-Seite: Du führst ein Land deiner Wahl. Der Vergleich mit Wahl-O-Mat ist entfernt
+
+**Überall**
+- Kommandozentrale **Strg/Cmd + K**, Terminal (Taste **^** bzw. **`**), Konami-Code, April als Begleiterin unten rechts, DE/EN
+- `prefers-reduced-motion` schaltet Animationen ab
+
+**Geparkt (im Code, aber nicht auf der Seite)**
+- 3D-Showroom: `assets/js/showroom.js`, three.js unter `assets/vendor/three/`, Markup und Anleitung zum Aktivieren in `partials/showroom.html`. Wird eingebaut, sobald echte 3D-Modelle da sind
 
 ## Konfiguration
 
-- **Eigene 3D-Modelle:** `.glb` nach `/assets/models/` legen und in `assets/js/showroom.js` oben in `MODELS` eintragen, z. B. `{ id: "van", name: "Berlingo", tag: "Frosted", src: "/assets/models/berlingo.glb" }`. Das Modell wird automatisch zentriert und skaliert. Tipp: Modelle vorher mit gltf.report oder Blender komprimieren (Draco/Meshopt), damit sie schnell laden.
+- **Eigene 3D-Modelle:** `.glb` nach `/assets/models/` legen und in `assets/js/showroom.js` oben in `MODELS` eintragen, z. B. `{ id: "produkt", name: "Produkt", tag: "Rendering", src: "/assets/models/produkt.glb" }`. Danach den Showroom laut `partials/showroom.html` wieder einbinden. Das Modell wird automatisch zentriert und skaliert. Tipp: Modelle vorher mit gltf.report oder Blender komprimieren (Draco/Meshopt), damit sie schnell laden.
 
 - **Spiel-Link Politics AI:** in `politics-ai/index.html` ganz oben im Script `const PLAY_URL = "";` setzen. Leer = „Spielen“ öffnet ein Overlay mit Zugangsanfrage per Mail.
 - **LinkedIn / Discord:** in `assets/js/main.js` → `CONFIG.linkedin` / `CONFIG.discord`. Sobald gesetzt, erscheinen die Kanäle im Kontaktbereich.
@@ -81,17 +72,14 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 
 | Wo | Was |
 |---|---|
-| Über mich | Foto von Shaquille (Platzhalter-SVG „FOTO FOLGT“), z. B. `/assets/img/shaquille.webp` |
-| April | Finale Illustration statt Platzhalter-Vektor (`<symbol id="april">` oben in `index.html`) |
-| Zimmerei Weberhof | Echten Screenshot einsetzen (Kommentar im HTML zeigt das `<img>`); aktuell gezeichnete Skizze |
-| Berlingo-Wrap | Echte Namen der Konzepte K01–K04 und Renderings der fünf Entwürfe; aktuell schematische Platzhalter |
-| Menschlichkeit | Echtes Foto statt Platzhalter-Illustration |
-| Ausrutscher | Teaser-Bild, sobald es eins gibt |
-| Buch | Echtes Cover, selbst gewählter Kurzauszug („Kurzauszug folgt“) |
+| April | Finale Illustration statt Platzhalter-Vektor (`<symbol id="april">` oben in den Seiten) |
+| Eigener Webbrowser | Name und echte Screenshots statt Konzeptdarstellung |
+| Dulidan Works | Echte Screenshots, Beschreibung bei Bedarf schärfen |
+| Zimmerei Weberhof | Echten Screenshot statt Skizze |
+| Restaurant-Demo | In Planung, Karte „Bald“ auf Start- und Portfolio-Seite |
+| 3D-Showroom | Aktivieren, sobald `.glb`-Modelle da sind (siehe `partials/showroom.html`) |
 | Kontakt | LinkedIn-URL, Discord-Link, optional Formular-Endpoint |
-| 3D-Showroom | Eigene Modelle (z. B. Berlingo, Produkt-Renderings) als `.glb` ergänzen; der Slot „Dein Produkt?“ ist ein Platzhalter |
-| Politics AI | `PLAY_URL`; Text im „Spielen“-Overlay („Zugang anfragen:“) ist nicht Teil der Textvorgabe, bitte bestätigen |
-| Politics AI | Datenschutz-Overlay steht wie vorgegeben auf „Wird ergänzt“ |
+| Politics AI | `PLAY_URL`; Text im „Spielen“-Overlay bestätigen |
 
 ## Bewusste Entscheidungen
 
@@ -108,10 +96,9 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 1. Design, das hochfährt.
 2. Websites, Content & 3D, die auffallen. (aktuell Hero-Headline)
 3. Websites, die man nicht wegscrollt.
-4. Von Duisburg ins Display.
 
 ## Drei Ideen, um die Seite noch krasser zu machen
 
 1. **Echtes Politics-AI-Mini-Gespräch im Portfolio:** ein Eingabefeld, in dem Besucher einen Satz an „Warschau“ schreiben und eine echte, kurze KI-Antwort bekommen (mit Rate-Limit über eine kleine Serverless-Funktion).
 2. **April als animierter 3D-Charakter:** Low-Poly-Modell (passt zum 3D-Service), das dem Cursor mit den Augen folgt und bei Easter Eggs reagiert. Gleichzeitig ein Showcase für 3D-Modeling.
-3. **Case-Study-Unterseiten mit Scroll-Film:** pro Projekt eine eigene Seite, auf der Entwürfe, Zwischenstände und Endergebnis beim Scrollen ineinander überblenden (z. B. Berlingo: Skizze → 5 Konzepte → Frosted auf dem echten Auto).
+3. **Case-Study-Unterseiten mit Scroll-Film:** pro Projekt eine eigene Seite, auf der Entwürfe, Zwischenstände und Endergebnis beim Scrollen ineinander überblenden.
