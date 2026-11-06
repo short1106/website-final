@@ -61,6 +61,23 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 **Geparkt (im Code, aber nicht auf der Seite)**
 - 3D-Showroom: `assets/js/showroom.js`, three.js unter `assets/vendor/three/`, Markup und Anleitung zum Aktivieren in `partials/showroom.html`. Wird eingebaut, sobald echte 3D-Modelle da sind
 
+## SEO
+
+**Auf der Website umgesetzt**
+- Titel und Beschreibungen mit lokalen Suchbegriffen (Webdesign Öhringen, Hohenlohe, Heilbronn, Software, 3D)
+- Strukturierte Daten (JSON-LD): `ProfessionalService` mit Adresse, Geo-Koordinaten, Einzugsgebiet und Leistungskatalog, `WebSite`, `FAQPage`, `BreadcrumbList`, Politics AI als `VideoGame`/`SoftwareApplication`
+- Sichtbare FAQ-Sektion auf der Startseite (Grundlage für FAQ-Ergebnisse bei Google)
+- Canonical, hreflang, Geo-Meta, Open Graph, `robots.txt`, `sitemap.xml` (nur indexierbare Seiten), Demo-Seiten und Rechtsseiten auf `noindex`
+- Lighthouse (mobil): SEO 100, Barrierefreiheit 100, Best Practices 100, Performance 92 bis 97
+
+**Was nur du machen kannst (bringt für lokale Suchen am meisten)**
+1. **Google Search Console:** Domain `dulidan-studios.com` hinzufügen, per DNS-Eintrag bestätigen, `https://dulidan-studios.com/sitemap.xml` einreichen
+2. **Google-Unternehmensprofil** (business.google.com): Kategorie „Webdesigner“, Adresse Öhringen, Website-Link, Leistungen, Fotos. Das ist der wichtigste Hebel für „Webdesign in der Nähe“ und Google Maps
+3. **Bewertungen:** Zufriedene Kunden um eine Google-Bewertung bitten (echte Bewertungen, keine gekauften)
+4. **Bing Webmaster Tools:** Sitemap dort ebenfalls einreichen
+5. **Einträge und Links:** gleicher Name, gleiche Adresse und Telefonnummer überall (z. B. Gelbe Seiten, Das Örtliche, Branchenverzeichnisse, Wirtschaftsförderung Hohenlohe, GitHub, LinkedIn). Links von Kunden-Websites („Website von Dulidan Studios“) helfen zusätzlich
+6. **Regelmäßig Inhalte:** neue Projekte und Demos ins Portfolio, gern mit kurzem Text zum Projekt
+
 ## Konfiguration
 
 - **Eigene 3D-Modelle:** `.glb` nach `/assets/models/` legen und in `assets/js/showroom.js` oben in `MODELS` eintragen, z. B. `{ id: "produkt", name: "Produkt", tag: "Rendering", src: "/assets/models/produkt.glb" }`. Danach den Showroom laut `partials/showroom.html` wieder einbinden. Das Modell wird automatisch zentriert und skaliert. Tipp: Modelle vorher mit gltf.report oder Blender komprimieren (Draco/Meshopt), damit sie schnell laden.
