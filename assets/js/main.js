@@ -367,7 +367,9 @@ const hero = (() => {
   const st = { rx: 0, ry: 0, mx: 9, my: 9, ox: 0, oy: 0, sc: 0.6 };
   const img = new Image();
   img.src = "/assets/img/logo-mark.webp";
-  img.decode().then(() => {
+  /* Partikel erst aufbauen, wenn der Browser Luft hat: hält die Ladezeit niedrig */
+  const idle = window.requestIdleCallback || (f => setTimeout(f, 300));
+  idle(() => img.decode().then(() => {
     const S = mobile ? 150 : 210, step = 2;
     const oc = document.createElement("canvas"); oc.width = oc.height = S;
     const ox = oc.getContext("2d"); ox.drawImage(img, 0, 0, S, S);
@@ -421,7 +423,7 @@ const hero = (() => {
     onVisible(host, v => { if (v && !run) { run = true; requestAnimationFrame(frame); } else if (!v) run = false; });
     const go = () => { t0 = performance.now(); fallback.style.transition = "opacity .8s"; fallback.style.opacity = 0; };
     if (root.classList.contains("booting")) document.addEventListener("booted", go, { once: true }); else go();
-  }).catch(() => {});
+  }).catch(() => {}), { timeout: 1500 });
 
   function size() {
     const r = host.getBoundingClientRect();
