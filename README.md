@@ -73,6 +73,14 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 - Canonical, hreflang, Geo-Meta, Open Graph, `robots.txt`, `sitemap.xml` (nur indexierbare Seiten), Demo-Seiten und Rechtsseiten auf `noindex`
 - Lighthouse (mobil): SEO 100, Barrierefreiheit 100, Best Practices 100, Performance 92 bis 97
 
+**GEO (Auffindbarkeit in KI-Suchen wie ChatGPT, Perplexity, Google AI Overviews, Claude)**
+- `/ueber-uns/` mit vollem Namen des Gründers, Fakten-Liste und FAQ, strukturiert als `AboutPage`, `Person`, `Organization`
+- `llms.txt` im Hauptverzeichnis: Steckbrief für KI-Systeme mit allen Fakten und Links
+- `robots.txt` erlaubt Such- und KI-Crawler ausdrücklich (Googlebot, Bingbot, GPTBot, OAI-SearchBot, PerplexityBot, ClaudeBot, Applebot)
+- Politics AI mit FAQ („Wer hat Politics AI entwickelt?“) und Verknüpfung zu Dulidan Studios und Gründer
+- Alle Seiten verweisen über feste IDs (`/#org`, `/#founder`, `/politics-ai/#app`) aufeinander, damit Suchmaschinen Studio, Person und Produkt als zusammengehörig erkennen
+- Wichtig für GEO außerhalb der Website: überall dieselben Fakten verwenden (Name, Gründer, Ort, Leistungen), z. B. im Google-Unternehmensprofil, auf LinkedIn, GitHub und in Verzeichnissen
+
 **Was nur du machen kannst (bringt für lokale Suchen am meisten)**
 1. **Google Search Console:** Domain `dulidan-studios.com` hinzufügen, per DNS-Eintrag bestätigen, `https://dulidan-studios.com/sitemap.xml` einreichen
 2. **Google-Unternehmensprofil** (business.google.com): Kategorie „Webdesigner“, Adresse Öhringen, Website-Link, Leistungen, Fotos. Das ist der wichtigste Hebel für „Webdesign in der Nähe“ und Google Maps
