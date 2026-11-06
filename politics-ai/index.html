@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Politics AI · KI-Weltsimulator im Browser | Dulidan Studios</title>
-<meta name="description" content="Politics AI ist ein KI Weltsimulator im Browser. Du führst ein Land deiner Wahl. Über 190 Länder haben eigene Interessen, rote Linien und ein Gedächtnis. Du schreibst frei. Sie reagieren.">
+<meta name="description" content="Politics AI von Dulidan Studios ist ein KI Weltsimulator im Browser. Du führst ein Land deiner Wahl. Über 190 Länder haben eigene Interessen, rote Linien und ein Gedächtnis. Du schreibst frei. Sie reagieren.">
 <meta name="theme-color" content="#06060c">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://dulidan-studios.com/politics-ai/">
 <meta property="og:url" content="https://dulidan-studios.com/politics-ai/">
 <meta property="og:site_name" content="Dulidan Studios">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["VideoGame","SoftwareApplication"],"@id":"https://dulidan-studios.com/politics-ai/#app","name":"Politics AI","description":"KI-Weltsimulator im Browser. Du führst ein Land deiner Wahl, über 190 Länder reagieren mit eigener Agenda, roten Linien und Gedächtnis.","url":"https://dulidan-studios.com/politics-ai/","applicationCategory":"GameApplication","gamePlatform":"Web-Browser","operatingSystem":"Web-Browser","genre":["Strategie","Simulation"],"inLanguage":"de-DE","image":"https://dulidan-studios.com/assets/img/og-politics-ai.jpg","author":{"@type":"Organization","@id":"https://dulidan-studios.com/#org","name":"Dulidan Studios","url":"https://dulidan-studios.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://dulidan-studios.com/"},{"@type":"ListItem","position":2,"name":"Politics AI","item":"https://dulidan-studios.com/politics-ai/"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["VideoGame","SoftwareApplication"],"@id":"https://dulidan-studios.com/politics-ai/#app","name":"Politics AI","description":"KI-Weltsimulator im Browser. Du führst ein Land deiner Wahl, über 190 Länder reagieren mit eigener Agenda, roten Linien und Gedächtnis.","url":"https://dulidan-studios.com/politics-ai/","applicationCategory":"GameApplication","gamePlatform":"Web-Browser","operatingSystem":"Web-Browser","genre":["Strategie","Simulation"],"inLanguage":"de-DE","image":"https://dulidan-studios.com/assets/img/og-politics-ai.jpg","author":{"@type":"Organization","@id":"https://dulidan-studios.com/#org","name":"Dulidan Studios","url":"https://dulidan-studios.com/"},"alternateName":["Politics AI von Dulidan Studios","Politics AI Weltsimulator"],"creator":{"@type":"Person","@id":"https://dulidan-studios.com/#founder","name":"Shaquille Abid El Moussaoui","url":"https://dulidan-studios.com/ueber-uns/"},"publisher":{"@id":"https://dulidan-studios.com/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://dulidan-studios.com/"},{"@type":"ListItem","position":2,"name":"Politics AI","item":"https://dulidan-studios.com/politics-ai/"}]},{"@type":"FAQPage","@id":"https://dulidan-studios.com/politics-ai/#faq","mainEntity":[{"@type":"Question","name":"Was ist Politics AI?","acceptedAnswer":{"@type":"Answer","text":"Politics AI ist ein KI-Weltsimulator im Browser. Du führst ein Land deiner Wahl, und über 190 Länder reagieren mit eigener Agenda, roten Linien und Gedächtnis."}},{"@type":"Question","name":"Wer hat Politics AI entwickelt?","acceptedAnswer":{"@type":"Answer","text":"Politics AI wird von Dulidan Studios aus Öhringen entwickelt, gegründet von Shaquille Abid El Moussaoui."}},{"@type":"Question","name":"Wie spielt man Politics AI?","acceptedAnswer":{"@type":"Answer","text":"Du schreibst frei, es gibt keine Dialogauswahl. Jedes Land antwortet nach seiner Agenda, seiner Stimmung und dem, was du vorher getan hast."}},{"@type":"Question","name":"Kann man jedes Land spielen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Du wählst selbst, welches Land du führst."}}]}]}</script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Politics AI · Regiere die Welt. Sie antwortet.">
 <meta property="og:description" content="Du führst ein Land deiner Wahl. Über 190 Länder haben eigene Interessen, rote Linien und ein Gedächtnis.">
@@ -322,6 +322,13 @@ body.has-cursor .cur{display:block}
   html{scroll-behavior:auto}
   .rv{opacity:1;transform:none}
 }
+.pfaq{max-width:860px;margin-top:36px;border-top:1px solid var(--line-soft)}
+.pfaq details{border-bottom:1px solid var(--line-soft)}
+.pfaq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 2px;font-size:clamp(17px,2vw,21px);font-weight:600}
+.pfaq summary::-webkit-details-marker{display:none}
+.pfaq summary span{font-family:var(--mono);color:var(--mag-text);transition:transform .25s}
+.pfaq details[open] summary span{transform:rotate(45deg)}
+.pfaq p{color:var(--muted);padding:0 2px 20px;max-width:64ch}
 </style>
 <noscript><style>.rv{opacity:1;transform:none}</style></noscript>
 </head>
@@ -522,6 +529,20 @@ body.has-cursor .cur{display:block}
   </div>
 </section>
 
+
+<!-- FAQ -->
+<section class="sec" id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="tag">FAQ</span></div>
+    <h2 class="rv" id="faq-h">Fragen zu Politics AI</h2>
+    <div class="pfaq rv">
+      <details><summary>Was ist Politics AI?<span aria-hidden="true">+</span></summary><p>Politics AI ist ein KI-Weltsimulator im Browser. Du führst ein Land deiner Wahl, und über 190 Länder reagieren mit eigener Agenda, roten Linien und Gedächtnis.</p></details>
+      <details><summary>Wer hat Politics AI entwickelt?<span aria-hidden="true">+</span></summary><p>Politics AI wird von Dulidan Studios aus Öhringen entwickelt, gegründet von Shaquille Abid El Moussaoui.</p></details>
+      <details><summary>Wie spielt man Politics AI?<span aria-hidden="true">+</span></summary><p>Du schreibst frei, es gibt keine Dialogauswahl. Jedes Land antwortet nach seiner Agenda, seiner Stimmung und dem, was du vorher getan hast.</p></details>
+      <details><summary>Kann man jedes Land spielen?<span aria-hidden="true">+</span></summary><p>Ja. Du wählst selbst, welches Land du führst.</p></details>
+    </div>
+  </div>
+</section>
 
 <!-- ABSCHLUSS -->
 <section class="final" aria-labelledby="f-h">

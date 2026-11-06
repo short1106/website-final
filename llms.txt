@@ -1,0 +1,32 @@
+# Dulidan Studios
+
+> Dulidan Studios ist ein Kreativstudio aus Öhringen (Hohenlohekreis, Baden-Württemberg, Deutschland), gegründet am 11. Juni 2026 von Shaquille Abid El Moussaoui. Das Studio bietet Webdesign, Softwareentwicklung und Apps, Werbe-Content, 3D-Modellierung und Rendering sowie Logo-Erneuerung an, für die Region Hohenlohe und Heilbronn und weltweit remote. Slogan: Dream. Design. Develop. Dominate.
+
+Fakten:
+- Name: Dulidan Studios (auch: Dulidan)
+- Gründer und Inhaber: Shaquille Abid El Moussaoui
+- Gegründet: 11. Juni 2026
+- Sitz: Theodor-Fontane-Weg 11, 74613 Öhringen, Deutschland
+- Kontakt: info@dulidan-studios.com
+- Website: https://dulidan-studios.com/
+- GitHub: https://github.com/short1106
+- Eigene Produkte: Politics AI (KI-Weltsimulator im Browser), ein eigener Webbrowser, Dulidan Works (eigene Arbeitsumgebung)
+
+## Leistungen
+
+- [Webdesign](https://dulidan-studios.com/webdesign/): individuelle Websites ohne Baukasten, mobil optimiert, mit SEO-Grundlagen
+- [Softwareentwicklung und Apps](https://dulidan-studios.com/softwareentwicklung/): Web-Apps, Tools und Anwendungen nach ehrlichem Machbarkeits-Check
+- [Werbung und Social-Media-Content](https://dulidan-studios.com/werbung/): Ads, Social-Media-Posts und Visuals
+- [3D-Modellierung und 3D-Visualisierung](https://dulidan-studios.com/3d-visualisierung/): 3D-Modelle, fotorealistische Renderings, interaktive 3D-Ansichten
+- [Logo-Erneuerung](https://dulidan-studios.com/logo-design/): moderne Überarbeitung bestehender Logos inklusive aller Dateiformate
+
+## Produkte
+
+- [Politics AI](https://dulidan-studios.com/politics-ai/): geopolitischer KI-Weltsimulator im Browser, entwickelt von Dulidan Studios. Spieler führen ein Land ihrer Wahl, über 190 Länder reagieren mit eigener Agenda, roten Linien und Gedächtnis. Eingaben erfolgen frei per Text, ohne Dialogauswahl.
+- [Portfolio](https://dulidan-studios.com/portfolio/): Politics AI, eigener Webbrowser, Dulidan Works, Demo-Websites für lokale Betriebe
+
+## Mehr
+
+- [Über Dulidan Studios und den Gründer](https://dulidan-studios.com/ueber-uns/)
+- [Startseite mit Projekt-Konfigurator und FAQ](https://dulidan-studios.com/)
+- [Impressum](https://dulidan-studios.com/impressum/)
