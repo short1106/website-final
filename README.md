@@ -4,6 +4,8 @@ Portfolio von Dulidan Studios plus eigene Seite für **Politics AI**. Reines HTM
 
 ```
 /                     Startseite: Epic-Hero, Leistungen, Für wen, Demos, Warum, Weltkugel, Konfigurator, Kontakt
+/webdesign/ /softwareentwicklung/ /werbung/ /3d-visualisierung/ /logo-design/
+                      Eigene Leistungsseiten (je eigene Suchbegriffe, FAQ, strukturierte Daten)
 /portfolio/           Portfolio: Politics AI, Webbrowser, Dulidan Works, Demos
 /partials/showroom.html  Geparkter 3D-Showroom (nicht eingebunden)
 /politics-ai/         Politics AI , EINE selbstständige HTML-Datei (~75 KB, alles inline)
@@ -64,6 +66,7 @@ Wichtig: über einen Server öffnen, nicht per Doppelklick (`file://`), weil die
 ## SEO
 
 **Auf der Website umgesetzt**
+- Eine eigene Seite pro Leistung, damit Google sie bei der jeweiligen Suche zeigen kann: `/webdesign/` (Webdesign Öhringen), `/softwareentwicklung/` (Softwareentwicklung, App-Entwicklung), `/werbung/` (Werbung, Social-Media-Content), `/3d-visualisierung/` (3D-Modellierung, 3D-Visualisierung), `/logo-design/` (Logo-Redesign). Jede mit eigener Überschrift, eigenem Text, FAQ, `Service`- und `FAQPage`-Daten, Brotkrumen und Link in den Konfigurator mit vorausgewählter Leistung (`/?leistung=web#projekt`)
 - Titel und Beschreibungen mit lokalen Suchbegriffen (Webdesign Öhringen, Hohenlohe, Heilbronn, Software, 3D)
 - Strukturierte Daten (JSON-LD): `ProfessionalService` mit Adresse, Geo-Koordinaten, Einzugsgebiet und Leistungskatalog, `WebSite`, `FAQPage`, `BreadcrumbList`, Politics AI als `VideoGame`/`SoftwareApplication`
 - Sichtbare FAQ-Sektion auf der Startseite (Grundlage für FAQ-Ergebnisse bei Google)
