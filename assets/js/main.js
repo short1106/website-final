@@ -611,6 +611,11 @@ const cfg = (() => {
   };
 })();
 $$(".svc-pick").forEach(b => b.addEventListener("click", () => cfg.pick(b.dataset.pick)));
+/* Vorauswahl über Link, z. B. /?leistung=sw#projekt von den Leistungsseiten */
+(() => {
+  const v = new URLSearchParams(location.search).get("leistung");
+  if (v && ["web", "ads", "3d", "logo", "sw"].includes(v)) setTimeout(() => cfg.pick(v), 400);
+})();
 
 /* ===== Seitenwechsel mit Wipe ===== */
 (() => {
@@ -796,7 +801,10 @@ const palette = (() => {
       ["Start", "top", "hero dream design develop dominate"], [T("Leistungen", "Services"), "leistungen", "services webdesign 3d logo content"],
       [T("Für wen", "Who it's for"), "fuerwen", "handwerk startup creator"], [T("Warum Dulidan", "Why Dulidan"), "warum", "vorteile"],
       [T("Weltkugel", "Globe"), "welt", "öhringen weltweit globus"], [T("Projekt-Konfigurator", "Project configurator"), "projekt", "briefing anfrage planen"],
-      [T("Über mich", "About"), "about", "shaquille gründer"], [T("Ablauf", "Process"), "prozess", "ablauf"], [T("Kontakt", "Contact"), "kontakt", "mail anfrage"]]],
+      [T("Über mich", "About"), "about", "shaquille gründer"],
+      ["Webdesign", () => (location.href = "/webdesign/"), "website erstellen homepage"], [T("Softwareentwicklung", "Software development"), () => (location.href = "/softwareentwicklung/"), "software app programmierung"],
+      [T("Werbung & Content", "Ads & content"), () => (location.href = "/werbung/"), "social media ads werbung"], [T("3D-Visualisierung", "3D visualisation"), () => (location.href = "/3d-visualisierung/"), "3d modell rendering"],
+      [T("Logo-Erneuerung", "Logo refresh"), () => (location.href = "/logo-design/"), "logo redesign"], [T("Ablauf", "Process"), "prozess", "ablauf"], [T("Kontakt", "Contact"), "kontakt", "mail anfrage"]]],
     ["Portfolio", [
       ["Politics AI", "p-politics", "ki simulator land spielen"], [T("Eigener Webbrowser", "Our own web browser"), "p-browser", "browser software"],
       ["Dulidan Works", "p-works", "software arbeitsumgebung"], [T("Demos für lokale Betriebe", "Demos for local businesses"), "demos", "handwerk zimmerei restaurant"],
