@@ -23,7 +23,6 @@ Fakten:
 ## Produkte
 
 - [Politics AI](https://dulidan-studios.com/politics-ai/): geopolitischer KI-Weltsimulator im Browser, entwickelt von Dulidan Studios. Spieler führen ein Land ihrer Wahl, über 190 Länder reagieren mit eigener Agenda, roten Linien und Gedächtnis. Eingaben erfolgen frei per Text, ohne Dialogauswahl.
-- [Politics AI · Die Story](https://dulidan-studios.com/demos/politics-ai-story/): interaktive, spielartige Showcase-Seite in Levels (3D, WebGL), gebaut von Dulidan Studios
 - [Portfolio](https://dulidan-studios.com/portfolio/): Politics AI, eigener Webbrowser, Dulidan Works, Demo-Websites für lokale Betriebe
 
 ## Mehr
@@ -31,3 +30,4 @@ Fakten:
 - [Über Dulidan Studios und den Gründer](https://dulidan-studios.com/ueber-uns/)
 - [Startseite mit Projekt-Konfigurator und FAQ](https://dulidan-studios.com/)
 - [Impressum](https://dulidan-studios.com/impressum/)
+

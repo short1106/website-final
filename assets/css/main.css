@@ -860,4 +860,3 @@ a.demo-card:hover{transform:translateY(-6px);border-color:var(--line-2)}
 .facts-list a:hover{color:var(--pink)}
 .ab-text{max-width:760px;margin-top:30px}
 .ab-text p{font-size:clamp(18px,2vw,21px);color:var(--muted);margin-bottom:20px}
-@media (min-width:1100px){.demo-grid{grid-template-columns:repeat(3,1fr)}}
